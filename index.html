@@ -18,6 +18,7 @@
         fill: none;
         stroke: #dadada;
         stroke-width: 1.5px;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .node circle {
@@ -74,6 +75,123 @@
         color: #ff0faa;
         font-weight: bolder;
 }
+
+/* Breadcrumb navigation */
+    .breadcrumb-nav {
+        background-color: #f8f9fa;
+        padding: 10px 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #dee2e6;
+    }
+
+    .breadcrumb-nav .breadcrumb {
+        margin: 0;
+        padding: 0;
+        background: none;
+    }
+
+    .breadcrumb-item a {
+        color: #007bff;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .breadcrumb-item a:hover {
+        color: #0056b3;
+        text-decoration: underline;
+    }
+
+    /* Reset/Back buttons */
+    .control-buttons {
+        margin-bottom: 20px;
+    }
+
+    .btn-control {
+        margin-right: 10px;
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-reset {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: white;
+    }
+
+    .btn-reset:hover {
+        background-color: #545b62;
+        border-color: #4e555b;
+        transform: translateY(-1px);
+    }
+
+    .btn-back {
+        background-color: #28a745;
+        border-color: #28a745;
+        color: white;
+    }
+
+    .btn-back:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+        transform: translateY(-1px);
+    }
+
+    /* Improved legend */
+.legend {
+    position: absolute;
+    bottom: 50px;
+    left: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    font-size: 12px;
+    z-index: 10;
+}
+
+
+
+    .legend-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    .legend-circle {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+
+    .legend-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    /* Loading state */
+    .loading {
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    .loading::after {
+        content: "Loading...";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255,255,255,0.9);
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+ 
  
     .ref{
         font-style: italic;
@@ -134,8 +252,183 @@
     height: auto; 
 }
 
+.node {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.node.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.node.visible {
+    opacity: 1;
+}
+
+.link.hidden {
+    opacity: 0;
+}
+
+.link.visible {
+    opacity: 1;
+}
+
+.popover {
+    max-width: 450px; /* Adjust width as needed */
+    font-size: 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.popover-header {
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Progress indicator */
+.progress-indicator {
+    position: fixed;
+    bottom: 120px;
+    right: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 12px;
+    z-index: 1000;
+}
+
+/* Keyboard shortcuts help */
+.shortcuts-help {
+    position: fixed;
+    bottom: 170px;
+    right: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 11px;
+    z-index: 1000;
+    max-width: 200px;
+}
+
+.shortcuts-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.shortcut-item {
+    margin-bottom: 3px;
+}
+
+.shortcut-key {
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 2px 4px;
+    font-family: monospace;
+    font-size: 10px;
+}
+
+/* Search functionality */
+.search-container {
+    margin-bottom: 15px;
+}
+
+.search-input {
+    border-radius: 20px;
+    border: 2px solid #e9ecef;
+    padding: 8px 16px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.search-results {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.search-result-item {
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 2px;
+    transition: background-color 0.2s ease;
+}
+
+.search-result-item:hover {
+    background-color: #e9ecef;
+}
+
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+
+
 </style>
 <body>
+
+    <div id="references" class="container mt-5 hidden">
+    <h2>References</h2> 
+    <ol>
+        <li id="ref-5"><p> [5] Sajid Ali, Tamer Abuhmed, Shaker El-Sappagh, Khan Muhammad, Jose M Alonso-Moral, Roberto Confalonieri, Riccardo Guidotti, Javier Del Ser, Natalia Díaz-Rodríguez, and Francisco Herrera. 2023. Explainable Artificial Intelligence (XAI): What we know and what is left to attain Trustworthy Artificial Intelligence. Information fusion 99 (2023), 101805. </p></li>
+        <li id="ref-8"><p> [8] Alejandro Barredo Arrieta, Natalia Díaz-Rodríguez, Javier Del Ser, Adrien Bennetot, Siham Tabik, Alberto Barbado, Salvador García, Sergio Gil-López, Daniel Molina, Richard Benjamins, et al . 2020. Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. Information fusion 58 (2020), 82–115.</p></li>
+        <li id="ref-11"><p> [11] Claus Beisbart and Tim Räz. 2022. Philosophy of science at sea: Clarifying the interpretability of machine learning.Philosophy Compass 17, 6 (2022), e12830.</p></li>
+        <li id="ref-12"><p> [12] Emily M Bender, Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell. 2021. On the dangersof stochastic parrots: Can language models be too big?. In Proceedings of the 2021 ACM conference on fairness, accountability, and transparency. ACM, 610–623</p></li>
+        <li id="ref-13"><p>[13] Astrid Bertrand, Rafik Belloum, James R. Eagan, and Winston Maxwell. 2022. How Cognitive Biases Affect XAI-assisted Decision-making: A Systematic Review. In Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and Society (Oxford, United Kingdom) (AIES ’22). Association for Computing Machinery, New York, NY, USA, 78–91.https://doi.org/10.1145/3514094.3534164. </p></li>
+        <li id="ref-14"><p>[14] Astrid Bertrand, Tiphaine Viard, Rafik Belloum, James R. Eagan, and Winston Maxwell. 2023. On Selective, Mutable and Dialogic XAI: a Review of What Users Say about Different Types of Interactive Explanations. In Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems (Hamburg, Germany) (CHI ’23). Association for Computing Machinery, New York, NY, USA, Article 411, 21 pages. https://doi.org/10.1145/3544548.3581314. </p></li>
+        <li id="ref-16"><p>[16] Francesco Bodria, Fosca Giannotti, Riccardo Guidotti, Francesca Naretto, Dino Pedreschi, and Salvatore Rinzivillo. 2023. Benchmarking and survey of explanation methods for black box models. Data Mining and Knowledge Discovery 37, 5 (2023), 1719–1778.</p></li>
+        <li id="ref-18"><p>[18] Nadia Burkart and Marco F Huber. 2021. A survey on the explainability of supervised machine learning. Journal of Artificial Intelligence Research 70 (2021), 245–317.</p></li>  
+        <li id="ref-28"><p>[28] Nicholas Kluge Corrêa, Camila Galvão, James William Santos, Carolina Del Pino, Edson Pontes Pinto, Camila Barbosa, Diogo Massmann, Rodrigo Mambrini, Luiza Galvão, Edmund Terem, et al . 2023. Worldwide AI ethics: A review of 200 guidelines and recommendations for AI governance. Patterns 4, 10 (2023), 100857. </p></li>
+        <li id="ref-39"><p> [39] Filip Karlo Došilović, Mario Brčić, and Nikica International Convention on Information and Communication Technology, Electronics and Microelectronics (MIPRO). IEEE, Opatija, Croatia, 0210–0215. https://doi.org/10.23919/MIPRO.2018.8350040. </p></li>.
+        <li id="ref-43"><p> [43] Kraig Finstad. 2010. The usability metric for user experience. Interacting with computers 22, 5 (2010), 323–327.</p></li>
+        <li id="ref-44"><p>[44] Valentina Franzoni. 2023. From black box to glass box: advancing transparency in artificial intelligence systems for ethical and trustworthy AI. In International Conference on Computational Science and Its Applications. Springer, Athens, Greece, 118–130. </p></li>
+        <li id="ref-46"><p>[46] Ella Glikson and Anita Williams Woolley. 2020. Human trust in artificial intelligence: Review of empirical research. Academy of Management Annals 14, 2 (2020), 627–660. </p></li>
+        <li id="ref-48"><p>[48] Yash Goyal, Amir Feder, Uri Shalit, and Been Kim. 2019. Explaining Classifiers with Causal Concept Effect (CaCE). arXiv e-prints (2019), arXiv–1907.</p></li>
+        <li id="ref-55"><p> [55] Ambreen Hanif, Amin Beheshti, Boualem Benatallah, Xuyun Zhang, Habiba, EuJin Foo, Nasrin Shabani, and Maryam Shahabikargar. 2023. A comprehensive survey of explainable artificial intelligence (xai) methods: Exploring transparency and interpretability. In International Conference on Web Information Systems Engineering. Springer, Melbourne, VIC, Australia, 915–925i.</p></li>
+        <li id="ref-56"><p>[56] Ambreen Hanif, Xuyun Zhang, and Steven Wood. 2021. A Survey on Explainable Artificial Intelligence Techniques and Challenges. In 2021 IEEE 25th International Enterprise Distributed Object Computing Workshop (EDOCW). 81–89. https://doi.org/10.1109/EDOCW52865.2021.00036. </p></li>
+        <li id="ref-58"><p> [58] Robert R Ho\man, Shane T Mueller, Gary Klein, and Jordan Litman. 2023. Measures for explainable AI: Explanation goodness, user satisfaction, mental models, curiosity, trust, and human-AI performance. Frontiers in Computer Science 5 (2023), 1096257. </p></li>
+        <li id="ref-60"><p> [60]Andreas Holzinger, André Carrington, and Heimo Müller. 2020. Measuring the quality of explanations: the system causability scale (SCS) comparing human and machine explanations. KI-Künstliche Intelligenz 34, 2 (2020), 193–198.</p></li>
+        <li id="ref-62"><p>[62] Tiffany TY Hsu and Owen HT Lu. 2024. Explore the Explanation and Consistency of Explainable AI in the LBLS Data Set. In LAK Workshops. CEUR WOrkshops Proceedings, Kyoto, Japan, 64–72.</p></li>
+        <li id="ref-64"><p> [64] Anna Jobin, Marcello Ienca, and Effy Vayena. 2019. The global landscape of AI ethics guidelines. Nature machine intelligence 1, 9 (2019), 389–399. </p></li>
+        <li id="ref-65"><p>[65] Md Abdul Kadir, Amir Mosavi, and Daniel Sonntag. 2023. Evaluation Metrics for XAI: A Review, Taxonomy, and Practical Applications. In 2023 IEEE 27th International Conference on Intelligent Engineering Systems (INES). IEEE, Nairobi, Kenya, 000111–000124. https://doi.org/10.1109/INES59282.2023.10297629. </p></li>
+        <li id="ref-66"><p>[66] Amir-Hossein Karimi, Gilles Barthe, Borja Balle, and Isabel Valera. 2020. Model-Agnostic Counterfactual Explanations for Consequential Decisions. In Proceedings of the Twenty Third International Conference on Artificial Intelligence and Statistics (Proceedings of Machine Learning Research, Vol. 108), Silvia Chiappa and Roberto Calandra (Eds.). PMLR, Online, 895–905. https://proceedings.mlr.press/v108/karimi20a.html. </p></li>
+        <li id="ref-68"><p>[68] Harmanpreet Kaur, Harsha Nori, Samuel Jenkins, Rich Caruana, Hanna Wallach, and Jennifer Wortman Vaughan. 2020. Interpreting Interpretability: Understanding Data Scientists’ Use of Interpretability Tools for Machine Learning. In Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems (Honolulu, HI, USA) (CHI ’20).Association for Computing Machinery, New York, NY, USA, 1–14. https://doi.org/10.1145/3313831.3376219. </p></li>
+        <li id="ref-74"><p>[74] Himabindu Lakkaraju and Osbert Bastani. 2020. How do I fool you?: Manipulating User Trust via Misleading Black Box Explanations. In Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society (New York, NY, USA) (AIES’20). Association for Computing Machinery, New York, NY, USA, 79–85. https://doi.org/10.1145/3375627.3375833. </p></li>
+        <li id="ref-75"><p> [75] Bettina Laugwitz, Theo Held, and Martin Schrepp. 2008. Construction and evaluation of a user experience questionnaire. In HCI and Usability for Education and Work: 4th Symposium of the Workgroup Human-Computer Interaction and Usability Engineering of the Austrian Computer Society, USAB 2008, Graz, Austria, November 20-21, 2008. Proceedings 4.Springer, Graz, Austria, 63–76.</p></li>
+        <li id="ref-81"><p>[81] Scott M. Lundberg and Su-In Lee. 2017. A unified approach to interpreting model predictions. In Proceedings of the 31st International Conference on Neural Information Processing Systems (Long Beach, California, USA) (NIPS’17). Curran Associates Inc., Red Hook, NY, USA, 4768–4777.</p></li>
+        <li id="ref-82"><p>[82] Ronny Luss, Pin-Yu Chen, Amit Dhurandhar, Prasanna Sattigeri, Yunfeng Zhang, Karthikeyan Shanmugam, and Chun-Chen Tu. 2021. Leveraging Latent Features for Local Explanations. In Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery & Data Mining (Virtual Event, Singapore) (KDD ’21). Association for Computing Machinery, New York, NY, USA, 1139–1149. https://doi.org/10.1145/3447548.3467265.</p></li>
+        <li id="ref-83"><p>[83] Andreas Madsen, Siva Reddy, and Sarath Chandar. 2022. Post-hoc interpretability for neural nlp: A survey. Comput. Surveys 55, 8 (2022), 1–42.</p></li>
+        <li id="ref-86"><p>[86] Tim Miller. 2019. Explanation in artificial intelligence: Insights from the social sciences. Artificial intelligence 267 (2019), 1–38.</p></li>
+        <li id="ref-91"><p>[91] Sofia Morandini, Federico Fraboni, Gabriele Puzzo, Davide Giusino, Lucia Volpi, Hannah Brendel, Enzo Balatti, Marco De Angelis, Andrea De Cesarei, and Luca Pietrantoni. 2023. Examining the Nexus between Explainability of AI Systems and User’s Trust: A Preliminary Scoping Review. Proceedings http://ceur-ws. org ISSN 1613 (2023), 0073. </p></li>
+        <li id="ref-92"><p>[92] Edoardo Mosca, Ferenc Szigeti, Stella Tragianni, Daniel Gallagher, and Georg Groh. 2022. SHAP-Based Explanation Methods: A Review for NLP Interpretability. In Proceedings of the 29th International Conference on Computational Linguistics, Nicoletta Calzolari, Chu-Ren Huang, Hansaem Kim, James Pustejovsky, Leo Wanner, Key-Sun Choi, Pum-Mo Ryu, Hsin-Hsi Chen, Lucia Donatelli, Heng Ji, Sadao Kurohashi, Patrizia Paggio, Nianwen Xue, Seokhwan Kim, Younggyun Hahm, Zhong He, Tony Kyungil Lee, Enrico Santus, Francis Bond, and Seung-Hoon Na (Eds.). International Committee on Computational Linguistics, Gyeongju, Republic of Korea, 4593–4603. https://aclanthology.\norg/2022.coling-1.406/.</p></li>
+        <li id="ref-94"><p>[94] Ramaravind K. Mothilal, Amit Sharma, and Chenhao Tan. 2020. Explaining machine learning classifiers through diverse counterfactual explanations. In Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency (Barcelona, Spain) (FAT* ’20). Association for Computing Machinery, New York, NY, USA, 607–617. https://doi.org/10.1145/3351095.3372850.</p></li>
+        <li id="ref-100"><p>[100]  Sebastian A. C. Perrig, Nicolas Scharowski, and Florian Brühlmann. 2023. Trust Issues with Trust Scales: Examining the Psychometric Quality of Trust Measures in the Context of AI. In Extended Abstracts of the 2023 CHI Conference on Human Factors in Computing Systems (Hamburg, Germany) (CHI EA ’23). Association for Computing Machinery, New York, NY, USA, Article 297, 7 pages. https://doi.org/10.1145/3544549.3585808.</p></li>
+        <li id="ref-101"><p>[101] Erich Prem. 2023. From ethical AI frameworks to tools: a review of approaches. AI and Ethics 3, 3 (2023), 699–716. </p></li>
+        <li id="ref-102"><p>[102] Junaid Qadir, Mohammad Qamar Islam, and Ala Al-Fuqaha. 2022. Toward accountable human-centered AI: rationale and promising directions. Journal of Information, Communication and Ethics in Society 20, 2 (2022), 329–342. </p></li>
+        <li id="ref-103"><p>[103] Yao Rong, Tobias Leemann, Thai-Trang Nguyen, Lisa Fiedler, Peizhu Qian, Vaibhav Unhelkar, Tina Seidel, Gjergji Kasneci, and Enkelejda Kasneci. 2024. Towards Human-Centered Explainable AI: A Survey of User Studies for Model Explanations. IEEE Trans. Pattern Anal. Mach. Intell. 46, 4 (April 2024), 2104–2122. https://doi.org/10.1109/TPAMI.2023.3331846.</p></li>
+        <li id="ref-117"><p>[117] Ramya Srinivasan and Ajay Chander. 2021. Explanation perspectives from the cognitive sciences—a survey. In Proceedings of the Twenty-Ninth International Joint Conference on Artificial Intelligence (IJCAI’20). IJCAI, Yokohama, Yokohama, Japan, Article 670, 7 pages.</p></li>
+        <li id="ref-119"><p>[119] Mukund Sundararajan, Ankur Taly, and Qiqi Yan. 2017. Axiomatic attribution for deep networks. In Proceedings of the 34th International Conference on Machine Learning - Volume 70 (Sydney, NSW, Australia) (ICML’17). JMLR.org, 3319–3328. </p></li>
+        <li id="ref-120"><p>[120] Alena Suvorova. 2021. Interpretable machine learning in social sciences: use cases and limitations. In International Conference on Digital Transformation and Global Society. Springer, St. Petersburg, Russia, 319–331. </p></li>
+        <li id="ref-123"><p>[123] Berk Ustun, Alexander Spangher, and Yang Liu. 2019. Actionable Recourse in Linear Classification. In Proceedings of the Conference on Fairness, Accountability, and Transparency (Atlanta, GA, USA) (FAT* ’19). Association for Computing Machinery, New York, NY, USA, 10–19. https://doi.org/10.1145/3287560.3287566. </p></li>
+        <li id="ref-132"><p>[132] Shoshana Zuboff. 2023. The age of surveillance capitalism. In Social theory re-wired. Routledge, New York, 203–213.</p></li>
+    </ol>
+</div>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-8">
@@ -149,7 +442,9 @@
                     <div id="dropdown-content-wrapper" class="dropdown-hidden"></div>
                     <p id="description">
                         <p>Click on nodes to display XAI goals and recommendations.</p>
-                        Hover nodes to display information. 
+                       <p>Hover nodes to display information. </p>
+                        <p>Hover reference numbers to display the full reference.</p>
+                         <p>Click on reference numbers to access the article.</p>
                     </div>    
     <div class="footer-text"> Wax et al., 2025</div>
     <div class="image-container">
@@ -161,6 +456,36 @@
     </div>
 </div>
 <!-- Modal -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8 position-relative">
+            <!-- Legend -->
+            <div class="legend">
+                <div class="legend-title">Legend</div>
+                <div class="legend-item">
+                    <div class="legend-circle" style="background-color: #00AAFE;"></div>
+                    <span>Non-experts</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-circle" style="background-color: #7C09B3;"></div>
+                    <span>Experts</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-circle" style="background-color: #ff0faa;"></div>
+                    <span>Recommendations</span>
+                </div>
+                <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #ddd;">
+                    <div style="font-size: 11px;">
+                        <div>○ Clickable node with information</div>
+                        <div>● No further information</div>
+                        <div style="margin-top: 5px; color: #666;">
+                            Hover: View info<br>
+                            Click: Expand/focus
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 <div class="modal fade" id="modalStart" tabindex="-1" aria-labelledby="modalStartLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
@@ -177,9 +502,8 @@
                 <p>This framework is designed to be self-sufficient and ensure the XAI pipeline engineers, researchers and designers implement is valid across various domains. It helps you focus on specific goals and target users, making it a valuable tool for achieving recommendations across disciplines.</p>
 
                 <h6>Important Note</h6>
-                <p>Designers, researchers, and engineers should bear in mind that <b>explanations cannot fix flawed models or datasets</b> as users tend to believe. Rather, they help uncover issues and explain the model itself rather than the underlying reality. This limits insights into data complexities, which further research should tackle.</p>
-                
-                <div class="ref">[120] Alena Suvorova. 2021. Interpretable machine learning in social sciences: use cases and limitations. In International Conference on Digital Transformation and Global Society. Springer, St. Petersburg, Russia, 319–331.</div>
+                <p>Designers, researchers, and engineers should bear in mind that <b>explanations cannot fix flawed models or datasets</b> as users tend to believe. Rather, they help uncover issues and explain the model itself rather than the underlying reality. This limits insights into data complexities, which further research should tackle. <a href="#ref-120">[120]</a></p>
+                 
             </div>
             <div class="modal-footer d-flex justify-content-center">
                 <button type="button" class="btn btn-secondary btn-explore" data-bs-dismiss="modal">Let's Explore!</button>
@@ -191,8 +515,173 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 <script>
 
-    const modalStart = new bootstrap.Modal(document.getElementById('modalStart'), {})
-    modalStart.show()
+const modalStart = new bootstrap.Modal(document.getElementById('modalStart'), {});
+modalStart.show();
+
+// Re-setup popovers after modal is shown
+document.getElementById('modalStart').addEventListener('shown.bs.modal', function () {
+    setupReferencePopovers();
+    const modalRefLink = document.querySelector('#modalStart a[href^="#ref-"]');
+    if (modalRefLink) {
+        modalRefLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+    }
+});
+
+const referenceUrls = {
+    'ref-5': 'https://doi.org/10.1016/j.inffus.2023.101805',
+    'ref-8': 'https://doi.org/10.1016/j.inffus.2020.01.012',
+    'ref-11': 'https://doi.org/10.1111/phc3.12830',
+    'ref-12': 'https://doi.org/10.1145/3442188.3445922',
+    'ref-13': 'https://doi.org/10.1145/3514094.3534164',
+    'ref-14': 'https://doi.org/10.1145/3544548.3581314',
+    'ref-16': 'https://doi.org/10.1007/s10618-023-00933-9',
+    'ref-18': 'https://doi.org/10.1613/jair.1.12228',
+    'ref-28': 'https://doi.org/10.1016/j.patter.2023.100857',
+    'ref-39': 'https://doi.org/10.23919/MIPRO.2018.8350040',
+    'ref-43': 'https://doi.org/10.1016/j.intcom.2010.06.001',
+    'ref-44': 'https://doi.org/10.1007/978-3-031-35995-8_9',
+    'ref-46': 'https://doi.org/10.5465/annals.2018.0057',
+    'ref-48': 'https://arxiv.org/abs/1907.07165',
+    'ref-55': 'https://doi.org/10.1007/978-981-99-7254-8_71',
+    'ref-56': 'https://doi.org/10.1109/EDOCW52865.2021.00036',
+    'ref-58': 'https://doi.org/10.3389/fcomp.2023.1096257',
+    'ref-60': 'https://doi.org/10.1007/s13218-020-00636-5',
+    'ref-62': 'https://ceur-ws.org/Vol-3648/LAK24-WS-08-paper-64.pdf',
+    'ref-64': 'https://doi.org/10.1038/s42256-019-0088-2',
+    'ref-65': 'https://doi.org/10.1109/INES59282.2023.10297629',
+    'ref-66': 'https://proceedings.mlr.press/v108/karimi20a.html',
+    'ref-68': 'https://doi.org/10.1145/3313831.3376219',
+    'ref-74': 'https://doi.org/10.1145/3375627.3375833',
+    'ref-75': 'https://doi.org/10.1007/978-3-540-89350-9_6',
+    'ref-81': 'https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html',
+    'ref-82': 'https://doi.org/10.1145/3447548.3467265',
+    'ref-83': 'https://doi.org/10.1145/3546577',
+    'ref-86': 'https://doi.org/10.1016/j.artint.2018.07.007',
+    'ref-91': 'https://ceur-ws.org/Vol-3443/paper12.pdf',
+    'ref-92': 'https://aclanthology.org/2022.coling-1.406/',
+    'ref-94': 'https://doi.org/10.1145/3351095.3372850',
+    'ref-100': 'https://doi.org/10.1145/3544549.3585808',
+    'ref-101': 'https://doi.org/10.1007/s43681-023-00257-4',
+    'ref-102': 'https://doi.org/10.1108/JICES-12-2021-0118',
+    'ref-103': 'https://doi.org/10.1109/TPAMI.2023.3331846',
+    'ref-117': 'https://doi.org/10.24963/ijcai.2020/670',
+    'ref-119': 'https://proceedings.mlr.press/v70/sundararajan17a.html',
+    'ref-120': 'https://doi.org/10.1007/978-3-030-93409-5_27',
+    'ref-123': 'https://doi.org/10.1145/3287560.3287566',
+    'ref-132': 'https://doi.org/10.4324/9781003285977-13'
+};
+
+function setupReferencePopovers() {
+    // Remove all existing click handlers for reference links
+    const refLinks = document.querySelectorAll('a[href^="#ref-"]');
+    refLinks.forEach(link => {
+        const newLink = link.cloneNode(true);
+        link.parentNode.replaceChild(newLink, link);
+    });
+
+    // Dispose of existing popovers to prevent memory leaks
+    const existingPopovers = document.querySelectorAll('[data-bs-toggle="popover"]');
+    existingPopovers.forEach(element => {
+        const popoverInstance = bootstrap.Popover.getInstance(element);
+        if (popoverInstance) {
+            popoverInstance.dispose();
+        }
+    });
+
+    // Find all reference links (e.g., <a href="#ref-43">)
+    const updatedRefLinks = document.querySelectorAll('a[href^="#ref-"]');
+    updatedRefLinks.forEach(link => {
+        // Get the ID from the link's href (e.g., "ref-43")
+        const refId = link.getAttribute('href').substring(1);
+        const refElement = document.getElementById(refId);
+        if (refElement) {
+            // Extract the reference text from the hidden list
+            const refText = refElement.querySelector('p').innerHTML.trim();
+            
+            // Configure the link to trigger a popover on hover
+            link.setAttribute('data-bs-toggle', 'popover');
+            link.setAttribute('data-bs-trigger', 'manual');
+            link.setAttribute('data-bs-html', 'true');
+            link.setAttribute('data-bs-content', refText);
+            link.setAttribute('title', 'Reference');
+            link.setAttribute('data-bs-placement', 'top');
+            
+            // Initialize the popover
+            const popover = new bootstrap.Popover(link, {
+                container: 'body',
+                html: true
+            });
+            
+            // Show popover on hover
+            link.addEventListener('mouseenter', () => {
+                popover.show();
+            });
+            
+            // Keep popover open if mouse moves to popover content
+            link.addEventListener('mouseleave', (e) => {
+                setTimeout(() => {
+                    const popoverElement = document.querySelector('.popover:hover');
+                    if (!popoverElement && !link.matches(':hover')) {
+                        popover.hide();
+                    }
+                }, 100);
+            });
+            
+            // Handle click to go to journal URL
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                // Check if we have a URL for this reference
+                const journalUrl = referenceUrls[refId];
+                if (journalUrl) {
+                    window.open(journalUrl, '_blank');
+                } else {
+                    // Fallback: show popover if no URL available
+                    // Hide all other popovers first
+                    updatedRefLinks.forEach(otherLink => {
+                        if (otherLink !== link) {
+                            const otherPopover = bootstrap.Popover.getInstance(otherLink);
+                            if (otherPopover) {
+                                otherPopover.hide();
+                            }
+                        }
+                    });
+
+                    // Toggle this popover
+                    if (link.getAttribute('aria-describedby')) {
+                        popover.hide();
+                    } else {
+                        popover.show();
+                    }
+                }
+            });
+        }
+    });
+
+    // Close popover when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.popover') && !e.target.closest('a[href^="#ref-"]')) {
+            updatedRefLinks.forEach(link => {
+                const popover = bootstrap.Popover.getInstance(link);
+                if (popover) {
+                    popover.hide();
+                }
+            });
+        }
+    });
+
+    // Prevent popover from closing when clicking inside it
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.popover')) {
+            e.stopPropagation();
+        }
+    });
+}
+
 
     function setData(){
         return {
@@ -200,6 +689,7 @@
             angle: 0,
             r: 0,
             visible: true,
+            clicked: false,
             children: [
                 {
                     name: "Non-experts",
@@ -217,7 +707,7 @@
                             visible: false,
                             forceRight: true,
                             textAlignRight: true,
-                            description: "User experience is part of what’s referred to as Human-grounded explanations. They are\nevaluated using simplified tasks with human subjects, usually in a controlled environment. The\nfocus is on whether or not the explanation is understandable and useful to humans \n\nBy integrating the UX principles with technical XAI approaches (e.g., SHAP, ExBert, BertViz), the aim is to create AI systems that are explainable, intuitive, actionable, and reliable for all users, including experts.\n\nTo effectively explain AI systems, designers, researchers and  engineers should: <br> <span class=\"blue-text\">Align explanations with user goals</span> <br> Tailor explanations to what users are trying to achieve and their level of technical knowledge. <br> <span class=\"blue-text\">Test for usability</span> <br>Conduct regular usability tests with real users to ensure the explanations are easy to understand. <br> <span class=\"blue-text\">A/B test styles</span> <br>  Compare different explanation formats to see which ones are most effective at building user trust and engagement. <br> <span class=\"blue-text\">Measure trust and satisfaction</span> <br> Use metrics and feedback (like surveys and interviews) to gauge user confidence and satisfaction with the explanations. ",
+                            description: "User experience is part of what’s referred to as Human-grounded explanations. They are\nevaluated using simplified tasks with human subjects, usually in a controlled environment. The\nfocus is on whether or not the explanation is understandable and useful to humans. By integrating the UX principles with technical XAI approaches (e.g., SHAP, ExBert, BertViz), the aim is to create AI systems that are explainable, intuitive, actionable, and reliable for all users, including experts.\n\nTo effectively explain AI systems, designers, researchers and  engineers should: <br> <span class=\"blue-text\">Align explanations with user goals</span> <br> Tailor explanations to what users are trying to achieve and their level of technical knowledge. <br> <span class=\"blue-text\">Test for usability</span> <br>Conduct regular usability tests with real users to ensure the explanations are easy to understand. <br> <span class=\"blue-text\">A/B test styles</span> <br>  Compare different explanation formats to see which ones are most effective at building user trust and engagement. <br> <span class=\"blue-text\">Measure trust and satisfaction</span> <br> Use metrics and feedback (like surveys and interviews) to gauge user confidence and satisfaction with the explanations. ",
                             angle: 3.5 * Math.PI / 12,
                             r: 200,
                             children: [
@@ -226,7 +716,7 @@
                                     title: "System Usability Scale (SUS)",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "Validated UX scales for assessing these metrics include:\n\nSystem Usability Scale (SUS). It is a Ten-item likert scale questionnaire for measuring the perceived usability of a system or product. The result is a score ranging from 0-100. A score of 70 or above is often considered a good indicator of good usability. <br> Specifically, it helps measure <span class=\"blue-text\">effectiveness</span> —in XAI: can users successfully achieve their explanation objectives—, <span class=\"blue-text\">efficiency</span> —in XAI: how much effort and resources are needed to understand an explanation by navigating through the XAI tool—, and <span class=\"blue-text\">satisfaction</span> —in XAI: was the experience with the explanation/tool, satisfactory. <br><div class=\"ref\">[43] Kraig Finstad. 2010. The usability metric for user experience. Interacting with computers 22, 5 (2010), 323–327. </div>\n\n</div>",
+                                    description: "Validated UX scales for assessing these metrics include: System Usability Scale (SUS). It is a Ten-item likert scale questionnaire for measuring the perceived usability of a system or product. The result is a score ranging from 0-100. A score of 70 or above is often considered a good indicator of good usability. <br> Specifically, it helps measure <br>  <span class=\"blue-text\">Effectiveness</span> <br> In XAI: can users successfully achieve their explanation objectives <br> <span class=\"blue-text\">Efficiency</span> <br> In XAI: how much effort and resources are needed to understand an explanation by navigating through the XAI tool <br> <span class=\"blue-text\">Satisfaction</span> <br> In XAI: was the experience with the explanation/tool, satisfactory. <a href=\"#ref-43\">[43]</a>",
                                     angle: 4 * Math.PI / 12,
                                     r: 350
                                 },
@@ -235,16 +725,16 @@
                                     title: "User Experience Questionnaire (UEQ)",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "It measures the User Experience of interactive products. Specifically, it assesses usability aspects (efficiency, perspicuity, dependability) and user experience aspects (attractiveness, originality, stimulation). <br> <span class=\"blue-text\">Attractiveness</span> <br> Overall impression of the product. Do users like or dislike it? <br> <span class=\"blue-text\">Perspicuity</span> <br> \nIs it easy to get familiar with the product and to learn how to use it? <br> <span class=\"blue-text\">Efficiency</span> <br> Can users solve their tasks without unnecessary effort? Does it react fast? <br> <span class=\"blue-text\">Dependability</span> <br> Does the user feel in control of the interaction? Is it secure and predictable? <br> <span class=\"blue-text\">Stimulation</span> <br>\nIs it exciting and motivating to use the product? Is it fun to use? <br> <span class=\"blue-text\">Novelty</span> <br> Is the design of the product creative? Does it catch the interest of users?<br><div class=\"ref\">[75] Bettina Laugwitz, Theo Held, and Martin Schrepp. 2008. Construction and evaluation of a user experience question-\nnaire. In HCI and Usability for Education and Work: 4th Symposium of the Workgroup Human-Computer Interaction and\nUsability Engineering of the Austrian Computer Society, USAB 2008, Graz, Austria, November 20-21, 2008. Proceedings 4.\nSpringer, Graz, Austria, 63–76.</div>",
+                                    description: "It measures the User Experience of interactive products. Specifically, it assesses usability aspects (efficiency, perspicuity, dependability) and user experience aspects (attractiveness, originality, stimulation). <br> <span class=\"blue-text\">Attractiveness</span> <br> Overall impression of the product. Do users like or dislike it? <br> <span class=\"blue-text\">Perspicuity</span> <br> \nIs it easy to get familiar with the product and to learn how to use it? <br> <span class=\"blue-text\">Efficiency</span> <br> Can users solve their tasks without unnecessary effort? Does it react fast? <br> <span class=\"blue-text\">Dependability</span> <br> Does the user feel in control of the interaction? Is it secure and predictable? <br> <span class=\"blue-text\">Stimulation</span> <br>\nIs it exciting and motivating to use the product? Is it fun to use?  <br> <span class=\"blue-text\">Novelty</span> <br> Is the design of the product creative? Does it catch the interest of users? <a href=\"#ref-75\">[75]</a>",
                                     angle: 4.5 * Math.PI / 12,
                                     r: 350
                                 },
                                 {
-                                    name: "System Causability\nScale (SCS)",
-                                    title: "System Causability\nScale (SCS)",
+                                    name: "System Causability Scale (SCS)",
+                                    title: "System Causability Scale (SCS)",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: " To measure the quality of the explanation, the System Causability\nScale (SCS) has been developed.\nThe scale is based on the concept of causability, which is defined as the extent to which an explanation helps a user achieve a specified level of causal understanding with effectiveness, efficiency, and satisfaction within a given context. The SCS is modeled after the System Usability Scale (SUS) and uses a 10-item questionnaire where users rate their agreement with statements on a 5-point Likert scale. \nThe factors measured are:\n\nFactors in data: user thinks data included all relevant known\ncausal factors with sufficient precision\nUnderstandability: user understands explanations within the context of\nits work\nChange detail level: user can change the level of detail on demand\nNeed teacher/support: user does not need support to understand the explanations\nUnderstanding causality: user finds the explanations helps him to understand causality\nUse with knowledge: user is able to use the explanations with his knowledge base\nNo inconsistencies: user does not find inconsistencies between explanations\nLearn to understand: user thinks that most people would learn to understand the explanations very quickly\nNeeds references: user does not need more references in the explanations (\ne.g., medical guidelines, regulations)\nEfficiency: user receives the explanations in a timely and efficient\nmanner\n\nThe result, for each factor, is a score ranging from 0-5 Ratings\nare: 1=strongly disagree, 2=disagree, 3=neutral, 4=agree,\n5=strongly agree\n<br><div class=\"ref\">[60]Andreas Holzinger, André Carrington, and Heimo Müller. 2020. Measuring the quality of explanations: the system\ncausability scale (SCS) comparing human and machine explanations. KI-Künstliche Intelligenz 34, 2 (2020), 193–198.</div> ",
+                                    description: " To measure the quality of the explanation, the System Causability Scale (SCS) has been developed. The scale is based on the concept of causability, which is defined as the extent to which an explanation helps a user achieve a specified level of causal understanding with effectiveness, efficiency, and satisfaction within a given context. The SCS is modeled after the System Usability Scale (SUS) and uses a 10-item questionnaire where users rate their agreement with statements on a 5-point Likert scale. The factors measured are: <br> <span class=\"blue-text\">Factors in data</span> <br> User thinks data included all relevant known causal factors with sufficient precision. <br> <span class=\"blue-text\">Understandability</span> <br> User understands explanations within the context of its work. <br> <span class=\"blue-text\">Change detail level</span> <br> User can change the level of detail on demand. <br> <span class=\"blue-text\">Need teacher/support</span> <br> User does not need support to understand the explanations. <br> <span class=\"blue-text\">Understanding causality</span> <br> User finds the explanations helps him to understand causality. <br> <span class=\"blue-text\">Use with knowledge</span> <br>User is able to use the explanations with his knowledge base. <br> <span class=\"blue-text\">No inconsistencies</span> <br> User does not find inconsistencies between explanations. <br> <span class=\"blue-text\">Learn to understand</span> <br> User thinks that most people would learn to understand the explanations very quickly. <br> <span class=\"blue-text\">Needs references</span> <br> User does not need more references in the explanations (e.g. medical guidelines, regulations). <br> <span class=\"blue-text\">Efficiency</span> <br> User receives the explanations in a timely and efficient manner. <br> The result, for each factor, is a score ranging from 0-5. Ratings are: <br> <span class=\"blue-text\">1</span> Strongly disagree; <span class=\"blue-text\">2</span> Disagree <br> <span class=\"blue-text\">3</span> Neutral; <span class=\"blue-text\">4</span> Agree; <span class=\"blue-text\">5</span> Strongly agree <a href=\"#ref-60\">[60]</a>",
                                     angle: 5 * Math.PI / 12,
                                     r: 350
                                 },
@@ -256,7 +746,7 @@
                             color: "#00AAFE",
                             visible: false,
                             forceRight: true,
-                            description: "Ethical AI refers to individual and social values. An AI system that is deemed ethical is\none that accounts for these following principles: transparency, fairness, robustness, and legal\ncompliance.",
+                            description: "Ethical AI refers to individual and social values. An AI system that is deemed ethical is one that accounts for these following principles: transparency, fairness, robustness, and legal compliance.",
                             angle: 4.5 * Math.PI / 12,
                             r: 200,
                             children: [
@@ -265,7 +755,7 @@
                                     title: "Practical Recommendations",
                                     color: "#ff0faa",
                                     visible: false,
-                                    description: "While complex models often reduce the potential for explainability (see <i>Performance-explainability trade-off</i> [8, 39]).  Achieving AI justice requires multifaceted solutions, including technical standards, public awareness, rigorous testing and monitoring, stronger legal rights, systemic governmental oversight with diverse teams, and better stakeholder inclusion.  To address this, researchers propose limiting model parameters while maintaining good predictions  <i>information bottleneck trade-off </i> [11]; others [12] advocate for transparent processes via standardised datasheets for machine learning training datasets. These datasheets would provide crucial details about data origin and properties, processing methodology, and intention, enabling better-informed decisions. If models cannot be fully transparent due to this trade-off, the process should at least be made transparent.The following items outline topics to tackle these ethical challenges. <br><div class=\"ref\">[8] Alejandro Barredo Arrieta, Natalia Díaz-Rodríguez, Javier Del Ser, Adrien Bennetot, Siham Tabik, Alberto Barbado, Salvador García, Sergio Gil-López, Daniel Molina, Richard Benjamins, et al . 2020. Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. Information fusion 58 (2020), 82–115.</div> <div class=\"ref\">[11] Claus Beisbart and Tim Räz. 2022. Philosophy of science at sea: Clarifying the interpretability of machine learning.Philosophy Compass 17, 6 (2022), e12830. </div> <div class=\"ref\">[12] Emily M Bender, Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell. 2021. On the dangersof stochastic parrots: Can language models be too big?. In Proceedings of the 2021 ACM conference on fairness, accountability, and transparency. ACM, 610–623.</div> <div class=\"ref\">[39] Filip Karlo Došilović, Mario Brčić, and Nikica International Convention on Information and Communication Technology, Electronics and Microelectronics (MIPRO). IEEE, Opatija, Croatia, 0210–0215. https://doi.org/10.23919/MIPRO.2018.8350040).</div> <div class=\"ref\">[55] Ambreen Hanif, Amin Beheshti, Boualem Benatallah, Xuyun Zhang, Habiba, EuJin Foo, Nasrin Shabani, and Maryam Shahabikargar. 2023. A comprehensive survey of explainable artificial intelligence (xai) methods: Exploring transparency and interpretability. In International Conference on Web Information Systems Engineering. Springer, Melbourne, VIC, Australia, 915–925i. </div> <div class=\"ref\">[64] Anna Jobin, Marcello Ienca, and Effy Vayena. 2019. The global landscape of AI ethics guidelines. Nature machine intelligence 1, 9 (2019), 389–399. </div>",
+                                    description: "While complex models often reduce the potential for explainability (see <i>Performance-explainability trade-off</i> <a href=\"#ref-8\">[8]</a>  <a href=\"#ref-39\">[39]</a>).  Achieving AI justice requires multifaceted solutions, including technical standards, public awareness, rigorous testing and monitoring, stronger legal rights, systemic governmental oversight with diverse teams, and better stakeholder inclusion.  To address this, researchers propose limiting model parameters while maintaining good predictions  <i>information bottleneck trade-off </i>  <a href=\"#ref-11\">[11]</a>; others <a href=\"#ref-12\">[12]</a> advocate for transparent processes via standardised datasheets for machine learning training datasets. These datasheets would provide crucial details about data origin and properties, processing methodology, and intention, enabling better-informed decisions. If models cannot be fully transparent due to this trade-off, the process should at least be made transparent.The following items outline topics to tackle these ethical challenges. <a href=\"#ref-55\">[55]</a>   <a href=\"#ref-64\">[64]</a>",
                                     angle: 2.5 * Math.PI / 12,
                                     r: 400
                                 },
@@ -274,7 +764,7 @@
                                     title: "Consent Mechanisms",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "Creating mechanisms for managing user consent, ensuring users are\nfully informed about data use and can easily grant or withdraw consent.\n\n<br><div class=\"ref\">[101] Erich Prem. 2023. From ethical AI frameworks to tools: a review of approaches. AI and Ethics 3, 3 (2023), 699–716.</div>",
+                                    description: "Creating mechanisms for managing user consent, ensuring users are fully informed about data use and can easily grant or withdraw consent. <a href=\"#ref-101\">[101]</a>",
                                     angle: 3 * Math.PI / 12,
                                     r: 400
                                 },
@@ -283,7 +773,7 @@
                                     title: "Trust Metrics",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "With the advent of XAI, trust scales have been revised and investigated further to be adapted to technological trust. With suggestions from [100] to adapt some items to make its psychometry fully reliable, the TXAI trust scale appears to be the most reliable metric for Trust assessments in XAI. <br><div class=\"ref\">[58] Robert R Ho\man, Shane T Mueller, Gary Klein, and Jordan Litman. 2023. Measures for explainable AI: Explanation goodness, user satisfaction, mental models, curiosity, trust, and human-AI performance. Frontiers in Computer Science 5 (2023), 1096257. <br><div class=\"ref\">[100]  Sebastian A. C. Perrig, Nicolas Scharowski, and Florian Brühlmann. 2023. Trust Issues with Trust Scales: Examining the Psychometric Quality of Trust Measures in the Context of AI. In Extended Abstracts of the 2023 CHI Conference on Human Factors in Computing Systems (Hamburg, Germany) (CHI EA ’23). Association for Computing Machinery, New York, NY, USA, Article 297, 7 pages. https://doi.org/10.1145/3544549.3585808.</div></div>",
+                                    description: "With the advent of XAI, trust scales have been revised and investigated further to be adapted to technological trust. With suggestions from <a href=\"#ref-100\">[100]</a> to adapt some items to make its psychometry fully reliable, the TXAI trust scale appears to be the most reliable metric for Trust assessments in XAI. <a href=\"#ref-58\">[58]</a>",
                                     angle: 3.5 * Math.PI / 12,
                                     r: 400
                                 },
@@ -292,7 +782,7 @@
                                     title: "Transparency",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "While complex models often reduce the potential for explainability (see <i>Performance-explainability trade-off</i> [8, 39]). Achieving AI justice requires multifaceted solutions, including technical standards, public awareness, rigorous testing and monitoring, stronger legal rights, systemic governmental oversight with diverse teams, and better stakeholder inclusion. To address this, researchers [55, 11] propose limiting model parameters while maintaining good predictions  (<i>information bottleneck trade-off</i>) ; others [12] advocate for transparent processes via standardised datasheets for machine learning training datasets. These datasheets would provide crucial details about data origin and properties, processing methodology, and intention, enabling better-informed decisions. <i>If models cannot be fully transparent due to this trade-off, the process should at least be made transparent</b>.The items in this section outline topics to tackle these ethical challenges. <br><div class=\"ref\">[8] Alejandro Barredo Arrieta, Natalia Díaz-Rodríguez, Javier Del Ser, Adrien Bennetot, Siham Tabik, Alberto Barbado, Salvador García, Sergio Gil-López, Daniel Molina, Richard Benjamins, et al . 2020. Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. Information fusion 58 (2020), 82–115.</div> <div class=\"ref\">[11] Claus Beisbart and Tim Räz. 2022. Philosophy of science at sea: Clarifying the interpretability of machine learning.Philosophy Compass 17, 6 (2022), e12830.</div> <div class=\"ref\">[12] Emily M Bender, Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell. 2021. On the dangersof stochastic parrots: Can language models be too big?. In Proceedings of the 2021 ACM conference on fairness, accountability, and transparency. ACM, 610–623. </div> <div class=\"ref\">[39] Filip Karlo Došilović, Mario Brčić, and Nikica International Convention on Information and Communication Technology, Electronics and Microelectronics (MIPRO). IEEE, Opatija, Croatia, 0210–0215. https://doi.org/10.23919/MIPRO.2018.8350040).</div> <div class=\"ref\">[55] Ambreen Hanif, Amin Beheshti, Boualem Benatallah, Xuyun Zhang, Habiba, EuJin Foo, Nasrin Shabani, and Maryam Shahabikargar. 2023. A comprehensive survey of explainable artificial intelligence (xai) methods: Exploring transparency and interpretability. In International Conference on Web Information Systems Engineering. Springer, Melbourne, VIC, Australia, 915–925i. </div> <div class=\"ref\">[64] Anna Jobin, Marcello Ienca, and Effy Vayena. 2019. The global landscape of AI ethics guidelines. Nature machine intelligence 1, 9 (2019), 389–399</div>",
+                                    description: "means users can understand how a system works - its rules, processes, logic <a href=\"#ref-43\">[43]</a>. True transparency, especially with complex AI <i>black boxes</i>, is hard to achieve because their inner workings are so intricate. Ultimately, the more complex a model, the less transparent it tends to be. Any explainability method that helps understanding how a system works is therefore, as things stand, considered as transparent. <a href=\"#ref-35\">[35]</a> <a href=\"#ref-56\">[56]</a> <a href=\"#ref-69\">[69]</a>",
                                     angle: 4 * Math.PI / 12,
                                     r: 400
                                 },
@@ -301,7 +791,7 @@
                                     title: "Fairness",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "A system is considered fair if it does not create or amplify existing bias  or if it does not create or amplify existing discrimination based on any metric such as age, language, race, or gender. <br><div class=\"ref\">[13] Astrid Bertrand, Rafik Belloum, James R. Eagan, and Winston Maxwell. 2022. How Cognitive Biases Affect XAI-\nassisted Decision-making: A Systematic Review. In Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and\nSociety (Oxford, United Kingdom) (AIES ’22). Association for Computing Machinery, New York, NY, USA, 78–91.\nhttps://doi.org/10.1145/3514094.3534164.</div><div class=\"ref\">[56] Ambreen Hanif, Xuyun Zhang, and Steven Wood. 2021. A Survey on Explainable Artificial Intelligence Techniques\nand Challenges. In 2021 IEEE 25th International Enterprise Distributed Object Computing Workshop (EDOCW). 81–89.\nhttps://doi.org/10.1109/EDOCW52865.2021.00036.</div>",
+                                    description: "A system is considered fair if it does not create or amplify existing bias  or if it does not create or amplify existing discrimination based on any metric such as age, language, race, or gender. <a href=\"#ref-13\">[13]</a>",
                                     angle: 4.5 * Math.PI / 12,
                                     r: 400
                                 },
@@ -310,7 +800,7 @@
                                     title: "Labels",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "  Giving clear and standardised labels on whether AI products respect, and to what extent,\nmultiple AI ethics characteristics (Fairness, Accountability, Privacy, and so on). That way users get\na better understanding of the ethical implications of using specific AI systems.\n\n<br><div class=\"ref\">[101] Erich Prem. 2023. From ethical AI frameworks to tools: a review of approaches. AI and Ethics 3, 3 (2023), 699–716. </div>",
+                                    description: "  Giving clear and standardised labels on whether AI products respect, and to what extent, multiple AI ethics characteristics (Fairness, Accountability, Privacy, and so on). That way users get a better understanding of the ethical implications of using specific AI systems. <a href=\"#ref-101\">[101]</a>",
                                     angle: 5 * Math.PI / 12,
                                     r: 400
                                 },
@@ -319,7 +809,7 @@
                                     title: "Ethical Councils",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "  Establishing ethical councils to oversee AI systems to ensure ethical standards\nare respected and provide technical advice for complex ethical challenges or sandbox testing when\nneeded. This is done in other high-risk fields such as medicine or aviation.\n\n<br><div class=\"ref\">[101] Erich Prem. 2023. From ethical AI frameworks to tools: a review of approaches. AI and Ethics 3, 3 (2023), 699–716. </div>",
+                                    description: "  Establishing ethical councils to oversee AI systems to ensure ethical standards are respected and provide technical advice for complex ethical challenges or sandbox testing when needed. This is done in other high-risk fields such as medicine or aviation. <a href=\"#ref-101\">[101]</a>",
                                     angle: 5.5 * Math.PI / 12,
                                     r: 400
                                 },
@@ -328,7 +818,7 @@
                                     title: "Consent Mechanisms",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "Creating mechanisms for managing user consent, ensuring users are\nfully informed about data use and can easily grant or withdraw consent.\n\n<br><div class=\"ref\">[101] Erich Prem. 2023. From ethical AI frameworks to tools: a review of approaches. AI and Ethics 3, 3 (2023), 699–716. </div>",
+                                    description: "Creating mechanisms for managing user consent, ensuring users are fully informed about data use and can easily grant or withdraw consent. <a href=\"#ref-101\">[101]</a>",
                                     angle: 6 * Math.PI / 12,
                                     r: 400
                                 },
@@ -337,7 +827,7 @@
                                     title: "Ecological & Labour impact",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "  Transparency regarding AI’s environmental\nfootprint and labour conditions is crucial (energy consumption, data centre emissions, hidden social costs such as data labelling and clickworking under exploitative conditions and reliance\non precarious labour). Operating massive AI models comes at a high planetary cost, both regarding mining core materials on which our highly computerised society depend on, as well as training and using AI-systems that rely on massive electricity and cooling systems, contributing to global warming. <br><div class=\"ref\">[12] Emily M Bender, Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell. 2021. On the dangers of stochastic parrots: Can language models be too big?. In Proceedings of the 2021 ACM conference on fairness, accountability, and transparency. ACM, 610–623. <br><div class=\"ref\">[28] Nicholas Kluge Corrêa, Camila Galvão, James William Santos, Carolina Del Pino, Edson Pontes Pinto, Camila Barbosa,\nDiogo Massmann, Rodrigo Mambrini, Luiza Galvão, Edmund Terem, et al . 2023. Worldwide AI ethics: A review of 200 guidelines and recommendations for AI governance. Patterns 4, 10 (2023), 100857. </div> <div class=\"ref\">[102] Junaid Qadir, Mohammad Qamar Islam, and Ala Al-Fuqaha. 2022. Toward accountable human-centered AI: rationale\nand promising directions. Journal of Information, Communication and Ethics in Society 20, 2 (2022), 329–342. </div>",
+                                    description: "  Transparency regarding AI’s environmental footprint and labour conditions is crucial (energy consumption, data centre emissions, hidden social costs such as data labelling and clickworking under exploitative conditions and reliance non precarious labour). Operating massive AI models comes at a high planetary cost, both regarding mining core materials on which our highly computerised society depend on, as well as training and using AI-systems that rely on massive electricity and cooling systems, contributing to global warming. <a href=\"#ref-12\">[12]</a> <a href=\"#ref-28\">[28]</a> <a href=\"#ref-102\">[102]</a>",
                                     angle: 6.5 * Math.PI / 12,
                                     r: 400
                                 },
@@ -346,7 +836,7 @@
                                     title: "Ethics & Fair Washing",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: " The divergence in how AI ethical principles are interpreted and implemented is due to the varying priorities and perspectives of different stakeholders, such as private companies, governments, and academic institutions, who have issued these guidelines. Some of them prioritise profit-making over genuine commitment to serving human interests. <div class=\"ref\">[64] Anna Jobin, Marcello Ienca, and Effy Vayena. 2019. The global landscape of AI ethics guidelines. Nature machine\nintelligence 1, 9 (2019), 389–399. </div> <div class=\"ref\">[102] Junaid Qadir, Mohammad Qamar Islam, and Ala Al-Fuqaha. 2022. Toward accountable human-centered AI: rationale\nand promising directions. Journal of Information, Communication and Ethics in Society 20, 2 (2022), 329–342.\n </div> ",
+                                    description: " The divergence in how AI ethical principles are interpreted and implemented is due to the varying priorities and perspectives of different stakeholders, such as private companies, governments, and academic institutions, who have issued these guidelines. Some of them prioritise profit-making over genuine commitment to serving human interests. <a href=\"#ref-64\">[64]</a> ",
                                     angle: 7 * Math.PI / 12,
                                     r: 400
                                 },
@@ -355,7 +845,7 @@
                                     title: "Authorship",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "Concerns include using copyrighted data—especially\nartistic content—without consent in generative AI, urging greater transparency in design to help affected artists assess data use. <br><div class=\"ref\">[44] Valentina Franzoni. 2023. From black box to glass box: advancing transparency in artificial intelligence systems\nfor ethical and trustworthy AI. In International Conference on Computational Science and Its Applications. Springer,\nAthens, Greece, 118–130. </div>",
+                                    description: "Concerns include using copyrighted data—especially artistic content—without consent in generative AI, urging greater transparency in design to help affected artists assess data use. <a href=\"#ref-44\">[44]</a>",
                                     angle: 7.5 * Math.PI / 12,
                                     r: 400
                                 },
@@ -364,7 +854,7 @@
                                     title: "Representativeness",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "Most guidelines originate from developed countries, leaving regions like Africa and South America underrepresented, raising concerns about inclusivity. <br><div class=\"ref\">[ 28]\nNicholas Kluge Corrêa, Camila Galvão, James William Santos, Carolina Del Pino, Edson Pontes Pinto, Camila Barbosa, Diogo Massmann, Rodrigo Mambrini, Luiza Galvão, Edmund Terem, et al . 2023. Worldwide AI ethics: A review of 200 guidelines and recommendations for AI governance. Patterns 4, 10 (2023), 100857. <br><div class=\"ref\"> [64]Anna Jobin, Marcello Ienca, and Effy Vayena. 2019. The global landscape of AI ethics guidelines. Nature machine\nintelligence 1, 9 (2019), 389–399. </div>",
+                                    description: "Most guidelines originate from developed countries, leaving regions like Africa and South America underrepresented, raising concerns about inclusivity. <a href=\"#ref-28\">[28]</a> <a href=\"#ref-64\">[64]</a>  ",
                                     angle: 8 * Math.PI / 12,
                                     r: 400
                                 }
@@ -376,7 +866,7 @@
                             color: "#00AAFE",
                             visible: false,
                             forceRight: true,
-                            description: "Cognitive biases in explanations have been investigated. XAI relationship to cognitive biases is twofold: biases can distort the design and interpretation of XAI methods during user studies, but XAI methods can help in leveraging or amplifying some cognitive biases in interpretation and reasoning. A core ethical dilemma emerges: should XAI systems exploit or safeguard users from cognitive biases? Research reveals the double-edged nature of behavioural science in AI, where psychological insights can either encourage better decision-making or manipulate and undermine autonomy, especially given the scanning of online behaviour and personal data stored and used for opinion manipulation or power and wealth accumulation. For ethical XAI development, it's crucial to differentiate between acceptable and problematic biases. This needs further empirical research into the risks and benefits of incorporating them. <br><div class=\"ref\">[13] Astrid Bertrand, Rafik Belloum, James R. Eagan, and Winston Maxwell. 2022. How Cognitive Biases Affect XAI-\nassisted Decision-making: A Systematic Review. In Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and\nSociety (Oxford, United Kingdom) (AIES ’22). Association for Computing Machinery, New York, NY, USA, 78–91.\nhttps://doi.org/10.1145/3514094.3534164. <div class=\"ref\">[74] Himabindu Lakkaraju and Osbert Bastani. 2020. How do I fool you?: Manipulating User Trust via Misleading Black Box Explanations. In Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society (New York, NY, USA) (AIES’20). Association for Computing Machinery, New York, NY, USA, 79–85. https://doi.org/10.1145/3375627.3375833.</div> <div class=\"ref\">[132] Shoshana Zuboff. 2023. The age of surveillance capitalism. In Social theory re-wired. Routledge, New York, 203–213.</div>",
+                            description: "Cognitive biases in explanations have been investigated. XAI relationship to cognitive biases is twofold: biases can distort the design and interpretation of XAI methods during user studies, but XAI methods can help in leveraging or amplifying some cognitive biases in interpretation and reasoning. A core ethical dilemma emerges: should XAI systems exploit or safeguard users from cognitive biases? Research reveals the double-edged nature of behavioural science in AI, where psychological insights can either encourage better decision-making or manipulate and undermine autonomy, especially given the scanning of online behaviour and personal data stored and used for opinion manipulation or power and wealth accumulation. For ethical XAI development, it's crucial to differentiate between acceptable and problematic biases. This needs further empirical research into the risks and benefits of incorporating them. <a href=\"#ref-13\">[13]</a>  <a href=\"#ref-74\">[74]</a>   <a href=\"#ref-132\">[132]</a>",
                             angle: 5.5 * Math.PI / 12,
                             r: 200,
                             children: [
@@ -386,7 +876,7 @@
                                             color: "#00AAFE",
                                             visible: false,
                                             forceRight: true,
-                                            description: "Underreliance, which occurs when users fail to fully trust or make use of the information provided by AI systems. This happens when AI explanations interfere with users personal objectives; when the explanation, from their perspective, complicates the task (resistance to change) or when low-fidelity explanations are presented to the user. <br><div class=\"ref\">[91] Sofia Morandini, Federico Fraboni, Gabriele Puzzo, Davide Giusino, Lucia Volpi, Hannah Brendel, Enzo Balatti, Marco De Angelis, Andrea De Cesarei, and Luca Pietrantoni. 2023. Examining the Nexus between Explainability of AI Systems and User’s Trust: A Preliminary Scoping Review. Proceedings http://ceur-ws. org ISSN 1613 (2023), 0073. </div>",
+                                            description: "Underreliance, which occurs when users fail to fully trust or make use of the information provided by AI systems. This happens when AI explanations interfere with users personal objectives; when the explanation, from their perspective, complicates the task (resistance to change) or when low-fidelity explanations are presented to the user. <a href=\"#ref-91\">[91]</a>",
                                             angle: 4.5 * Math.PI / 12,
                                             r: 375,
                                             children: [
@@ -395,8 +885,8 @@
                                                     title: "Underreliance Mitigation",
                                                     color: "#00AAFE",
                                                     visible: false,
-                                                    description: "To mitigate underreliance, research propose managing the types of predictions presented to users during their initial interactions with the system. For instance, highlighting the system's weaknesses or displaying negative outcomes early on, such as a malignant diagnosis, can significantly impact trust. Enabling to actively explore the data, or using gamification and personalisation can help. Finally, users should keep track of what has already been explained and Control the predictions users observe in the training phase. <br><div class=\"ref\">[13] Astrid Bertrand, Rafik Belloum, James R. Eagan, and Winston Maxwell. 2022. How Cognitive Biases Affect XAI-assisted Decision-making: A Systematic Review. In Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and Society (Oxford, United Kingdom) (AIES ’22). Association for Computing Machinery, New York, NY, USA, 78–91. https://doi.org/10.1145/3514094.3534164. </div> <div class=\"ref\">[103] Yao Rong, Tobias Leemann, Thai-Trang Nguyen, Lisa Fiedler, Peizhu Qian, Vaibhav Unhelkar, Tina Seidel, Gjergji Kasneci, and Enkelejda Kasneci. 2024. Towards Human-Centered Explainable AI: A Survey of User Studies for Model Explanations. IEEE Trans. Pattern Anal. Mach. Intell. 46, 4 (April 2024), 2104–2122. https://doi.org/10.1109/TPAMI.2023.3331846.</div>",
-                                                    angle: 4.2 * Math.PI / 12,
+                                                    description: "To mitigate underreliance, research propose managing the types of predictions presented to users during their initial interactions with the system. For instance, highlighting the system's weaknesses or displaying negative outcomes early on, such as a malignant diagnosis, can significantly impact trust. Enabling to actively explore the data, or using gamification and personalisation can help. Finally, users should keep track of what has already been explained and Control the predictions users observe in the training phase. <a href=\"#ref-13\">[13]</a>  <a href=\"#ref-103\">[103]</a>",
+                                                    angle: 4.3 * Math.PI / 12,
                                                     r: 500,
                                                 }]
                                         },
@@ -406,7 +896,7 @@
                                             color: "#00AAFE",
                                             visible: false,
                                             forceRight: true,
-                                            description: "Overreliance exacerbates confirmation bias and leads to over-trust in the model. This occurs when users concentrate solely on information that aligns with their initial beliefs; when they encounter aesthetically pleasing platforms or interaction processes ; when presented with longer explanations; or even when explanations are provided regardless\nof their accuracy or faithfulness - so-called placebic explanations. As a result, the simple fact of\nhaving an explanation is enough for increasing trust. However, a one-line explanation is not\nsufficient for understanding a model, nor does a detailed but simplified or false explanation that does not correlate to model performance. Illusion of Explanatory Depth: People think they know how complex concepts work in much more depth than they actually do. <br><div class=\"ref\">[46] Ella Glikson and Anita Williams Woolley. 2020. Human trust in artificial intelligence: Review of empirical research. Academy of Management Annals 14, 2 (2020), 627–660.</div>",
+                                            description: "Overreliance exacerbates confirmation bias and leads to over-trust in the model. This occurs when users concentrate solely on information that aligns with their initial beliefs; when they encounter aesthetically pleasing platforms or interaction processes ; when presented with longer explanations; or even when explanations are provided regardless of their accuracy or faithfulness - so-called placebic explanations. As a result, the simple fact of having an explanation is enough for increasing trust. However, a one-line explanation is not sufficient for understanding a model, nor does a detailed but simplified or false explanation that does not correlate to model performance. Illusion of Explanatory Depth: People think they know how complex concepts work in much more depth than they actually do. <a href=\"#ref-46\">[46]</a>",
                                             angle: 5 * Math.PI / 12,
                                             r: 375,
                                             children: [
@@ -415,7 +905,7 @@
                                                     title: "Overreliance Mitigation",
                                                     color: "#00AAFE",
                                                     visible: false,
-                                                    description: "Allowing users to explore and interact with data can help reduce overreliance on their own judgment, engage them in the process, resulting in increased satisfaction, understanding and trust. A caveat is that it could lead to underreliance of the XAI recommendations since they have to look for the information on their own. Findings indicate that even data scientists tend to over-rely on and misuse interpretability tools, with many participants struggling to accurately interpret the resulting visualisations. They too can be impacted, specifically by 'causal bias'. Experts can attribute causal relationships to saliency maps or attribute false narratives to SHAP explanations. Therefore, psychology is also important for expert users as experiments serve to understand expert users' use of interpretability tools. To address concerns about overreliance, the display of AI predictions and/or explanations could be delayed. This also helps minimising the negativity bias. It occurs when the drawbacks or limitations of a system are presented early on. If users are exposed to negative information too soon, they may form an unfavourable view of the system. Guiding these early interactions can help build trust in AI. Current prevalent techniques such as SHAP can therefore only provide limited interpretability. Moreover, the interpretability provided by SHAP is one that requires some sort of prior explanation on how such tools work and how to read and interpret their results, which does not make them suitable for non-expert users. Excessive dependence over some XAI methods and tools is therefore a concerning issue.  <br><div class=\"ref\">[13] Astrid Bertrand et al. 2022. How Cognitive Biases Affect XAI-assisted Decision-making: A Systematic Review. In Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and Society (Oxford, United Kingdom) (AIES ’22). Association for Computing Machinery, New York, NY, USA, 78–91.https://doi.org/10.1145/3514094.3534164. </div> <div class=\"ref\">[46] Ella Glikson and Anita Williams Woolley. 2020. Human trust in artificial intelligence: Review of empirical research.\nAcademy of Management Annals 14, 2 (2020), 627–660.</div> <div class=\"ref\">[92] Edoardo Mosca et al. 2022. SHAP-Based Explanation\nMethods: A Review for NLP Interpretability. In Proceedings of the 29th International Conference on Computational Linguistics, Nicoletta Calzolari et al. (Eds.).\nInternational Committee on Computational Linguistics, Gyeongju, Republic of Korea, 4593–4603. https://aclanthology.\norg/2022.coling-1.406/</div> <div class=\"ref\">[68] Harmanpreet Kaur, Harsha Nori, Samuel Jenkins, Rich Caruana, Hanna Wallach, and Jennifer Wortman Vaughan. 2020. Interpreting Interpretability: Understanding Data Scientists’ Use of Interpretability Tools for Machine Learning.\nIn Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems (Honolulu, HI, USA) (CHI ’20).\nAssociation for Computing Machinery, New York, NY, USA, 1–14. https://doi.org/10.1145/3313831.3376219.",
+                                                    description: "Allowing users to explore and interact with data can help reduce overreliance on their own judgment, engage them in the process, resulting in increased satisfaction, understanding and trust. A caveat is that it could lead to underreliance of the XAI recommendations since they have to look for the information on their own. Findings indicate that even data scientists tend to over-rely on and misuse interpretability tools, with many participants struggling to accurately interpret the resulting visualisations. They too can be impacted, specifically by 'causal bias'. Experts can attribute causal relationships to saliency maps or attribute false narratives to SHAP explanations. Therefore, psychology is also important for expert users as experiments serve to understand expert users' use of interpretability tools. To address concerns about overreliance, the display of AI predictions and/or explanations could be delayed. This also helps minimising the negativity bias. It occurs when the drawbacks or limitations of a system are presented early on. If users are exposed to negative information too soon, they may form an unfavourable view of the system. Guiding these early interactions can help build trust in AI. Current prevalent techniques such as SHAP can therefore only provide limited interpretability. Moreover, the interpretability provided by SHAP is one that requires some sort of prior explanation on how such tools work and how to read and interpret their results, which does not make them suitable for non-expert users. Excessive dependence over some XAI methods and tools is therefore a concerning issue. <a href=\"#ref-13\">[13]</a>  <a href=\"#ref-46\">[46]</a>  <a href=\"#ref-68\">[68]</a> <a href=\"#ref-92\">[92]</a>",
                                                     angle: 4.8 * Math.PI / 12,
                                                     r: 500,
                                                 }]
@@ -426,7 +916,7 @@
                                             color: "#00AAFE",
                                             visible: false,
                                             forceRight: true,
-                                            description: "Misapplying the explanation, which can lead to information overload or incomprehension, when referring to complex concepts (counterfactual methods, logical operators, confidence scores, metrics, statistics). It can also be salient with expert users when there is ambiguity in what exactly are those metrics referring to. <br><div class=\"ref\">[13]  Astrid Bertrand, Rafik Belloum, James R. Eagan, and Winston Maxwell. 2022. How Cognitive Biases Affect XAI-assisted Decision-making: A Systematic Review. In Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and Society (Oxford, United Kingdom) (AIES ’22). Association for Computing Machinery, New York, NY, USA, 78–91.\nhttps://doi.org/10.1145/3514094.3534164. <br><div class=\"ref\">[86] Tim Miller. 2019. Explanation in artificial intelligence: Insights from the social sciences. Artificial intelligence 267\n(2019), 1–38.</div>",
+                                            description: "Misapplying the explanation, which can lead to information overload or incomprehension, when referring to complex concepts (counterfactual methods, logical operators, confidence scores, metrics, statistics). It can also be salient with expert users when there is ambiguity in what exactly are those metrics referring to. <a href=\"#ref-13\">[13]</a>  <a href=\"#ref-86\">[86]</a>",
                                             angle: 5.5 * Math.PI / 12,
                                             r: 375,
                                             children: [
@@ -435,7 +925,7 @@
                                                     title: "Misapplying Mitigation",
                                                     color: "#00AAFE",
                                                     visible: false,
-                                                    description: "Develop Customised Explanations: Develop XAI methods that adapt explanations to user's objectives, knowledge level, and individual requirements. This strategy effectively addresses users' cognitive biases, ensuring the explanation remain pertinent and easy to understand. <br><div class=\"ref\">[14] Astrid Bertrand, Tiphaine Viard, Rafik Belloum, James R. Eagan, and Winston Maxwell. 2023. On Selective, Mutable and Dialogic XAI: a Review of What Users Say about Different Types of Interactive Explanations. In Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems (Hamburg, Germany) (CHI ’23). Association for Computing Machinery, New York, NY, USA, Article 411, 21 pages. https://doi.org/10.1145/3544548.3581314. <div class=\"ref\">[86] Tim Miller. 2019. Explanation in artificial intelligence: Insights from the social sciences. Artificial intelligence 267\n(2019), 1–38.</div>",
+                                                    description: "Develop Customised Explanations: Develop XAI methods that adapt explanations to user's objectives, knowledge level, and individual requirements. This strategy effectively addresses users' cognitive biases, ensuring the explanation remain pertinent and easy to understand. <a href=\"#ref-14\">[14]</a> <a href=\"#ref-86\">[86]</a>",
                                                     angle: 5.2 * Math.PI / 12,
                                                     r: 500,
                                                 }]
@@ -446,7 +936,7 @@
                                             color: "#00AAFE",
                                             visible: false,
                                             forceRight: true,
-                                            description: "The mere presence of an explanation, regardless of its quality or relevance,\ncan significantly increase user trust. Businesses can exploit this bias through practices like\nethics washing (See item on ethics), where explanations are provided primarily to boost emotional\ntrust and drive product acceptance, often lacking transparency about the model’s actual behaviour.\nPersuasive systems and transparent systems are not the same thing. Addressing these deceptive practices is critical.\n<br><div class=\"ref\">[13]  Astrid Bertrand, Rafik Belloum, James R. Eagan, and Winston Maxwell. 2022. How Cognitive Biases Affect XAI-\nassisted Decision-making: A Systematic Review. In Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and\nSociety (Oxford, United Kingdom) (AIES ’22). Association for Computing Machinery, New York, NY, USA, 78–91.</div><div class=\"ref\">[55] Ambreen Hanif, Amin Beheshti, Boualem Benatallah, Xuyun Zhang, Habiba, EuJin Foo, Nasrin Shabani, and Maryam\nShahabikargar. 2023. A comprehensive survey of explainable artificial intelligence (xai) methods: Exploring trans-\nparency and interpretability. In International Conference on Web Information Systems Engineering. Springer, Melbourne,\nVIC, Australia, 915–925.</div>\n",
+                                            description: "The mere presence of an explanation, regardless of its quality or relevance,\ncan significantly increase user trust. Businesses can exploit this bias through practices like\nethics washing (See item on ethics), where explanations are provided primarily to boost emotional\ntrust and drive product acceptance, often lacking transparency about the model’s actual behaviour.\nPersuasive systems and transparent systems are not the same thing. Addressing these deceptive practices is critical. <a href=\"#ref-13\">[13]</a> <a href=\"#ref-55\">[55]</a>",
                                             angle: 6 * Math.PI / 12,
                                             r: 375,
                                             children: [
@@ -455,8 +945,8 @@
                                                     title: "Mere Exposure Bias Mitigation",
                                                     color: "#00AAFE",
                                                     visible: false,
-                                                    description: "This can also lead to Overreliance. To counterbalance Mere Exposure biases, \nDelay showing the AI’s prediction and/or explanations; Give arguments for non-predicted outcomes and Use cognitive forcing functions\nand friction.\nUse cognitive forcing functions and friction. The combination of cognitive forcing functions and friction-based strategies  address users' lack of curiosity. Cognitive forcing functions, such as making users wait for or actively request explanations, and friction-based methods, like requiring a user to confirm they don't want an explanation, both successfully reduced unjustified trust in the system. However, they also had the side effect of decreasing user satisfaction. <div class=\"ref\">[13]  Astrid Bertrand, Rafik Belloum, James R. Eagan, and Winston Maxwell. 2022. How Cognitive Biases Affect XAI-assisted Decision-making: A Systematic Review. In Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and\nSociety (Oxford, United Kingdom) (AIES ’22). Association for Computing Machinery, New York, NY, USA, 78–91.</div>",
-                                                    angle: 6.3 * Math.PI / 12,
+                                                    description: "This can also lead to Overreliance. To counterbalance Mere Exposure biases, \nDelay showing the AI’s prediction and/or explanations; Give arguments for non-predicted outcomes and Use cognitive forcing functions\nand friction.\nUse cognitive forcing functions and friction. The combination of cognitive forcing functions and friction-based strategies  address users' lack of curiosity. Cognitive forcing functions, such as making users wait for or actively request explanations, and friction-based methods, like requiring a user to confirm they don't want an explanation, both successfully reduced unjustified trust in the system. However, they also had the side effect of decreasing user satisfaction. <a href=\"#ref-13\">[13]</a>",
+                                                    angle: 5.8 * Math.PI / 12,
                                                     r: 500,
                                                 }]
                                         },
@@ -466,7 +956,7 @@
                                             color: "#00AAFE",
                                             visible: false,
                                             forceRight: true,
-                                            description: "Misattributed trust or tendency to believe persuasive claims unsupported by evidence are  of high interest to our research as they appear to be most salient in natural language explanations.\nEmotional response to AI, which seems to be a growing subject of interest, posits that 'user trust in AI positively correlates with their perceived understanding of the algorithm (also leading to Overreliance).  There is a distinction between perceived trust and actual trust. \nThis distinction between <span class=\"blue-text\">cognitive</span>  and <span class=\"blue-text\">emotional trust</span> in AI is fundamental. <br><span class=\"blue-text\">Cognitive trust</span>  refers to users' rational acceptance, perception of value, and willingness to use AI (i.e. the forms of trust described so far). <br><span class=\"blue-text\">Emotional trust</span> stems from users' feelings about an AI's behaviour or appearance, influencing their views on its reliability, likeability, and overall trustworthiness. Anthropomorphic traits or interactive AI actions can evoke strong emotional responses, from excitement to fear, directly impacting trust levels. The AI's representation (e.g., robot, virtual agent) also plays a crucial role, with negative emotional reactions potentially leading to distrust or abandonment.\n<br><div class=\"ref\">[46] Ella Glikson and Anita Williams Woolley. 2020. Human trust in artificial intelligence: Review of empirical research.\nAcademy of Management Annals 14, 2 (2020), 627–6.</div>",
+                                            description: "Misattributed trust or tendency to believe persuasive claims unsupported by evidence are  of high interest to our research as they appear to be most salient in natural language explanations. Emotional response to AI, which seems to be a growing subject of interest, posits that 'user trust in AI positively correlates with their perceived understanding of the algorithm (also leading to Overreliance).  There is a distinction between perceived trust and actual trust. \nThis distinction between <span class=\"blue-text\">cognitive</span>  and <span class=\"blue-text\">emotional trust</span> in AI is fundamental. <br><span class=\"blue-text\">Cognitive trust</span>  refers to users' rational acceptance, perception of value, and willingness to use AI (i.e. the forms of trust described so far). <br><span class=\"blue-text\">Emotional trust</span> stems from users' feelings about an AI's behaviour or appearance, influencing their views on its reliability, likeability, and overall trustworthiness. Anthropomorphic traits or interactive AI actions can evoke strong emotional responses, from excitement to fear, directly impacting trust levels. The AI's representation (e.g., robot, virtual agent) also plays a crucial role, with negative emotional reactions potentially leading to distrust or abandonment. <a href=\"#ref-46\">[46]</a>",
                                             angle: 6.5 * Math.PI / 12,
                                             r: 375,
                                             children: [
@@ -475,8 +965,8 @@
                                                     title: "Misattributed Trust Mitigation",
                                                     color: "#00AAFE",
                                                     visible: false,
-                                                    description: "To overcome misattributed trust or tendency to believe claims unsupported evidence, arguments should be given for non-predicted outcomes. Including uncertainty estimates is also a key feature to enhance trust. \nHowever, a less probable but more persuasive explanation might be favoured to encourage positive action, potentially prioritising building emotional trust over purely cognitive comprehension. This is closely linked to what leads to ethics washing, where the emotion is used as an lever to not actually explain or investigate the ethical dilemmas of the model. As stated in the introduction of the Cognitive Science item, this discipline poses a core ethical dilemma: should XAI systems exploit or safeguard users from cognitive biases? When used to foster a better understanding and acceptance of AI products, emotional trust can be beneficial. However, it also presents risks, particularly when these products do not serve the greater good. The provided human-centred metrics can be used to further assess and mitigate these risks.\n\n<br><div class=\"ref\">[13]  Astrid Bertrand, Rafik Belloum, James R. Eagan, and Winston Maxwell. 2022. How Cognitive Biases Affect XAI-\nassisted Decision-making: A Systematic Review. In Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and\nSociety (Oxford, United Kingdom) (AIES ’22). Association for Computing Machinery, New York, NY, USA, 78–91.\nhttps://doi.org/10.1145/3514094.3534164.</div>",
-                                                    angle: 6.8 * Math.PI / 12,
+                                                    description: "To overcome misattributed trust or tendency to believe claims unsupported evidence, arguments should be given for non-predicted outcomes. Including uncertainty estimates is also a key feature to enhance trust. However, a less probable but more persuasive explanation might be favoured to encourage positive action, potentially prioritising building emotional trust over purely cognitive comprehension. This is closely linked to what leads to ethics washing, where the emotion is used as an lever to not actually explain or investigate the ethical dilemmas of the model. As stated in the introduction of the Cognitive Science item, this discipline poses a core ethical dilemma: should XAI systems exploit or safeguard users from cognitive biases? When used to foster a better understanding and acceptance of AI products, emotional trust can be beneficial. However, it also presents risks, particularly when these products do not serve the greater good. The provided human-centred metrics can be used to further assess and mitigate these risks. <a href=\"#ref-13\">[13]</a>",
+                                                    angle: 6.3 * Math.PI / 12,
                                                     r: 500,
                                                     children: []
                                                 }
@@ -490,7 +980,7 @@
                             color: "#00AAFE",
                             visible: false,
                             forceRight: true,
-                            description: "Social explanations are a human-centered approach to Explainable AI (XAI) that moves beyond simply showing the inner workings of a model. a good explanation is not just a report of causes but is a social and conversational process. <br><div class=\"ref\">[86] Tim Miller. 2019. Explanation in artificial intelligence: Insights from the social sciences. Artificial intelligence 267(2019), 1–38.</div> ",
+                            description: "Social explanations are a human-centered approach to Explainable AI (XAI) that moves beyond simply showing the inner workings of a model. a good explanation is not just a report of causes but is a social and conversational process. <a href=\"#ref-86\">[86]</a>",
                             angle: 6.5 * Math.PI / 12,
                             r: 200,
                             children: [
@@ -499,7 +989,7 @@
                                     title: "Explanations are naturally contrastive",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "People want to know why one event happened\ninstead of another. XAI systems should highlight the differences between actual outcome and\npossible alternatives. \nHuman explanations are not provided per se but rather in comparison to other events\nthat did not happen. For example, when classifying images, a user will not ask why this image has\nbeen classified as a dog, but rather why this image has been classified as a dog instead of a cat. It follows that people frequently expect AI systems to explain decisions in a manner similar to how\nhumans justify their actions\nIt is recommended to explain why a specific output was generated \textit{in response to} other possible outputs that could have been generated.\n<br><div class=\"ref\">[86] Tim Miller. 2019. Explanation in artificial intelligence: Insights from the social sciences. Artificial intelligence 267(2019), 1–38.</div>",
+                                    description: "People want to know why one event happened instead of another. XAI systems should highlight the differences between actual outcome and possible alternatives. Human explanations are not provided per se but rather in comparison to other events that did not happen. For example, when classifying images, a user will not ask why this image has been classified as a dog, but rather why this image has been classified as a dog instead of a cat. It follows that people frequently expect AI systems to explain decisions in a manner similar to how humans justify their actions It is recommended to explain why a specific output was generated <b>in response to</b> other possible outputs that could have been generated. <a href=\"#ref-86\">[86]</a>",
                                     angle: 5.5 * Math.PI / 12,
                                     r: 360
                                 },
@@ -508,7 +998,7 @@
                                     title: "User seek simpler explanations",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "When people explain events, they tend to select few causes from a wide range of possibilities,\noften influenced by cognitive biases. XAI systems need to recognise that users may not seek a full causal explanation but rather a simplified one that matches their expectations or biases\n<br><div class=\"ref\">[86] Tim Miller. 2019. Explanation in artificial intelligence: Insights from the social sciences. Artificial intelligence 267\n(2019), 1–38.</div>",
+                                    description: "When people explain events, they tend to select few causes from a wide range of possibilities, often influenced by cognitive biases. XAI systems need to recognise that users may not seek a full causal explanation but rather a simplified one that matches their expectations or biases. <a href=\"#ref-86\">[86]</a>",
                                     angle: 6 * Math.PI / 12,
                                     r: 360
                                 },
@@ -517,7 +1007,7 @@
                                     title: "Causal reasoning over statistics",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "People generally favour causal reasoning explanations and causal connections over probabilistic or statistical ones. XAI systems should prioritise emphasising causes over probabilities.As a phrasing example, do not say The model’s output was X because given its input data and its internal structure and reasoning there is a 90 percent chance that X comes out. Instead, prefer the following assertion: The model’s output was X because it has such and such characteristics, which is a defining characteristic of X in our dataset. Y and Z have similar characteristics but slightly differ with X which is why the model did not predict them as accurately. <br><div class=\"ref\">[86] Tim Miller. 2019. Explanation in artificial intelligence: Insights from the social sciences. Artificial intelligence 267 (2019), 1–38.</div>",
+                                    description: "People generally favour causal reasoning explanations and causal connections over probabilistic or statistical ones. XAI systems should prioritise emphasising causes over probabilities.As a phrasing example, do not say The model’s output was X because given its input data and its internal structure and reasoning there is a 90 percent chance that X comes out. Instead, prefer the following assertion: The model’s output was X because it has such and such characteristics, which is a defining characteristic of X in our dataset. Y and Z have similar characteristics but slightly differ with X which is why the model did not predict them as accurately. <a href=\"#ref-86\">[86]</a>",
                                     angle: 6.5 * Math.PI / 12,
                                     r: 360
                                 },
@@ -526,7 +1016,7 @@
                                     title: "Explanations are social",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "Explanations are part of social interactions, shaped by the explainer’s understanding\nof the explainee’s knowledge and beliefs, as well as the context in which the explanation occurs.\nXAI systems should facilitate a dialogue, engaging users into explanations tailored to their level of\nunderstanding and context. Provide follow-up questions or include more interactivity in the design of the explanation;  \n. This context is determined by the current stage of the conversation\nin relation to the goal or sub-goal hierarchy; the specific focus of the explanation, such as which\nparts of a device are being discussed; and beliefs about the user’s level of understanding. <br><div class=\"ref\">[86] Tim Miller. 2019. Explanation in artificial intelligence: Insights from the social sciences. Artificial intelligence 267\n(2019), 1–38.</div><div class=\"ref\">[117] Ramya Srinivasan and Ajay Chander. 2021. Explanation perspectives from the cognitive sciences—a survey. In\nProceedings of the Twenty-Ninth International Joint Conference on Artificial Intelligence (IJCAI’20). IJCAI, Yokohama,\nYokohama, Japan, Article 670, 7 pages.</div>",
+                                    description: "Explanations are part of social interactions, shaped by the explainer’s understanding of the explainee’s knowledge and beliefs, as well as the context in which the explanation occurs. XAI systems should facilitate a dialogue, engaging users into explanations tailored to their level of understanding and context. Provide follow-up questions or include more interactivity in the design of the explanation. This context is determined by the current stage of the conversation in relation to the goal or sub-goal hierarchy; the specific focus of the explanation, such as which parts of a device are being discussed; and beliefs about the user’s level of understanding. <a href=\"#ref-86\">[86]</a>  <a href=\"#ref-117\">[117]</a>",
                                     angle: 7 * Math.PI / 12,
                                     r: 360
                                 },
@@ -539,7 +1029,7 @@
                     title: "Experts",
                     color: "#7C09B3",
                     visible: true,
-                    description: "Experts users have a specialised grasp of Artificial Intelligence and its conceptual and technical groundings, including ability to develop and implement AI solutions. These could for example include: algorithmic engineering, or domain-experts like a medical doctors using AI to assist his decisions. \nThey usually rely on and develop Functionally Grounded Explanations or Application-Grounded Explanations. They can also refer to Human-Grounded explanations to test their solutions with User Experience characteristics or adapt them to non-experts. Functionally-grounded explanations are evaluated using formal properties or metrics that do not require human involvement. They rely on mathematical or algorithmic criteria to assess the quality of explanations.\nApplication-Grounded Explanations are evaluated in the context of a specific real-world application, with domain experts assessing the utility of the explanations for actual decision-making tasks, focusing on whether they improve target application outcomes. This approach considers the end-to-end impact of explanations in the application environment.\nHowever, it's rarely used in NLP interpretability, particularly with LLMs. Researchers often prefer general methods (functionally-grounded or human-grounded) because language is seen as general knowledge, making domain experts seem unnecessary and saving time. Despite this, application-grounded evaluation could be highly valuable for specialised texts like legal corpora. The term Domain-experts also exists. It refers to users that do not have the technical knowledge on AI to understand its decisions and functioning, but are nonetheless experts in the domain of application where an AI system is used, such as a medical doctor using AI to assist his decisions.",
+                    description: "Experts users have a specialised grasp of Artificial Intelligence and its conceptual and technical groundings, including ability to develop and implement AI solutions. These could for example include: algorithmic engineering, or domain-experts like a medical doctors using AI to assist his decisions.  They usually rely on and develop Functionally Grounded Explanations or Application-Grounded Explanations. They can also refer to Human-Grounded explanations to test their solutions with User Experience characteristics or adapt them to non-experts. Functionally-grounded explanations are evaluated using formal properties or metrics that do not require human involvement. They rely on mathematical or algorithmic criteria to assess the quality of explanations. Application-Grounded Explanations are evaluated in the context of a specific real-world application, with domain experts assessing the utility of the explanations for actual decision-making tasks, focusing on whether they improve target application outcomes. This approach considers the end-to-end impact of explanations in the application environment. However, it's rarely used in NLP interpretability, particularly with LLMs. Researchers often prefer general methods (functionally-grounded or human-grounded) because language is seen as general knowledge, making domain experts seem unnecessary and saving time. Despite this, application-grounded evaluation could be highly valuable for specialised texts like legal corpora. The term Domain-experts also exists. It refers to users that do not have the technical knowledge on AI to understand its decisions and functioning, but are nonetheless experts in the domain of application where an AI system is used, such as a medical doctor using AI to assist his decisions.",
                     angle: Math.PI,
                     r: 100,
                     children: [
@@ -548,7 +1038,7 @@
                             title: "Practical Recommendations",
                             color: "#ff0faa",
                             visible: false,
-                            description: "It is crucial to incorporate functionally-grounded metrics to validate the explanation process, ensuring faithfulness and completeness while maintaining sparsity. This is especially important in NLP, where the possible outputs of a model, such as in text generation tasks, can be extensive.\n\nWhen using specific explanation methods such as example-based approaches, selecting the appropriate metrics is essential to effectively evaluate the explanations produced.\n\nAttribution-based and example-based methods, for instance, complement each other effectively and can be used together to highlight the reasons behind different outputs.\n\nIn specialised fields such as legal, medical, or financial domains, application-grounded evaluations are particularly valuable, especially in high-risk scenarios. Involving domain experts in these cases ensures that explanations are aligned with real-world needs and can improve decision-making.\n\ncombining functionally-grounded, human-grounded, and application-grounded evaluations is strongly recommended to provide a well-rounded and reliable validation of the explanation process.\n",
+                            description: "It is crucial to incorporate functionally-grounded metrics to validate the explanation process, ensuring faithfulness and completeness while maintaining sparsity. This is especially important in NLP, where the possible outputs of a model, such as in text generation tasks, can be extensive. When using specific explanation methods such as example-based approaches, selecting the appropriate metrics is essential to effectively evaluate the explanations produced. Attribution-based and example-based methods, for instance, complement each other effectively and can be used together to highlight the reasons behind different outputs. In specialised fields such as legal, medical, or financial domains, application-grounded evaluations are particularly valuable, especially in high-risk scenarios. Involving domain experts in these cases ensures that explanations are aligned with real-world needs and can improve decision-making. Combining functionally-grounded, human-grounded, and application-grounded evaluations is strongly recommended to provide a well-rounded and reliable validation of the explanation process.",
                             angle: -1 * Math.PI / 12,
                             r: 200,
                         },
@@ -575,7 +1065,7 @@
                             title: "Actionability",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Assess whether the changes made to features during the explanation process are feasible and the extent to which their new values are possible. It is particularly useful in a counterfactual explanation. <br><div class=\"ref\">[123] Berk Ustun, Alexander Spangher, and Yang Liu. 2019. Actionable Recourse in Linear Classification. In Proceedings of\nthe Conference on Fairness, Accountability, and Transparency (Atlanta, GA, USA) (FAT* ’19). Association for Computing\nMachinery, New York, NY, USA, 10–19. https://doi.org/10.1145/3287560.3287566</div> <div class=\"ref\">[16] Francesco Bodria, Fosca Giannotti, Riccardo Guidotti, Francesca Naretto, Dino Pedreschi, and Salvatore Rinzivillo.\n2023. Benchmarking and survey of explanation methods for black box models. Data Mining and Knowledge Discovery\n37, 5 (2023), 1719–1778.</div>",
+                            description: "Assess whether the changes made to features during the explanation process are feasible and the extent to which their new values are possible. It is particularly useful in a counterfactual explanation. <a href=\"#ref-123\">[123]</a>  <a href=\"#ref-16\">[16]</a>",
                             angle: -2.5 * Math.PI / 12,
                             r: 200,
                         },
@@ -584,7 +1074,7 @@
                             title: "Causality",
                             color: "#7C09B3",
                             visible: false,
-                            description: " Causality is closely related to Deletion, Insertion and Monotonicity features described by [16]. They assess how deletions, insertions and successive insertion (monotonicity) affect the performance of the model. In other words, causality controls the causal effect from features to prediction. <br><div class=\"ref\">[16] Francesco Bodria, Fosca Giannotti, Riccardo Guidotti, Francesca Naretto, Dino Pedreschi, and Salvatore Rinzivillo.\n2023. Benchmarking and survey of explanation methods for black box models. Data Mining and Knowledge Discovery\n37, 5 (2023), 1719–1778.</div> <div class=\"ref\">[48] Yash Goyal, Amir Feder, Uri Shalit, and Been Kim. 2019. Explaining Classifiers with Causal Concept Effect (CaCE).\narXiv e-prints (2019), arXiv–1907.</div>",
+                            description: " Causality is closely related to Deletion, Insertion and Monotonicity features described by [16]. They assess how deletions, insertions and successive insertion (monotonicity) affect the performance of the model. In other words, causality controls the causal effect from features to prediction. <a href=\"#ref-16\">[16]</a>  <a href=\"#ref-48\">[48]</a>",
                             angle: -3 * Math.PI / 12,
                             r: 200,
                         },
@@ -593,7 +1083,7 @@
                             title: "Consistency",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Consistency has multiple definitions in XAI context. Lundberg and Lee [81] describe it as a property that states that if the attribution contribution of a feature regarding other features increases or stays the same, its attribution contribution should not decrease. This definition is specific to XAI methods that\ncompute attribution for features and ensembles of features. Consistency can also be described in\na more general way, as how two explanation methods produce similar attribution contributions for the same data. <br><div class=\"ref\">[62] Tiffany TY Hsu and Owen HT Lu. 2024. Explore the Explanation and Consistency of Explainable AI in the LBLS Data\nSet.. In LAK Workshops. CEUR WOrkshops Proceedings, Kyoto, Japan, 64–72.</div> <div class=\"ref\">[81] Scott M. Lundberg and Su-In Lee. 2017. A unified approach to interpreting model predictions. In Proceedings of\nthe 31st International Conference on Neural Information Processing Systems (Long Beach, California, USA) (NIPS’17). Curran Associates Inc., Red Hook, NY, USA, 4768–4777.</div>",
+                            description: "Consistency has multiple definitions in XAI context. Lundberg and Lee [81] describe it as a property that states that if the attribution contribution of a feature regarding other features increases or stays the same, its attribution contribution should not decrease. This definition is specific to XAI methods that\ncompute attribution for features and ensembles of features. Consistency can also be described in\na more general way, as how two explanation methods produce similar attribution contributions for the same data. <a href=\"#ref-62\">[62]</a> <a href=\"#ref-81\">[81]</a>",
                             angle: -3.5 * Math.PI / 12,
                             r: 200,
                         },
@@ -602,7 +1092,7 @@
                             title: "Completeness",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Completeness, in a general context, can be seen as how the different\ncomponents of an explanation are sufficient to explain the model’s prediction. It can also be seen, in some contexts, as how the sum of the attributions given to the different components of\nan explanation is equal to the overall attribution to a prediction. Finally, it can also be seen\nconcerning the training data as how the dataset captures all the information that would have been captured if all the data available had been gathered. <br><div class=\"ref\">[18] Nadia Burkart and Marco F Huber. 2021. A survey on the explainability of supervised machine learning. Journal of Artificial Intelligence Research 70 (2021), 245–317.</div> <div class=\"ref\">[83] Andreas Madsen, Siva Reddy, and Sarath Chandar. 2022. Post-hoc interpretability for neural nlp: A survey. Comput.\nSurveys 55, 8 (2022), 1–42.</div> <div class=\"ref\">[92] Edoardo Mosca, Ferenc Szigeti, Stella Tragianni, Daniel Gallagher, and Georg Groh. 2022. SHAP-Based Explanation\nMethods: A Review for NLP Interpretability. In Proceedings of the 29th International Conference on Computational\nLinguistics, Nicoletta Calzolari, Chu-Ren Huang, Hansaem Kim, James Pustejovsky, Leo Wanner, Key-Sun Choi,\nPum-Mo Ryu, Hsin-Hsi Chen, Lucia Donatelli, Heng Ji, Sadao Kurohashi, Patrizia Paggio, Nianwen Xue, Seokhwan\nKim, Younggyun Hahm, Zhong He, Tony Kyungil Lee, Enrico Santus, Francis Bond, and Seung-Hoon Na (Eds.).\nInternational Committee on Computational Linguistics, Gyeongju, Republic of Korea, 4593–4603. https://aclanthology.\norg/2022.coling-1.406/</div>",
+                            description: "Completeness, in a general context, can be seen as how the different\ncomponents of an explanation are sufficient to explain the model’s prediction. It can also be seen, in some contexts, as how the sum of the attributions given to the different components of\nan explanation is equal to the overall attribution to a prediction. Finally, it can also be seen\nconcerning the training data as how the dataset captures all the information that would have been captured if all the data available had been gathered. <a href=\"#ref-18\">[18]</a>  <a href=\"#ref-83\">[83]</a> <a href=\"#ref-92\">[92]</a>",
                             angle: -4 * Math.PI / 12,
                             r: 200,
                         },
@@ -611,7 +1101,7 @@
                             title: "Diversity",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Diversity is a property of a set of explanations to ensure that the explanations cover many different cases to explain the functioning of the model in a wide variety of cases. <br><div class=\"ref\">[16] Francesco Bodria, Fosca Giannotti, Riccardo Guidotti, Francesca Naretto, Dino Pedreschi, and Salvatore Rinzivillo. 2023. Benchmarking and survey of explanation methods for black box models. Data Mining and Knowledge Discovery\n37, 5 (2023), 1719–1778.</div> <div class=\"ref\">[66] Amir-Hossein Karimi, Gilles Barthe, Borja Balle, and Isabel Valera. 2020. Model-Agnostic Counterfactual Explanations\nfor Consequential Decisions. In Proceedings of the Twenty Third International Conference on Artificial Intelligence and Statistics (Proceedings of Machine Learning Research, Vol. 108), Silvia Chiappa and Roberto Calandra (Eds.). PMLR,\nOnline, 895–905. https://proceedings.mlr.press/v108/karimi20a.html</div> <div class=\"ref\">[94] Ramaravind K. Mothilal, Amit Sharma, and Chenhao Tan. 2020. Explaining machine learning classifiers through\ndiverse counterfactual explanations. In Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency\n(Barcelona, Spain) (FAT* ’20). Association for Computing Machinery, New York, NY, USA, 607–617. https://doi.org/\n10.1145/3351095.3372850</div>",
+                            description: "Diversity is a property of a set of explanations to ensure that the explanations cover many different cases to explain the functioning of the model in a wide variety of cases. <a href=\"#ref-16\">[16]</a> <a href=\"#ref-66\">[66]</a>  <a href=\"#ref-94\">[94]</a>",
                             angle: -4.5 * Math.PI / 12,
                             r: 200,
                         },
@@ -620,7 +1110,7 @@
                             title: "Fidelity/Faithfulness",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Fidelity (or Faithfulness  is a metric of\nhow well a surrogate model 𝑓 replicates the behaviour of a model 𝑏. The implementation of fidelity\nvaries based on the type of explanation being analysed  but this measure is specific to methods\nthat produce a surrogate model to explain the functioning of a model. <br><div class=\"ref\">[5] Sajid Ali, Tamer Abuhmed, Shaker El-Sappagh, Khan Muhammad, Jose M Alonso-Moral, Roberto Confalonieri,\nRiccardo Guidotti, Javier Del Ser, Natalia Díaz-Rodríguez, and Francisco Herrera. 2023. Explainable Artificial\nIntelligence (XAI): What we know and what is left to attain Trustworthy Artificial Intelligence. Information fusion 99 (2023), 101805. </div> <div class=\"ref\">[65] Md Abdul Kadir, Amir Mosavi, and Daniel Sonntag. 2023. Evaluation Metrics for XAI: A Review, Taxonomy, and\nPractical Applications. In 2023 IEEE 27th International Conference on Intelligent Engineering Systems (INES). IEEE,\nNairobi, Kenya, 000111–000124. https://doi.org/10.1109/INES59282.2023.10297629. </div>",
+                            description: "Fidelity (or Faithfulness  is a metric of how well a surrogate model 𝑓 replicates the behaviour of a model 𝑏. The implementation of fidelity varies based on the type of explanation being analysed  but this measure is specific to methods that produce a surrogate model to explain the functioning of a model. <a href=\"#ref-5\">[5]</a> <a href=\"#ref-65\">[65]</a>",
                             angle: -5 * Math.PI / 12,
                             r: 200,
                         },
@@ -629,7 +1119,7 @@
                             title: "Feasibility",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Feasibility is really related\nto the actionability property  and is a property about describing if the features chosen in\nan explanation process would have been feasible in the natural world. <br><div class=\"ref\">[94] Ramaravind K. Mothilal, Amit Sharma, and Chenhao Tan. 2020. Explaining machine learning classifiers through\ndiverse counterfactual explanations. In Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency\n(Barcelona, Spain) (FAT* ’20). Association for Computing Machinery, New York, NY, USA, 607–617. https://doi.org/\n10.1145/3351095.3372850. </div> <div class=\"ref\">[123] Berk Ustun, Alexander Spangher, and Yang Liu. 2019. Actionable Recourse in Linear Classification. In Proceedings of\nthe Conference on Fairness, Accountability, and Transparency (Atlanta, GA, USA) (FAT* ’19). Association for Computing\nMachinery, New York, NY, USA, 10–19. https://doi.org/10.1145/3287560.3287566. </div>",
+                            description: "Feasibility is really related to the actionability property  and is a property about describing if the features chosen in an explanation process would have been feasible in the natural world. <a href=\"#ref-94\">[94]</a>  <a href=\"#ref-123\">[123]</a>",
                             angle: -5.5 * Math.PI / 12,
                             r: 200,
                         },
@@ -638,7 +1128,7 @@
                             title: "Generality",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Generality relates to the\nversatility and applicability of explanation methods across different datasets. A generalisable XAI method can be applied to a wide range of datasets of similar nature and still produce meaningful explanations. High generality ensures that the XAI method is not limited to specific contexts,\nmaking it broadly useful in various applications. <br><div class=\"ref\">[5] Sajid Ali, Tamer Abuhmed, Shaker El-Sappagh, Khan Muhammad, Jose M Alonso-Moral, Roberto Confalonieri,\nRiccardo Guidotti, Javier Del Ser, Natalia Díaz-Rodríguez, and Francisco Herrera. 2023. Explainable Artificial\nIntelligence (XAI): What we know and what is left to attain Trustworthy Artificial Intelligence. Information fusion 99\n(2023), 101805.</div>",
+                            description: "Generality relates to the versatility and applicability of explanation methods across different datasets. A generalisable XAI method can be applied to a wide range of datasets of similar nature and still produce meaningful explanations. High generality ensures that the XAI method is not limited to specific contexts, making it broadly useful in various applications. <a href=\"#ref-5\">[5]</a>",
                             angle: -6 * Math.PI / 12,
                             r: 200,
                         },
@@ -656,7 +1146,7 @@
                             title: "Monotonicity",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Monotonicity evaluates, by progressively adding\neach attribute in order of increasing importance, the model’s performance. Performance should\nincrease monotonically as features are added. The features should be interpretable and allow users\nto understand what is important for the prediction. <br><div class=\"ref\">[65] Md Abdul Kadir, Amir Mosavi, and Daniel Sonntag. 2023. Evaluation Metrics for XAI: A Review, Taxonomy, and\nPractical Applications. In 2023 IEEE 27th International Conference on Intelligent Engineering Systems (INES). IEEE,\nNairobi, Kenya, 000111–000124. https://doi.org/10.1109/INES59282.2023.10297629</div> <div class=\"ref\">[82] Ronny Luss, Pin-Yu Chen, Amit Dhurandhar, Prasanna Sattigeri, Yunfeng Zhang, Karthikeyan Shanmugam, and\nChun-Chen Tu. 2021. Leveraging Latent Features for Local Explanations. In Proceedings of the 27th ACM SIGKDD\nConference on Knowledge Discovery & Data Mining (Virtual Event, Singapore) (KDD ’21). Association for Computing\nMachinery, New York, NY, USA, 1139–1149. https://doi.org/10.1145/3447548.3467265.</div>",
+                            description: "Monotonicity evaluates, by progressively adding each attribute in order of increasing importance, the model’s performance. Performance should increase monotonically as features are added. The features should be interpretable and allow users to understand what is important for the prediction. <a href=\"#ref-65\">[65]</a>  <a href=\"#ref-82\">[82]</a>",
                             angle: -7 * Math.PI / 12,
                             r: 200,
                         },
@@ -665,7 +1155,7 @@
                             title: "Plausibility",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Plausibility measures whether the changes made to features during the explanation process are within the range of the training data and actionable. This is particularly useful for counterfactual explanations. <br><div class=\"ref\">[66] Amir-Hossein Karimi, Gilles Barthe, Borja Balle, and Isabel Valera. 2020. Model-Agnostic Counterfactual Explanations\nfor Consequential Decisions. In Proceedings of the Twenty Third International Conference on Artificial Intelligence and\nStatistics (Proceedings of Machine Learning Research, Vol. 108), Silvia Chiappa and Roberto Calandra (Eds.). PMLR,\nOnline, 895–905. https://proceedings.mlr.press/v108/karimi20a.html.</div>",
+                            description: "Plausibility measures whether the changes made to features during the explanation process are within the range of the training data and actionable. This is particularly useful for counterfactual explanations. <a href=\"#ref-66\">[66]</a>",
                             angle: -7.5 * Math.PI / 12,
                             r: 200,
                         },
@@ -674,7 +1164,7 @@
                             title: "Robustness",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Robustness in XAI, similar to robustness for a model, ensures that explanations remain consistent and reliable, even with slight changes in input data or model conditions. It guarantees stable and meaningful resilient interpretability. <br> <div class=\"ref\">[16] Francesco Bodria, Fosca Giannotti, Riccardo Guidotti, Francesca Naretto, Dino Pedreschi, and Salvatore Rinzivillo.\n2023. Benchmarking and survey of explanation methods for black box models. Data Mining and Knowledge Discovery\n37, 5 (2023), 1719–1778.</div>",
+                            description: "Robustness in XAI, similar to robustness for a model, ensures that explanations remain consistent and reliable, even with slight changes in input data or model conditions. It guarantees stable and meaningful resilient interpretability. <a href=\"#ref-16\">[16]</a>",
                             angle: -8 * Math.PI / 12,
                             r: 200,
                         },
@@ -683,7 +1173,7 @@
                             title: "Selectivity",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Selectivity metric assesses the stability of the model’s predictions by removing features identified as most important. <br><div class=\"ref\">[65] Md Abdul Kadir, Amir Mosavi, and Daniel Sonntag. 2023. Evaluation Metrics for XAI: A Review, Taxonomy, and\nPractical Applications. In 2023 IEEE 27th International Conference on Intelligent Engineering Systems (INES). IEEE,\nNairobi, Kenya, 000111–000124. https://doi.org/10.1109/INES59282.2023.10297629.</div>",
+                            description: "Selectivity metric assesses the stability of the model’s predictions by removing features identified as most important. <a href=\"#ref-65\">[65]</a>",
                             angle: -8.5 * Math.PI / 12,
                             r: 200,
                         },
@@ -692,7 +1182,7 @@
                             title: "Sensitivity",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Sensitivity has multiple definitions. [119] Describe it as a property indicating that an attribute must have a non-zero attribution if removing it from an input produces changes in the prediction. More generally, a sensitivity in XAI, would measure the importance of features by comparing how much they influence a model's prediction. Sensitivity is therefore linked to robustness of a model. <br><div class=\"ref\">[119] Mukund Sundararajan, Ankur Taly, and Qiqi Yan. 2017. Axiomatic attribution for deep networks. In Proceedings of the 34th International Conference on Machine Learning - Volume 70 (Sydney, NSW, Australia) (ICML’17). JMLR.org,\n3319–3328.</div>",
+                            description: "Sensitivity has multiple definitions. <a href=\"#ref-119\">[119]</a> Describe it as a property indicating that an attribute must have a non-zero attribution if removing it from an input produces changes in the prediction. More generally, a sensitivity in XAI, would measure the importance of features by comparing how much they influence a model's prediction. Sensitivity is therefore linked to robustness of a model.",
                             angle: -9 * Math.PI / 12,
                             r: 200,
                         },
@@ -701,7 +1191,7 @@
                             title: "Sparsity",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Sparsity refers to the number of features used to explain a model prediction.\nIn XAI, it is used as a metric for interpretability. Sparse explanations are easy to understand\nbut overly sparse explanations may oversimplify complex functioning (see Simpler explanation item in the Social Explanations group from Human-Centred Explanations).",
+                            description: "Sparsity refers to the number of features used to explain a model prediction. In XAI, it is used as a metric for interpretability. Sparse explanations are easy to understand but overly sparse explanations may oversimplify complex functioning (see Simpler explanation item in the Social Explanations group from Human-Centred Explanations).",
                             angle: -9.5 * Math.PI / 12,
                             r: 200,
                         },
@@ -710,7 +1200,7 @@
                             title: "Stability",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Stability aims to measure if similar instances obtain similar explanations from the explanation method.\n<br><div class=\"ref\">[16] Francesco Bodria, Fosca Giannotti, Riccardo Guidotti, Francesca Naretto, Dino Pedreschi, and Salvatore Rinzivillo.\n2023. Benchmarking and survey of explanation methods for black box models. Data Mining and Knowledge Discovery\n37, 5 (2023), 1719–1778.</div>",
+                            description: "Stability aims to measure if similar instances obtain similar explanations from the explanation method. <a href=\"#ref-16\">[16]</a>",
                             angle: -10 * Math.PI / 12,
                             r: 200,
                         },
@@ -719,7 +1209,7 @@
                             title: "Truthfulness",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Truthfulness refers to how accurately an explanation reflects the true\ninternal reasoning process of an AI model. A trade-off is often to be found between sparsity and\ntruthfulness.",
+                            description: "Truthfulness refers to how accurately an explanation reflects the true internal reasoning process of an AI model. A trade-off is often to be found between sparsity and truthfulness.",
                             angle: -10.5 * Math.PI / 12,
                             r: 200,
                         },
@@ -728,7 +1218,7 @@
                             title: "Scalability",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Scalability refers to the ability of the explanation methods to handle large-scale data\nand complex models efficiently. It is also related to the time needed by the XAI method to produce\nthe explanation.",
+                            description: "Scalability refers to the ability of the explanation methods to handle large-scale data and complex models efficiently. It is also related to the time needed by the XAI method to produce the explanation.",
                             angle: -11 * Math.PI / 12,
                             r: 200,
                         },
@@ -742,7 +1232,7 @@
 
     const width = 1200, height = 900;
     const radius = width / 2;
-    const leftPadding = 150;
+    const leftPadding = 250;
     const heightReduction = 200;
     const topPadding = 100;
 
@@ -784,133 +1274,241 @@
     }
 }
 
-function updateContent(node) {
-    const contentWrapper = document.getElementById('dropdown-content-wrapper');
-    
-    // If a node is clicked, populate the content wrapper with the node's data.
-    if (node && node.data.title) {
-        contentWrapper.innerHTML = `
-            <div class="custom-card">
-                <div class="custom-title">${node.data.title}</div>
-                <p>${node.data.description || ''}</p>
-            </div>
-        `;
-        // Use the toggleDropdown function to make the content visible.
-        toggleDropdown(true);
-    } else {
-        // If no valid node is provided, clear the content and hide the wrapper.
-        contentWrapper.innerHTML = '';
-        toggleDropdown(false);
-    }
-}
 
-    function createGraph(){
-        const svg = d3.select("svg")
-            .attr("viewBox", [-radius+leftPadding, -radius+topPadding, width, height+topPadding]);
- 
+function createGraph(){
+    const svg = d3.select("svg")
+        .attr("viewBox", [-radius+leftPadding, -radius+topPadding, width, height+topPadding]);
 
-        svg.selectAll("*").remove()
-
-        svg.append("text")
+    // Only add static elements if they don't exist
+    if (svg.select(".static-elements").empty()) {
+        const staticGroup = svg.append("g").attr("class", "static-elements");
+        
+        staticGroup.append("text")
             .attr("x", "0")
             .attr("y", "20")
             .attr("text-anchor", "middle")
             .attr("transform", "rotate(270)")
-            .text(d => "XAI TARGET");
+            .text("XAI TARGET");
 
-        svg.append("text")
+        staticGroup.append("text")
             .attr("x", "0")
             .attr("y", "-215")
             .attr("text-anchor", "middle")
-            .text(d => "XAI GOALS");
+            .text("XAI GOALS");
 
-        svg.append("circle")
+        staticGroup.append("circle")
             .attr("x", "0")
-             .attr("y", "-215")
+            .attr("y", "-215")
             .attr("r", 200)
             .attr("fill", "none")
             .attr('stroke', "black")
             .attr('stroke-width', "1");
+    }
 
-        // Links
-        svg.append("g")
-            .attr("class", "links")
-            .selectAll("path")
-            .data(root.links())
-            .join("path")
-            .attr("class", d => isVisibleLink(d)+" link")
-            .attr("d", d3.linkRadial()
-                .angle(d => d.data.angle)
-                .radius(d => d.data.r)
-            );
+    // Create links group if it doesn't exist
+    if (svg.select(".links").empty()) {
+        svg.append("g").attr("class", "links");
+    }
 
-        // Nodes
-        const node = svg.append("g")
-            .selectAll("g")
-            .data(root.descendants())
-            .join("g")
-            .attr("class", d => isVisibleNode(d)+" node")
-            .attr("fill", d => d.data.color)
-            .attr("transform", d => `
+    // Update links using data join
+    const linkSelection = svg.select(".links").selectAll("path")
+        .data(root.links());
+
+    linkSelection.enter()
+        .append("path")
+        .attr("class", d => isVisibleLink(d) + " link")
+        .attr("d", d3.linkRadial()
+            .angle(d => d.data.angle)
+            .radius(d => d.data.r)
+        )
+        .style("stroke-opacity", 0)
+        .transition()
+        .duration(500)
+        .delay(d => d.target.depth * 100)
+        .style("stroke-opacity", d => isVisibleLink(d) === "visible" ? 0.5 : 0);
+
+    linkSelection
+        .attr("class", d => isVisibleLink(d) + " link")
+        .transition()
+        .duration(500)
+        .style("stroke-opacity", d => isVisibleLink(d) === "visible" ? 0.5 : 0);
+
+    linkSelection.exit().remove();
+
+    // Create nodes group if it doesn't exist
+    if (svg.select(".nodes").empty()) {
+        svg.append("g").attr("class", "nodes");
+    }
+
+    // Update nodes using data join
+    const nodeSelection = svg.select(".nodes").selectAll("g")
+        .data(root.descendants());
+
+    const nodeEnter = nodeSelection.enter()
+        .append("g")
+        .attr("class", d => isVisibleNode(d) + " node")
+        .attr("fill", d => d.data.color)
+        .attr("transform", d => `
             rotate(${d.data.angle * 180 / Math.PI - 90})
             translate(${d.data.r},0)
         `)
-            .on("mouseover", (event, d) => {
-                const content = document.getElementById('content')
-                const title = document.createElement('div')
-                const card = document.createElement('div')
-                card.className = 'custom-card text-dark'
-                title.innerHTML = d.data.title;
-                title.className = "custom-title"
-                title.style.color = d.data.color;
-                const description = document.createElement('p')
-                description.innerHTML = d.data.description;
-                card.appendChild(title)
-                card.appendChild(description)
-                content.appendChild(card)
-            })
-            .on("mouseout", () => {
-                const content = document.getElementById('content')
-                content.innerHTML = ""
-            })
-            .on("click", (event, d) => {
-                const content = document.getElementById('content')
-                content.innerHTML = ""
-                root.descendants().forEach(d => {
-                    if(d.depth>=2){
-                        d.data.visible = false
-                    }
-                })
-                d.data.visible = true
-                if(d.children){
-                    d.children.forEach((d) => {d.data.visible = true});
-                }
-                let parent = d.parent;
-                while(parent){
-                    parent.visible = true
-                    if(parent.children){
-                        parent.children.forEach((d) => {d.data.visible = true});
-                    }
-                    parent = parent.parent;
-                }
-                createGraph()
-            });
+        .style("opacity", 0);
 
-        node.append("circle")
-            .attr("r", 6);
-
-        node.append("text")
-            .attr("dy", "0.31em")
-           .attr("x", d => d.data.forceRight ? 16 : (d.data.angle < Math.PI && d.data.angle > 0) === !d.children ? 16 : -16)
-.attr("text-anchor", d => d.data.forceRight ? "start" : (d.data.angle < Math.PI && d.data.angle > 0) === !d.children ? "start" : "end")
-            .attr("transform", d => d.data.angle < 0 ? "rotate(180)" : null)
-            .attr("fill", d => (d.data.children && d.data.children.map((c)=>c.visible).includes(true))? d.data.color: (d.data.title === "Practical Recommendations"? "#ff0faa" : "black"))
-            .attr("font-weight", d => d.data.title === "Practical Recommendations" ? "700": "400")
-            .text(d => d.data.name);
+nodeEnter.append("circle")
+    .attr("r", 6)
+    .attr("fill", d => {
+        if (d.data.clicked) return d.data.color; // Filled if clicked
+        if (!d.data.visible) return "white"; // Not visible, stay white
+        const hasChildren = d.children && d.children.length > 0;
+        return !hasChildren ? d.data.color : "white"; // Filled only if no children at all
+    })
+    .attr("stroke", d => d.data.color)
+    .attr("stroke-width", 2);
 
 
+
+
+
+    nodeEnter.append("text")
+        .attr("dy", "0.31em")
+        .attr("x", d => d.data.forceRight ? 16 : (d.data.angle < Math.PI && d.data.angle > 0) === !d.children ? 16 : -16)
+        .attr("text-anchor", d => d.data.forceRight ? "start" : (d.data.angle < Math.PI && d.data.angle > 0) === !d.children ? "start" : "end")
+        .attr("transform", d => d.data.angle < 0 ? "rotate(180)" : null)
+        .attr("fill", d => (d.data.children && d.data.children.map((c)=>c.visible).includes(true))? d.data.color: (d.data.title === "Practical Recommendations"? "#ff0faa" : "black"))
+        .attr("font-weight", d => d.data.title === "Practical Recommendations" ? "700": "400")
+        .text(d => d.data.name);
+
+    nodeEnter
+        .transition()
+        .duration(500)
+        .delay(d => d.depth * 100)
+        .style("opacity", d => d.data.visible ? 1 : 0);
+
+    // Update existing nodes
+    nodeSelection
+        .attr("class", d => isVisibleNode(d) + " node")
+        .transition()
+        .duration(500)
+        .style("opacity", d => d.data.visible ? 1 : 0);
+
+nodeSelection.select("circle")
+    .transition()
+    .duration(500)
+    .attrTween("fill", function(d) {
+        const currentColor = d3.select(this).attr("fill");
+        const targetColor = d.data.clicked ? d.data.color :
+                            (!d.data.visible ? "white" :
+                            (d.children && d.children.length > 0 ? "white" : d.data.color));
+        return d3.interpolateRgb(currentColor, targetColor);
+    });
+
+
+
+
+
+    nodeSelection.exit()
+        .transition()
+        .duration(300)
+        .style("opacity", 0)
+        .remove();
+
+    // Add event listeners to all nodes (both new and existing)
+    svg.selectAll(".node")
+    .style("cursor", "pointer")
+        .on("mouseover", (event, d) => {
+            const content = document.getElementById('content')
+            content.innerHTML = ""
+            const title = document.createElement('div')
+            const card = document.createElement('div')
+            card.className = 'custom-card text-dark'
+            title.innerHTML = d.data.title;
+            title.className = "custom-title"
+            title.style.color = d.data.color;
+            const description = document.createElement('p')
+            description.innerHTML = d.data.description;
+            card.appendChild(title)
+            card.appendChild(description)
+            content.appendChild(card)
+            setupReferencePopovers();
+        })
+    .on("click", (event, d) => {
+    // Reset clicked state for nodes not in the current path
+    root.descendants().forEach(node => {
+        if (node !== d && !isAncestorOrDescendant(node, d)) {
+            node.data.clicked = false;
+        }
+    });
+    // Set clicked state for the current node
+    d.data.clicked = true;
+
+    // Rest of your click logic...
+    root.descendants().forEach(node => {
+        if (node.depth >= 2) {
+            node.data.visible = false;
+        }
+    });
+    d.data.visible = true;
+    if (d.children) {
+        d.children.forEach(child => {
+            child.data.visible = true;
+        });
     }
+    let parent = d.parent;
+    while (parent) {
+        parent.data.visible = true;
+        parent.children?.forEach(sibling => {
+            sibling.data.visible = true;
+        });
+        parent = parent.parent;
+    }
+    createGraph();
+    setupReferencePopovers();
+});
 
+// Helper function to check if a node is an ancestor or descendant of another
+function isAncestorOrDescendant(node, target) {
+    // Check if node is an ancestor of target
+    let ancestor = target.parent;
+    while (ancestor) {
+        if (ancestor === node) return true;
+        ancestor = ancestor.parent;
+    }
+    // Check if node is a descendant of target
+    let descendant = target;
+    while (descendant) {
+        if (descendant === node) return true;
+        if (descendant.children) {
+            for (const child of descendant.children) {
+                if (isAncestorOrDescendant(node, child)) return true;
+            }
+        }
+        descendant = null;
+    }
+    return false;
+}
+
+
+
+    // Reference links event handling (keep this as is)
+    const referencesContainer = document.getElementById('references');
+    const refLinks = document.querySelectorAll('a[href^="#ref-"]');
+    refLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            if (referencesContainer.classList.contains('hidden')) {
+                referencesContainer.classList.remove('hidden');
+            }
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
     createGraph()
 </script>
 </body>
