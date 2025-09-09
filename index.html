@@ -12,6 +12,8 @@
 <style>
     body {
         font-family: Poppins;
+        height: 100%;
+        overflow-y: hidden;
     }
 
     .link {
@@ -29,7 +31,7 @@
         font-size: 13px;
         /*fill: #333;*/
     }
-
+    
     .hidden{
         display: none;
     }
@@ -76,32 +78,6 @@
         font-weight: bolder;
 }
 
-/* Breadcrumb navigation */
-    .breadcrumb-nav {
-        background-color: #f8f9fa;
-        padding: 10px 15px;
-        border-radius: 8px;
-        margin-bottom: 15px;
-        border: 1px solid #dee2e6;
-    }
-
-    .breadcrumb-nav .breadcrumb {
-        margin: 0;
-        padding: 0;
-        background: none;
-    }
-
-    .breadcrumb-item a {
-        color: #007bff;
-        text-decoration: none;
-        transition: color 0.2s ease;
-    }
-
-    .breadcrumb-item a:hover {
-        color: #0056b3;
-        text-decoration: underline;
-    }
-
     /* Reset/Back buttons */
     .control-buttons {
         margin-bottom: 20px;
@@ -139,10 +115,9 @@
         transform: translateY(-1px);
     }
 
-    /* Improved legend */
 .legend {
     position: absolute;
-    bottom: 50px;
+    bottom: 260px;
     left: 30px;
     background: rgba(255, 255, 255, 0.95);
     border: 1px solid #ddd;
@@ -152,8 +127,6 @@
     font-size: 12px;
     z-index: 10;
 }
-
-
 
     .legend-item {
         display: flex;
@@ -173,25 +146,6 @@
         margin-bottom: 10px;
         color: #333;
     }
-
-    /* Loading state */
-    .loading {
-        opacity: 0.6;
-        pointer-events: none;
-    }
-
-    .loading::after {
-        content: "Loading...";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(255,255,255,0.9);
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-weight: bold;
-    }
- 
  
     .ref{
         font-style: italic;
@@ -208,8 +162,7 @@
     font-weight: bolder; 
     cursor: pointer; 
     border-radius: 25px;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
-                
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);           
 }
 
 .btn-explore:hover {
@@ -274,7 +227,7 @@
 }
 
 .popover {
-    max-width: 450px; /* Adjust width as needed */
+    max-width: 450px; 
     font-size: 12px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -287,96 +240,14 @@
     border-bottom: 1px solid #ddd;
 }
 
-/* Progress indicator */
-.progress-indicator {
-    position: fixed;
-    bottom: 120px;
-    right: 50px;
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    font-size: 12px;
-    z-index: 1000;
-}
-
-/* Keyboard shortcuts help */
-.shortcuts-help {
-    position: fixed;
-    bottom: 170px;
-    right: 50px;
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    font-size: 11px;
-    z-index: 1000;
-    max-width: 200px;
-}
-
-.shortcuts-title {
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-.shortcut-item {
-    margin-bottom: 3px;
-}
-
-.shortcut-key {
-    background: #f1f1f1;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    padding: 2px 4px;
-    font-family: monospace;
-    font-size: 10px;
-}
-
-/* Search functionality */
-.search-container {
-    margin-bottom: 15px;
-}
-
-.search-input {
-    border-radius: 20px;
-    border: 2px solid #e9ecef;
-    padding: 8px 16px;
-    font-size: 14px;
-    transition: border-color 0.3s ease;
-}
-
-.search-input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-.search-results {
-    background: #f8f9fa;
-    border-radius: 8px;
-    padding: 10px;
-    margin-top: 10px;
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-.search-result-item {
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-bottom: 2px;
-    transition: background-color 0.2s ease;
-}
-
-.search-result-item:hover {
-    background-color: #e9ecef;
-}
-
 .highlight {
     background-color: yellow;
     font-weight: bold;
 }
 
+.static-elements text {
+    fill: #ff0faa;
+}
 
 
 </style>
@@ -394,20 +265,22 @@
         <li id="ref-16"><p>[16] Francesco Bodria, Fosca Giannotti, Riccardo Guidotti, Francesca Naretto, Dino Pedreschi, and Salvatore Rinzivillo. 2023. Benchmarking and survey of explanation methods for black box models. Data Mining and Knowledge Discovery 37, 5 (2023), 1719–1778.</p></li>
         <li id="ref-18"><p>[18] Nadia Burkart and Marco F Huber. 2021. A survey on the explainability of supervised machine learning. Journal of Artificial Intelligence Research 70 (2021), 245–317.</p></li>  
         <li id="ref-28"><p>[28] Nicholas Kluge Corrêa, Camila Galvão, James William Santos, Carolina Del Pino, Edson Pontes Pinto, Camila Barbosa, Diogo Massmann, Rodrigo Mambrini, Luiza Galvão, Edmund Terem, et al . 2023. Worldwide AI ethics: A review of 200 guidelines and recommendations for AI governance. Patterns 4, 10 (2023), 100857. </p></li>
-        <li id="ref-39"><p> [39] Filip Karlo Došilović, Mario Brčić, and Nikica International Convention on Information and Communication Technology, Electronics and Microelectronics (MIPRO). IEEE, Opatija, Croatia, 0210–0215. https://doi.org/10.23919/MIPRO.2018.8350040. </p></li>.
+       <li id="ref-35"><p></p> [35] Weiping Ding, Mohamed Abdel-Basset, Hossam Hawash, and Ahmed M Ali. 2022. Explainability of artificial intelligence methods, applications and challenges: A comprehensive survey. Information Sciences 615 (2022), 238–292.</p></li> 
+        <li id="ref-39"><p> [39] Filip Karlo Došilović, Mario Brčić, and Nikica, Explainable-Artificial-Intelligence-A-Survey, International Convention on Information and Communication Technology, Electronics and Microelectronics (MIPRO). IEEE, Opatija, Croatia, 0210–0215. https://doi.org/10.23919/MIPRO.2018.8350040. </p></li>.
         <li id="ref-43"><p> [43] Kraig Finstad. 2010. The usability metric for user experience. Interacting with computers 22, 5 (2010), 323–327.</p></li>
         <li id="ref-44"><p>[44] Valentina Franzoni. 2023. From black box to glass box: advancing transparency in artificial intelligence systems for ethical and trustworthy AI. In International Conference on Computational Science and Its Applications. Springer, Athens, Greece, 118–130. </p></li>
         <li id="ref-46"><p>[46] Ella Glikson and Anita Williams Woolley. 2020. Human trust in artificial intelligence: Review of empirical research. Academy of Management Annals 14, 2 (2020), 627–660. </p></li>
         <li id="ref-48"><p>[48] Yash Goyal, Amir Feder, Uri Shalit, and Been Kim. 2019. Explaining Classifiers with Causal Concept Effect (CaCE). arXiv e-prints (2019), arXiv–1907.</p></li>
         <li id="ref-55"><p> [55] Ambreen Hanif, Amin Beheshti, Boualem Benatallah, Xuyun Zhang, Habiba, EuJin Foo, Nasrin Shabani, and Maryam Shahabikargar. 2023. A comprehensive survey of explainable artificial intelligence (xai) methods: Exploring transparency and interpretability. In International Conference on Web Information Systems Engineering. Springer, Melbourne, VIC, Australia, 915–925i.</p></li>
         <li id="ref-56"><p>[56] Ambreen Hanif, Xuyun Zhang, and Steven Wood. 2021. A Survey on Explainable Artificial Intelligence Techniques and Challenges. In 2021 IEEE 25th International Enterprise Distributed Object Computing Workshop (EDOCW). 81–89. https://doi.org/10.1109/EDOCW52865.2021.00036. </p></li>
-        <li id="ref-58"><p> [58] Robert R Ho\man, Shane T Mueller, Gary Klein, and Jordan Litman. 2023. Measures for explainable AI: Explanation goodness, user satisfaction, mental models, curiosity, trust, and human-AI performance. Frontiers in Computer Science 5 (2023), 1096257. </p></li>
+        <li id="ref-58"><p> [58] Robert R Hoffman, Shane T Mueller, Gary Klein, and Jordan Litman. 2023. Measures for explainable AI: Explanation goodness, user satisfaction, mental models, curiosity, trust, and human-AI performance. Frontiers in Computer Science 5 (2023), 1096257. </p></li>
         <li id="ref-60"><p> [60]Andreas Holzinger, André Carrington, and Heimo Müller. 2020. Measuring the quality of explanations: the system causability scale (SCS) comparing human and machine explanations. KI-Künstliche Intelligenz 34, 2 (2020), 193–198.</p></li>
         <li id="ref-62"><p>[62] Tiffany TY Hsu and Owen HT Lu. 2024. Explore the Explanation and Consistency of Explainable AI in the LBLS Data Set. In LAK Workshops. CEUR WOrkshops Proceedings, Kyoto, Japan, 64–72.</p></li>
         <li id="ref-64"><p> [64] Anna Jobin, Marcello Ienca, and Effy Vayena. 2019. The global landscape of AI ethics guidelines. Nature machine intelligence 1, 9 (2019), 389–399. </p></li>
         <li id="ref-65"><p>[65] Md Abdul Kadir, Amir Mosavi, and Daniel Sonntag. 2023. Evaluation Metrics for XAI: A Review, Taxonomy, and Practical Applications. In 2023 IEEE 27th International Conference on Intelligent Engineering Systems (INES). IEEE, Nairobi, Kenya, 000111–000124. https://doi.org/10.1109/INES59282.2023.10297629. </p></li>
         <li id="ref-66"><p>[66] Amir-Hossein Karimi, Gilles Barthe, Borja Balle, and Isabel Valera. 2020. Model-Agnostic Counterfactual Explanations for Consequential Decisions. In Proceedings of the Twenty Third International Conference on Artificial Intelligence and Statistics (Proceedings of Machine Learning Research, Vol. 108), Silvia Chiappa and Roberto Calandra (Eds.). PMLR, Online, 895–905. https://proceedings.mlr.press/v108/karimi20a.html. </p></li>
         <li id="ref-68"><p>[68] Harmanpreet Kaur, Harsha Nori, Samuel Jenkins, Rich Caruana, Hanna Wallach, and Jennifer Wortman Vaughan. 2020. Interpreting Interpretability: Understanding Data Scientists’ Use of Interpretability Tools for Machine Learning. In Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems (Honolulu, HI, USA) (CHI ’20).Association for Computing Machinery, New York, NY, USA, 1–14. https://doi.org/10.1145/3313831.3376219. </p></li>
+        <li id="ref-69"><p>[69] Arif Ali Khan, Sher Badshah, Peng Liang, Muhammad Waseem, Bilal Khan, Aakash Ahmad, Mahdi Fahmideh, Mahmood Niazi, and Muhammad Azeem Akbar. 2022. Ethics of AI: A Systematic Literature Review of Principles and Challenges. In Proceedings of the 26th International Conference on Evaluation and Assessment in Software Engineering (Gothenburg, Sweden) (EASE ’22). Association for Computing Machinery, New York, NY, USA, 383–392. https://doi.org/10.1145/3530019.3531329. </p></li>
         <li id="ref-74"><p>[74] Himabindu Lakkaraju and Osbert Bastani. 2020. How do I fool you?: Manipulating User Trust via Misleading Black Box Explanations. In Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society (New York, NY, USA) (AIES’20). Association for Computing Machinery, New York, NY, USA, 79–85. https://doi.org/10.1145/3375627.3375833. </p></li>
         <li id="ref-75"><p> [75] Bettina Laugwitz, Theo Held, and Martin Schrepp. 2008. Construction and evaluation of a user experience questionnaire. In HCI and Usability for Education and Work: 4th Symposium of the Workgroup Human-Computer Interaction and Usability Engineering of the Austrian Computer Society, USAB 2008, Graz, Austria, November 20-21, 2008. Proceedings 4.Springer, Graz, Austria, 63–76.</p></li>
         <li id="ref-81"><p>[81] Scott M. Lundberg and Su-In Lee. 2017. A unified approach to interpreting model predictions. In Proceedings of the 31st International Conference on Neural Information Processing Systems (Long Beach, California, USA) (NIPS’17). Curran Associates Inc., Red Hook, NY, USA, 4768–4777.</p></li>
@@ -423,7 +296,7 @@
         <li id="ref-103"><p>[103] Yao Rong, Tobias Leemann, Thai-Trang Nguyen, Lisa Fiedler, Peizhu Qian, Vaibhav Unhelkar, Tina Seidel, Gjergji Kasneci, and Enkelejda Kasneci. 2024. Towards Human-Centered Explainable AI: A Survey of User Studies for Model Explanations. IEEE Trans. Pattern Anal. Mach. Intell. 46, 4 (April 2024), 2104–2122. https://doi.org/10.1109/TPAMI.2023.3331846.</p></li>
         <li id="ref-117"><p>[117] Ramya Srinivasan and Ajay Chander. 2021. Explanation perspectives from the cognitive sciences—a survey. In Proceedings of the Twenty-Ninth International Joint Conference on Artificial Intelligence (IJCAI’20). IJCAI, Yokohama, Yokohama, Japan, Article 670, 7 pages.</p></li>
         <li id="ref-119"><p>[119] Mukund Sundararajan, Ankur Taly, and Qiqi Yan. 2017. Axiomatic attribution for deep networks. In Proceedings of the 34th International Conference on Machine Learning - Volume 70 (Sydney, NSW, Australia) (ICML’17). JMLR.org, 3319–3328. </p></li>
-        <li id="ref-120"><p>[120] Alena Suvorova. 2021. Interpretable machine learning in social sciences: use cases and limitations. In International Conference on Digital Transformation and Global Society. Springer, St. Petersburg, Russia, 319–331. </p></li>
+        <li id="ref-120"><p>[120] Alena Suvorova. 2021. Interpretable machine learning in social sciences: use cases and limitations. In International Conference on Digital Transformation and Global Society. Springer, St. Petersburg, Russia, 319–331. https://link.springer.com/chapter/10.1007/978-3-030-93715-7_23. </p></li>
         <li id="ref-123"><p>[123] Berk Ustun, Alexander Spangher, and Yang Liu. 2019. Actionable Recourse in Linear Classification. In Proceedings of the Conference on Fairness, Accountability, and Transparency (Atlanta, GA, USA) (FAT* ’19). Association for Computing Machinery, New York, NY, USA, 10–19. https://doi.org/10.1145/3287560.3287566. </p></li>
         <li id="ref-132"><p>[132] Shoshana Zuboff. 2023. The age of surveillance capitalism. In Social theory re-wired. Routledge, New York, 203–213.</p></li>
     </ol>
@@ -433,7 +306,7 @@
     <div class="row">
         <div class="col-8">
             <div class="d-inline-block">
-                <svg id="radialTree" width="1200" height="900"></svg>
+                <svg id="radialTree" width="1400" height="1100"></svg>
             </div>
         </div>
         <div class="col">
@@ -448,7 +321,7 @@
                     </div>    
     <div class="footer-text"> Wax et al., 2025</div>
     <div class="image-container">
-    <img src="UNILU_SnT.png" alt="Description of the image">
+    <img src="UNILU_SnT.png" alt="Logo">
 </div>
                 </div>
             </div>
@@ -497,9 +370,9 @@
                 <p> This framework is our contribution towards advancing model explanations to a wide range of audiences. It allows you to explore XAI strategies, concepts, and methodologies.</p>
                 <ul>
                     <li>It is organized in a <b>top-down approach</b> starting with target users and defining goals.</li>
-                    <li>It provides <b>Methods and Evaluations</b> as well as practical recommendations.</li>
+                    <li>It provides <b>Methods and Evaluations</b> as well as <b>practical recommendations.</b></li>
                 </ul>
-                <p>This framework is designed to be self-sufficient and ensure the XAI pipeline engineers, researchers and designers implement is valid across various domains. It helps you focus on specific goals and target users, making it a valuable tool for achieving recommendations across disciplines.</p>
+                <p>This framework is designed to be self-sufficient and ensure the XAI pipeline engineers, researchers and designers implement is valid across various domains. It helps in focusing on specific goals and target users, making it a valuable tool for achieving recommendations across disciplines.</p>
 
                 <h6>Important Note</h6>
                 <p>Designers, researchers, and engineers should bear in mind that <b>explanations cannot fix flawed models or datasets</b> as users tend to believe. Rather, they help uncover issues and explain the model itself rather than the underlying reality. This limits insights into data complexities, which further research should tackle. <a href="#ref-120">[120]</a></p>
@@ -532,7 +405,7 @@ document.getElementById('modalStart').addEventListener('shown.bs.modal', functio
 
 const referenceUrls = {
     'ref-5': 'https://doi.org/10.1016/j.inffus.2023.101805',
-    'ref-8': 'https://doi.org/10.1016/j.inffus.2020.01.012',
+    'ref-8': 'https://www.sciencedirect.com/science/article/pii/S1566253519308103',
     'ref-11': 'https://doi.org/10.1111/phc3.12830',
     'ref-12': 'https://doi.org/10.1145/3442188.3445922',
     'ref-13': 'https://doi.org/10.1145/3514094.3534164',
@@ -540,38 +413,40 @@ const referenceUrls = {
     'ref-16': 'https://doi.org/10.1007/s10618-023-00933-9',
     'ref-18': 'https://doi.org/10.1613/jair.1.12228',
     'ref-28': 'https://doi.org/10.1016/j.patter.2023.100857',
-    'ref-39': 'https://doi.org/10.23919/MIPRO.2018.8350040',
-    'ref-43': 'https://doi.org/10.1016/j.intcom.2010.06.001',
-    'ref-44': 'https://doi.org/10.1007/978-3-031-35995-8_9',
+    'ref-35': 'https://dl.acm.org/doi/10.1016/j.ins.2022.10.013',
+    'ref-39': 'https://www.researchgate.net/profile/Mario-Brcic/publication/325398586_Explainable_Artificial_Intelligence_A_Survey/links/5b0bec90a6fdcc8c2534d673/Explainable-Artificial-Intelligence-A-Survey.pdf',
+    'ref-43': 'https://www.sciencedirect.com/science/article/abs/pii/S095354381000038X',
+    'ref-44': 'https://dl.acm.org/doi/abs/10.1007/978-3-031-37114-1_9',
     'ref-46': 'https://doi.org/10.5465/annals.2018.0057',
     'ref-48': 'https://arxiv.org/abs/1907.07165',
     'ref-55': 'https://doi.org/10.1007/978-981-99-7254-8_71',
     'ref-56': 'https://doi.org/10.1109/EDOCW52865.2021.00036',
     'ref-58': 'https://doi.org/10.3389/fcomp.2023.1096257',
-    'ref-60': 'https://doi.org/10.1007/s13218-020-00636-5',
-    'ref-62': 'https://ceur-ws.org/Vol-3648/LAK24-WS-08-paper-64.pdf',
+    'ref-60': 'https://link.springer.com/article/10.1007/s13218-020-00636-z',
+    'ref-62': 'https://ceur-ws.org/Vol-3667/DC-LAK24-paper-8.pdf',
     'ref-64': 'https://doi.org/10.1038/s42256-019-0088-2',
     'ref-65': 'https://doi.org/10.1109/INES59282.2023.10297629',
     'ref-66': 'https://proceedings.mlr.press/v108/karimi20a.html',
     'ref-68': 'https://doi.org/10.1145/3313831.3376219',
+    'ref-69':'https://doi.org/10.1145/3530019.3531329',
     'ref-74': 'https://doi.org/10.1145/3375627.3375833',
-    'ref-75': 'https://doi.org/10.1007/978-3-540-89350-9_6',
+    'ref-75': 'https://link.springer.com/chapter/10.1007/978-3-540-89350-9_6',
     'ref-81': 'https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html',
     'ref-82': 'https://doi.org/10.1145/3447548.3467265',
     'ref-83': 'https://doi.org/10.1145/3546577',
     'ref-86': 'https://doi.org/10.1016/j.artint.2018.07.007',
-    'ref-91': 'https://ceur-ws.org/Vol-3443/paper12.pdf',
+    'ref-91': 'https://ceur-ws.org/Vol-3554/paper6.pdf',
     'ref-92': 'https://aclanthology.org/2022.coling-1.406/',
     'ref-94': 'https://doi.org/10.1145/3351095.3372850',
     'ref-100': 'https://doi.org/10.1145/3544549.3585808',
-    'ref-101': 'https://doi.org/10.1007/s43681-023-00257-4',
-    'ref-102': 'https://doi.org/10.1108/JICES-12-2021-0118',
+    'ref-101': 'https://link.springer.com/article/10.1007/s43681-023-00258-9',
+    'ref-102': 'https://philpapers.org/rec/QADTAH',
     'ref-103': 'https://doi.org/10.1109/TPAMI.2023.3331846',
     'ref-117': 'https://doi.org/10.24963/ijcai.2020/670',
     'ref-119': 'https://proceedings.mlr.press/v70/sundararajan17a.html',
-    'ref-120': 'https://doi.org/10.1007/978-3-030-93409-5_27',
+    'ref-120': 'https://link.springer.com/chapter/10.1007/978-3-030-93715-7_23',
     'ref-123': 'https://doi.org/10.1145/3287560.3287566',
-    'ref-132': 'https://doi.org/10.4324/9781003285977-13'
+    'ref-132': 'https://www.taylorfrancis.com/chapters/edit/10.4324/9781003320609-27/age-surveillance-capitalism-shoshana-zuboff'
 };
 
 function setupReferencePopovers() {
@@ -582,7 +457,7 @@ function setupReferencePopovers() {
         link.parentNode.replaceChild(newLink, link);
     });
 
-    // Dispose of existing popovers to prevent memory leaks
+    // Dispose of existing popovers
     const existingPopovers = document.querySelectorAll('[data-bs-toggle="popover"]');
     existingPopovers.forEach(element => {
         const popoverInstance = bootstrap.Popover.getInstance(element);
@@ -651,7 +526,6 @@ function setupReferencePopovers() {
                         }
                     });
 
-                    // Toggle this popover
                     if (link.getAttribute('aria-describedby')) {
                         popover.hide();
                     } else {
@@ -707,7 +581,7 @@ function setupReferencePopovers() {
                             visible: false,
                             forceRight: true,
                             textAlignRight: true,
-                            description: "User experience is part of what’s referred to as Human-grounded explanations. They are\nevaluated using simplified tasks with human subjects, usually in a controlled environment. The\nfocus is on whether or not the explanation is understandable and useful to humans. By integrating the UX principles with technical XAI approaches (e.g., SHAP, ExBert, BertViz), the aim is to create AI systems that are explainable, intuitive, actionable, and reliable for all users, including experts.\n\nTo effectively explain AI systems, designers, researchers and  engineers should: <br> <span class=\"blue-text\">Align explanations with user goals</span> <br> Tailor explanations to what users are trying to achieve and their level of technical knowledge. <br> <span class=\"blue-text\">Test for usability</span> <br>Conduct regular usability tests with real users to ensure the explanations are easy to understand. <br> <span class=\"blue-text\">A/B test styles</span> <br>  Compare different explanation formats to see which ones are most effective at building user trust and engagement. <br> <span class=\"blue-text\">Measure trust and satisfaction</span> <br> Use metrics and feedback (like surveys and interviews) to gauge user confidence and satisfaction with the explanations. ",
+                            description: "User experience is part of what’s referred to as Human-grounded explanations. They are evaluated using simplified tasks with human subjects, usually in a controlled environment. The focus is on whether or not the explanation is understandable and useful to humans. By integrating the UX principles with technical XAI approaches (e.g., SHAP, ExBert, BertViz), the aim is to create AI systems that are explainable, intuitive, actionable, and reliable for all users, including experts. To effectively explain AI systems, designers, researchers and  engineers should: <br> <span class=\"blue-text\">Align explanations with user goals</span> <br> Tailor explanations to what users are trying to achieve and their level of technical knowledge. <br> <span class=\"blue-text\">Test for usability</span> <br>Conduct regular usability tests with real users to ensure the explanations are easy to understand. <br> <span class=\"blue-text\">A/B test styles</span> <br>  Compare different explanation formats to see which ones are most effective at building user trust and engagement. <br> <span class=\"blue-text\">Measure trust and satisfaction</span> <br> Use metrics and feedback (like surveys and interviews) to gauge user confidence and satisfaction with the explanations. ",
                             angle: 3.5 * Math.PI / 12,
                             r: 200,
                             children: [
@@ -716,7 +590,7 @@ function setupReferencePopovers() {
                                     title: "System Usability Scale (SUS)",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "Validated UX scales for assessing these metrics include: System Usability Scale (SUS). It is a Ten-item likert scale questionnaire for measuring the perceived usability of a system or product. The result is a score ranging from 0-100. A score of 70 or above is often considered a good indicator of good usability. <br> Specifically, it helps measure <br>  <span class=\"blue-text\">Effectiveness</span> <br> In XAI: can users successfully achieve their explanation objectives <br> <span class=\"blue-text\">Efficiency</span> <br> In XAI: how much effort and resources are needed to understand an explanation by navigating through the XAI tool <br> <span class=\"blue-text\">Satisfaction</span> <br> In XAI: was the experience with the explanation/tool, satisfactory. <a href=\"#ref-43\">[43]</a>",
+                                    description: "Validated UX scales for assessing these metrics include: System Usability Scale (SUS). It is a Ten-item likert scale questionnaire for measuring the perceived usability of a system or product. The result is a score ranging from 0-100. A score of 70 or above is often considered a good indicator of good usability. <br> Specifically, it helps measure: <br>  <span class=\"blue-text\">Effectiveness</span> <br> In XAI: can users successfully achieve their explanation objectives <br> <span class=\"blue-text\">Efficiency</span> <br> In XAI: how much effort and resources are needed to understand an explanation by navigating through the XAI tool <br> <span class=\"blue-text\">Satisfaction</span> <br> In XAI: was the experience with the explanation/tool, satisfactory. <a href=\"#ref-43\">[43]</a>",
                                     angle: 4 * Math.PI / 12,
                                     r: 350
                                 },
@@ -725,7 +599,7 @@ function setupReferencePopovers() {
                                     title: "User Experience Questionnaire (UEQ)",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: "It measures the User Experience of interactive products. Specifically, it assesses usability aspects (efficiency, perspicuity, dependability) and user experience aspects (attractiveness, originality, stimulation). <br> <span class=\"blue-text\">Attractiveness</span> <br> Overall impression of the product. Do users like or dislike it? <br> <span class=\"blue-text\">Perspicuity</span> <br> \nIs it easy to get familiar with the product and to learn how to use it? <br> <span class=\"blue-text\">Efficiency</span> <br> Can users solve their tasks without unnecessary effort? Does it react fast? <br> <span class=\"blue-text\">Dependability</span> <br> Does the user feel in control of the interaction? Is it secure and predictable? <br> <span class=\"blue-text\">Stimulation</span> <br>\nIs it exciting and motivating to use the product? Is it fun to use?  <br> <span class=\"blue-text\">Novelty</span> <br> Is the design of the product creative? Does it catch the interest of users? <a href=\"#ref-75\">[75]</a>",
+                                    description: "It measures the User Experience of interactive products. Specifically, it assesses usability aspects (efficiency, perspicuity, dependability) and user experience aspects (attractiveness, originality, stimulation). <br> <span class=\"blue-text\">Attractiveness</span> <br> Overall impression of the product. Do users like or dislike it? <br> <span class=\"blue-text\">Perspicuity</span> <br> Is it easy to get familiar with the product and to learn how to use it? <br> <span class=\"blue-text\">Efficiency</span> <br> Can users solve their tasks without unnecessary effort? Does it react fast? <br> <span class=\"blue-text\">Dependability</span> <br> Does the user feel in control of the interaction? Is it secure and predictable? <br> <span class=\"blue-text\">Stimulation</span> <br> Is it exciting and motivating to use the product? Is it fun to use?  <br> <span class=\"blue-text\">Novelty</span> <br> Is the design of the product creative? Does it catch the interest of users? <a href=\"#ref-75\">[75]</a>",
                                     angle: 4.5 * Math.PI / 12,
                                     r: 350
                                 },
@@ -734,7 +608,7 @@ function setupReferencePopovers() {
                                     title: "System Causability Scale (SCS)",
                                     color: "#00AAFE",
                                     visible: false,
-                                    description: " To measure the quality of the explanation, the System Causability Scale (SCS) has been developed. The scale is based on the concept of causability, which is defined as the extent to which an explanation helps a user achieve a specified level of causal understanding with effectiveness, efficiency, and satisfaction within a given context. The SCS is modeled after the System Usability Scale (SUS) and uses a 10-item questionnaire where users rate their agreement with statements on a 5-point Likert scale. The factors measured are: <br> <span class=\"blue-text\">Factors in data</span> <br> User thinks data included all relevant known causal factors with sufficient precision. <br> <span class=\"blue-text\">Understandability</span> <br> User understands explanations within the context of its work. <br> <span class=\"blue-text\">Change detail level</span> <br> User can change the level of detail on demand. <br> <span class=\"blue-text\">Need teacher/support</span> <br> User does not need support to understand the explanations. <br> <span class=\"blue-text\">Understanding causality</span> <br> User finds the explanations helps him to understand causality. <br> <span class=\"blue-text\">Use with knowledge</span> <br>User is able to use the explanations with his knowledge base. <br> <span class=\"blue-text\">No inconsistencies</span> <br> User does not find inconsistencies between explanations. <br> <span class=\"blue-text\">Learn to understand</span> <br> User thinks that most people would learn to understand the explanations very quickly. <br> <span class=\"blue-text\">Needs references</span> <br> User does not need more references in the explanations (e.g. medical guidelines, regulations). <br> <span class=\"blue-text\">Efficiency</span> <br> User receives the explanations in a timely and efficient manner. <br> The result, for each factor, is a score ranging from 0-5. Ratings are: <br> <span class=\"blue-text\">1</span> Strongly disagree; <span class=\"blue-text\">2</span> Disagree <br> <span class=\"blue-text\">3</span> Neutral; <span class=\"blue-text\">4</span> Agree; <span class=\"blue-text\">5</span> Strongly agree <a href=\"#ref-60\">[60]</a>",
+                                    description: " The SCS helps measure the quality of the explanation. The scale is based on the concept of causability, which is defined as the extent to which an explanation helps a user achieve a specified level of causal understanding with effectiveness, efficiency, and satisfaction within a given context. The SCS is modeled after the System Usability Scale (SUS) and uses a 10-item questionnaire where users rate their agreement with statements on a 5-point Likert scale. The result, for each factor, is a score ranging from 1-5 (<span class=\"blue-text\">Strongly Disagree</span> - <span class=\"blue-text\">Strongly Agree</span>) The factors measured are: <br> <span class=\"blue-text\">Factors in data</span> <br> User thinks data included all relevant known causal factors with sufficient precision. <br> <span class=\"blue-text\">Understandability</span> <br> User understands explanations within the context of its work. <br> <span class=\"blue-text\">Change detail level</span> <br> User can change the level of detail on demand. <br> <span class=\"blue-text\">Need teacher/support</span> <br> User does not need support to understand the explanations. <br> <span class=\"blue-text\">Understanding causality</span> <br> User finds the explanations helps him to understand causality. <br> <span class=\"blue-text\">Use with knowledge</span> <br>User is able to use the explanations with his knowledge base. <br> <span class=\"blue-text\">No inconsistencies</span> <br> User does not find inconsistencies between explanations. <br> <span class=\"blue-text\">Learn to understand</span> <br> User thinks that most people would learn to understand the explanations very quickly. <br> <span class=\"blue-text\">Needs references</span> <br> User does not need more references in the explanations (e.g. medical guidelines, regulations). <br> <span class=\"blue-text\">Efficiency</span> <br> User receives the explanations in a timely and efficient manner.  <a href=\"#ref-60\">[60]</a>",
                                     angle: 5 * Math.PI / 12,
                                     r: 350
                                 },
@@ -896,7 +770,7 @@ function setupReferencePopovers() {
                                             color: "#00AAFE",
                                             visible: false,
                                             forceRight: true,
-                                            description: "Overreliance exacerbates confirmation bias and leads to over-trust in the model. This occurs when users concentrate solely on information that aligns with their initial beliefs; when they encounter aesthetically pleasing platforms or interaction processes ; when presented with longer explanations; or even when explanations are provided regardless of their accuracy or faithfulness - so-called placebic explanations. As a result, the simple fact of having an explanation is enough for increasing trust. However, a one-line explanation is not sufficient for understanding a model, nor does a detailed but simplified or false explanation that does not correlate to model performance. Illusion of Explanatory Depth: People think they know how complex concepts work in much more depth than they actually do. <a href=\"#ref-46\">[46]</a>",
+                                            description: "Overreliance exacerbates confirmation bias and leads to over-trust in the model. This occurs when users concentrate solely on information that aligns with their initial beliefs; when they encounter aesthetically pleasing platforms or interaction processes ; when presented with longer explanations; or even when explanations are provided regardless of their accuracy or faithfulness - so-called <i>placebic explanations</i>. As a result, the simple fact of having an explanation is enough for increasing trust. However, a one-line explanation is not sufficient for understanding a model, nor does a detailed but simplified or false explanation that does not correlate to model performance. Also, people think they know how complex concepts work in much more depth than they actually do —so-called <i>Illusion of Explanatory Depth</i>. <a href=\"#ref-46\">[46]</a>",
                                             angle: 5 * Math.PI / 12,
                                             r: 375,
                                             children: [
@@ -936,7 +810,7 @@ function setupReferencePopovers() {
                                             color: "#00AAFE",
                                             visible: false,
                                             forceRight: true,
-                                            description: "The mere presence of an explanation, regardless of its quality or relevance,\ncan significantly increase user trust. Businesses can exploit this bias through practices like\nethics washing (See item on ethics), where explanations are provided primarily to boost emotional\ntrust and drive product acceptance, often lacking transparency about the model’s actual behaviour.\nPersuasive systems and transparent systems are not the same thing. Addressing these deceptive practices is critical. <a href=\"#ref-13\">[13]</a> <a href=\"#ref-55\">[55]</a>",
+                                            description: "The mere presence of an explanation, regardless of its quality or relevance, can significantly increase user trust. Businesses can exploit this bias through practices like <span class=\"blue-text\">ethics washing</span> (See item on ethics), where explanations are provided primarily to boost emotional trust and drive product acceptance, often lacking transparency about the model’s actual behaviour. Persuasive systems and transparent systems are not the same thing. Addressing these deceptive practices is critical. <a href=\"#ref-13\">[13]</a> <a href=\"#ref-55\">[55]</a>",
                                             angle: 6 * Math.PI / 12,
                                             r: 375,
                                             children: [
@@ -945,7 +819,7 @@ function setupReferencePopovers() {
                                                     title: "Mere Exposure Bias Mitigation",
                                                     color: "#00AAFE",
                                                     visible: false,
-                                                    description: "This can also lead to Overreliance. To counterbalance Mere Exposure biases, \nDelay showing the AI’s prediction and/or explanations; Give arguments for non-predicted outcomes and Use cognitive forcing functions\nand friction.\nUse cognitive forcing functions and friction. The combination of cognitive forcing functions and friction-based strategies  address users' lack of curiosity. Cognitive forcing functions, such as making users wait for or actively request explanations, and friction-based methods, like requiring a user to confirm they don't want an explanation, both successfully reduced unjustified trust in the system. However, they also had the side effect of decreasing user satisfaction. <a href=\"#ref-13\">[13]</a>",
+                                                    description: "This can also lead to Overreliance. To counterbalance Mere Exposure biases,  Delay showing the AI’s prediction and/or explanations; Give arguments for non-predicted outcomes and Use cognitive forcing functions and friction. Use cognitive forcing functions and friction. The combination of cognitive forcing functions and friction-based strategies  address users' lack of curiosity. Cognitive forcing functions, such as making users wait for or actively request explanations, and friction-based methods, like requiring a user to confirm they don't want an explanation, both successfully reduced unjustified trust in the system. However, they also had the side effect of decreasing user satisfaction. <a href=\"#ref-13\">[13]</a>",
                                                     angle: 5.8 * Math.PI / 12,
                                                     r: 500,
                                                 }]
@@ -956,7 +830,7 @@ function setupReferencePopovers() {
                                             color: "#00AAFE",
                                             visible: false,
                                             forceRight: true,
-                                            description: "Misattributed trust or tendency to believe persuasive claims unsupported by evidence are  of high interest to our research as they appear to be most salient in natural language explanations. Emotional response to AI, which seems to be a growing subject of interest, posits that 'user trust in AI positively correlates with their perceived understanding of the algorithm (also leading to Overreliance).  There is a distinction between perceived trust and actual trust. \nThis distinction between <span class=\"blue-text\">cognitive</span>  and <span class=\"blue-text\">emotional trust</span> in AI is fundamental. <br><span class=\"blue-text\">Cognitive trust</span>  refers to users' rational acceptance, perception of value, and willingness to use AI (i.e. the forms of trust described so far). <br><span class=\"blue-text\">Emotional trust</span> stems from users' feelings about an AI's behaviour or appearance, influencing their views on its reliability, likeability, and overall trustworthiness. Anthropomorphic traits or interactive AI actions can evoke strong emotional responses, from excitement to fear, directly impacting trust levels. The AI's representation (e.g., robot, virtual agent) also plays a crucial role, with negative emotional reactions potentially leading to distrust or abandonment. <a href=\"#ref-46\">[46]</a>",
+                                            description: "Misattributed trust or tendency to believe persuasive claims unsupported by evidence are  of high interest to our research as they appear to be most salient in natural language explanations. Emotional response to AI, which seems to be a growing subject of interest, posits that 'user trust in AI positively correlates with their perceived understanding of the algorithm (also leading to Overreliance).  There is a distinction between perceived trust and actual trust. This distinction between <span class=\"blue-text\">cognitive</span>  and <span class=\"blue-text\">emotional trust</span> in AI is fundamental. <br><span class=\"blue-text\">Cognitive trust</span>  refers to users' rational acceptance, perception of value, and willingness to use AI (i.e. the forms of trust described so far). <br><span class=\"blue-text\">Emotional trust</span> stems from users' feelings about an AI's behaviour or appearance, influencing their views on its reliability, likeability, and overall trustworthiness. Anthropomorphic traits or interactive AI actions can evoke strong emotional responses, from excitement to fear, directly impacting trust levels. The AI's representation (e.g., robot, virtual agent) also plays a crucial role, with negative emotional reactions potentially leading to distrust or abandonment. <a href=\"#ref-46\">[46]</a>",
                                             angle: 6.5 * Math.PI / 12,
                                             r: 375,
                                             children: [
@@ -1074,7 +948,7 @@ function setupReferencePopovers() {
                             title: "Causality",
                             color: "#7C09B3",
                             visible: false,
-                            description: " Causality is closely related to Deletion, Insertion and Monotonicity features described by [16]. They assess how deletions, insertions and successive insertion (monotonicity) affect the performance of the model. In other words, causality controls the causal effect from features to prediction. <a href=\"#ref-16\">[16]</a>  <a href=\"#ref-48\">[48]</a>",
+                            description: " Causality is closely related to Deletion, Insertion and Monotonicity features described by Bodria et al. <a href=\"#ref-16\">[16]</a>. They assess how deletions, insertions and successive insertion (monotonicity) affect the performance of the model. In other words, causality controls the causal effect from features to prediction. <a href=\"#ref-16\">[16]</a>  <a href=\"#ref-48\">[48]</a>",
                             angle: -3 * Math.PI / 12,
                             r: 200,
                         },
@@ -1083,7 +957,7 @@ function setupReferencePopovers() {
                             title: "Consistency",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Consistency has multiple definitions in XAI context. Lundberg and Lee [81] describe it as a property that states that if the attribution contribution of a feature regarding other features increases or stays the same, its attribution contribution should not decrease. This definition is specific to XAI methods that\ncompute attribution for features and ensembles of features. Consistency can also be described in\na more general way, as how two explanation methods produce similar attribution contributions for the same data. <a href=\"#ref-62\">[62]</a> <a href=\"#ref-81\">[81]</a>",
+                            description: "Consistency has multiple definitions in XAI context. Lundberg and Lee <a href=\"#ref-81\">[81]</a>  describe it as a property that states that if the attribution contribution of a feature regarding other features increases or stays the same, its attribution contribution should not decrease. This definition is specific to XAI methods that compute attribution for features and ensembles of features. Consistency can also be described in a more general way, as how two explanation methods produce similar attribution contributions for the same data. <a href=\"#ref-62\">[62]</a> <a href=\"#ref-81\">[81]</a>",
                             angle: -3.5 * Math.PI / 12,
                             r: 200,
                         },
@@ -1092,7 +966,7 @@ function setupReferencePopovers() {
                             title: "Completeness",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Completeness, in a general context, can be seen as how the different\ncomponents of an explanation are sufficient to explain the model’s prediction. It can also be seen, in some contexts, as how the sum of the attributions given to the different components of\nan explanation is equal to the overall attribution to a prediction. Finally, it can also be seen\nconcerning the training data as how the dataset captures all the information that would have been captured if all the data available had been gathered. <a href=\"#ref-18\">[18]</a>  <a href=\"#ref-83\">[83]</a> <a href=\"#ref-92\">[92]</a>",
+                            description: "Completeness, in a general context, can be seen as how the different components of an explanation are sufficient to explain the model’s prediction. It can also be seen, in some contexts, as how the sum of the attributions given to the different components of an explanation is equal to the overall attribution to a prediction. Finally, it can also be seen concerning the training data as how the dataset captures all the information that would have been captured if all the data available had been gathered. <a href=\"#ref-18\">[18]</a>  <a href=\"#ref-83\">[83]</a> <a href=\"#ref-92\">[92]</a>",
                             angle: -4 * Math.PI / 12,
                             r: 200,
                         },
@@ -1110,7 +984,7 @@ function setupReferencePopovers() {
                             title: "Fidelity/Faithfulness",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Fidelity (or Faithfulness  is a metric of how well a surrogate model 𝑓 replicates the behaviour of a model 𝑏. The implementation of fidelity varies based on the type of explanation being analysed  but this measure is specific to methods that produce a surrogate model to explain the functioning of a model. <a href=\"#ref-5\">[5]</a> <a href=\"#ref-65\">[65]</a>",
+                            description: "Fidelity (or Faithfulness)  is a metric of how well a surrogate model 𝑓 replicates the behaviour of a model 𝑏. The implementation of fidelity varies based on the type of explanation being analysed  but this measure is specific to methods that produce a surrogate model to explain the functioning of a model. <a href=\"#ref-5\">[5]</a> <a href=\"#ref-65\">[65]</a>",
                             angle: -5 * Math.PI / 12,
                             r: 200,
                         },
@@ -1182,7 +1056,7 @@ function setupReferencePopovers() {
                             title: "Sensitivity",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Sensitivity has multiple definitions. <a href=\"#ref-119\">[119]</a> Describe it as a property indicating that an attribute must have a non-zero attribution if removing it from an input produces changes in the prediction. More generally, a sensitivity in XAI, would measure the importance of features by comparing how much they influence a model's prediction. Sensitivity is therefore linked to robustness of a model.",
+                            description: "Sensitivity has multiple definitions. Sundararajan et al. <a href=\"#ref-119\">[119]</a> Describe it as a property indicating that an attribute must have a non-zero attribution if removing it from an input produces changes in the prediction. More generally, a sensitivity in XAI, would measure the importance of features by comparing how much they influence a model's prediction. Sensitivity is therefore linked to robustness of a model.",
                             angle: -9 * Math.PI / 12,
                             r: 200,
                         },
@@ -1230,14 +1104,14 @@ function setupReferencePopovers() {
 
     let data = setData()
 
-    const width = 1200, height = 900;
+    const width = 1050, height = 900;
     const radius = width / 2;
     const leftPadding = 250;
     const heightReduction = 200;
     const topPadding = 100;
 
-    const svg = d3.select("svg")
-        .attr("viewBox", [-radius+leftPadding, -radius+topPadding, width, height+topPadding]);
+const svg = d3.select("svg")
+ .attr("viewBox", [-radius+leftPadding-400, -radius+topPadding-150, width+300, height+topPadding+200]);
 
     const tree = d3.cluster()
         .size([2 * Math.PI, radius - 100]);
@@ -1274,12 +1148,12 @@ function setupReferencePopovers() {
     }
 }
 
-
 function createGraph(){
-    const svg = d3.select("svg")
-        .attr("viewBox", [-radius+leftPadding, -radius+topPadding, width, height+topPadding]);
+const svg = d3.select("svg")
+    .attr("width", "1400")
+    .attr("height", "1100")
+    .attr("viewBox", [-radius+leftPadding-200, -radius+topPadding-70, width+300, height+200]);
 
-    // Only add static elements if they don't exist
     if (svg.select(".static-elements").empty()) {
         const staticGroup = svg.append("g").attr("class", "static-elements");
         
@@ -1365,10 +1239,6 @@ nodeEnter.append("circle")
     .attr("stroke", d => d.data.color)
     .attr("stroke-width", 2);
 
-
-
-
-
     nodeEnter.append("text")
         .attr("dy", "0.31em")
         .attr("x", d => d.data.forceRight ? 16 : (d.data.angle < Math.PI && d.data.angle > 0) === !d.children ? 16 : -16)
@@ -1401,10 +1271,6 @@ nodeSelection.select("circle")
                             (d.children && d.children.length > 0 ? "white" : d.data.color));
         return d3.interpolateRgb(currentColor, targetColor);
     });
-
-
-
-
 
     nodeSelection.exit()
         .transition()
@@ -1441,7 +1307,6 @@ nodeSelection.select("circle")
     // Set clicked state for the current node
     d.data.clicked = true;
 
-    // Rest of your click logic...
     root.descendants().forEach(node => {
         if (node.depth >= 2) {
             node.data.visible = false;
@@ -1487,9 +1352,7 @@ function isAncestorOrDescendant(node, target) {
     return false;
 }
 
-
-
-    // Reference links event handling (keep this as is)
+    // Reference links event handling
     const referencesContainer = document.getElementById('references');
     const refLinks = document.querySelectorAll('a[href^="#ref-"]');
     refLinks.forEach(link => {
