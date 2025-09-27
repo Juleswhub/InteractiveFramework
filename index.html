@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta charset="UTF-8">
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <title>Framework</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <style>
 
     body {
-        font-family: Poppins, -webkit-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-family: Poppins, -webkit-system, BlinkMacSystemFont, "Segoe UI", 'Poppins', sans-serif;
         height: 100%;
         overflow-y: hidden;
         margin: 0;
@@ -35,10 +35,10 @@
         r: 10;
     }
 
-    .node text {
-        font-size: 13px;
-        /*fill: #333;*/
-    }
+   .node text {
+    font-size: 26px; /* Changed from 20px */
+    /*fill: #333;*/
+}
     
     .hidden{
         display: none;
@@ -63,8 +63,8 @@
         bottom: 70px !important;
         right: 50px !important;
         z-index: 1000 !important; 
-        font-family: Arial, sans-serif;
-        font-size: 14px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
         color: #555;
         padding: 5px;
         background-color: rgba(255, 255, 255, 0.7);
@@ -73,19 +73,22 @@
         border-radius: 5px;
     }
 
+
     .custom-card {
         background: rgba(255, 255, 255, 0.95);
         border: 1px solid #ddd;
         -webkit-border-radius: 8px;
         -moz-border-radius: 8px;
         border-radius: 8px;
-        font-size: 14px;
-        padding: 15px;
-        max-width: 600px;
+       font-size: 1rem; /* Use rem for scalable font size */
+       padding: 1.5rem; /* Use rem for scalable padding */
+       max-width: 90vw; /* Use viewport width for responsiveness */
+       width: auto; /* Allow the card to shrink/grow */
         -webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         -moz-box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
+        margin: 0 auto; /* Center the card horizontally */
+}
 
     .custom-title {
         color: #ff0faa;
@@ -145,7 +148,7 @@
 
   .legend {
     position: absolute;
-    bottom: 50px;
+    bottom: -40px;
     left: 30px;
     background: rgba(255, 255, 255, 0.95);
     border: 1px solid #ddd;
@@ -157,9 +160,12 @@
     -moz-box-shadow: 0 2px 10px rgba(0,0,0,0.1);
    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     font-size: 12px;
-    z-index: 10;
+    z-index: 1000;
     max-width: 200px;
 }
+
+
+
 
 /* Responsive adjustments for legend */
 @media screen and (max-width: 1200px) {
@@ -266,6 +272,10 @@
         color: #00AAFE; 
     }
 
+      .purple-text {
+        color: #7C09B3; 
+    }
+
     .dropdown-hidden {
         max-height: 0;
         overflow: hidden;
@@ -287,10 +297,10 @@
         z-index: 1000; 
     }
 
-    .image-container img {
-        width: 150px; 
-        height: auto; 
-    }
+   img {
+    max-width: 100%;
+    height: auto;
+}
 
     .node {
         -webkit-transition: opacity 0.5s ease-in-out;
@@ -340,9 +350,12 @@
         font-weight: bold;
     }
 
-    .static-elements text {
-        fill: #ff0faa;
-    }
+  .static-elements text {
+    fill: #ff0faa;
+    font-weight: bold;
+    font-size: 28px;
+    font-family: 'Poppins', sans-serif; /* Change this to your preferred font */
+}
 
     /* Responsive adjustments */
     @media screen and (max-width: 1200px) {
@@ -359,30 +372,218 @@
             font-size: 12px;
         }
         
-        .custom-card {
-            max-width: 400px;
-            padding: 10px;
-            font-size: 13px;
-        }
+     .custom-card {
+    max-width: 800px;
+    font-size: 1rem;
+    padding: 1.5rem;
+}
     }
 
-    @media screen and (max-width: 768px) {
-        .legend {
-            bottom: 150px;
-            left: 10px;
-            font-size: 10px;
-            padding: 8px;
-        }
-        
-        .image-container img {
-            width: 100px;
-        }
-        
-        .custom-card {
-            max-width: 300px;
-            font-size: 12px;
-        }
+   /* Fix the nested media query issue */
+@media screen and (max-width: 1024px) {
+    .legend {
+        top: 30px;
+        left: 30px;
+        font-size: 11px;
+        padding: 10px;
+        max-width: 180px;
     }
+    
+    .footer-text {
+        bottom: 40px;
+        right: 20px;
+        font-size: 12px;
+    }
+    
+    .custom-card {
+        max-width: 90vw;
+        padding: 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    body {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .legend {
+        top: 20px;
+        left: 20px;
+        font-size: 10px;
+        padding: 8px;
+        max-width: 160px;
+    }
+    
+    .image-container img {
+        width: 100px;
+    }
+    
+    .custom-card {
+        max-width: 800px;
+        font-size: 14px;
+    }
+    
+    body {
+        font-size: 0.8rem;
+        overflow-x: hidden;
+    }
+    
+    .node circle {
+        r: 8;
+    }
+    
+    .node text {
+        font-size: 26px;
+    }
+    
+    .btn-control {
+        padding: 6px 12px;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+    
+    .modal-dialog {
+        margin: 10px;
+    }
+}
+
+/* Add mobile-first responsive design */
+@media screen and (max-width: 768px) {
+    .legend {
+        top: 30px;
+        left: 30px;
+        font-size: 11px;
+        padding: 10px;
+        max-width: 180px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .legend {
+        top: 20px;
+        left: 20px;
+        font-size: 10px;
+        padding: 8px;
+        max-width: 160px;
+    }
+}
+
+    
+    .footer-text {
+        bottom: 10px;
+        right: 10px;
+        font-size: 10px;
+        padding: 3px;
+    }
+    
+    .image-container {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .image-container img {
+        width: 80px;
+    }
+    
+    .custom-card {
+        max-width: 95vw;
+        padding: 1rem;
+        font-size: 0.8rem;
+        margin: 10px;
+    }
+    
+    #content {
+        margin-top: 20px;
+    }
+    
+    .node text {
+        font-size: 26px;
+    }
+    
+    .popover {
+        max-width: 280px;
+        font-size: 11px;
+    }
+
+    .legend-item {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+/* Fix for older browsers */
+/* Add this to your CSS */
+.container-fluid {
+    position: relative;
+}
+
+
+.col-xl-8, .col-lg-7, .col-md-12, .col-xl-4, .col-lg-5 {
+   width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .col-md-12 {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-lg-7 {
+        width: 58.333333%;
+        float: left;
+    }
+    .col-lg-5 {
+        width: 41.666667%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-xl-8 {
+        width: 66.666667%;
+        float: left;
+    }
+    .col-xl-4 {
+        width: 33.333333%;
+        float: left;
+    }
+
+    /* Better mobile scaling without breaking the graph */
+@media screen and (max-width: 576px) {
+    #radialTree {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 300px;
+        max-height: 80vh;
+    }
+    
+    .node text {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #radialTree {
+        max-height: 500px;
+    }
+    
+    .node text {
+        font-size: 26px;
+    }
+}
+}
 
 </style>
 <body>
@@ -390,6 +591,9 @@
     <div id="references" class="container mt-5 hidden">
     <h2>References</h2> 
     <ol>
+        <li id="ref-1"><p> [1] European AI Act version (Regulation (EU) 2024/1689) legislative resolution of 13 June 2024. </p></li>
+        <li id="ref-2"><p> [2]Wang, Zijie J., et al. "CNN explainer: learning convolutional neural networks with interactive visualization." IEEE Transactions on Visualization and Computer Graphics 27.2 (2020): 1396-1406.</p></li>
+        <li id="ref-3"><p> [3] People and AI Research (PAIR) What Have Language Models Learned? </p> </li>
         <li id="ref-5"><p> [5] Sajid Ali, Tamer Abuhmed, Shaker El-Sappagh, Khan Muhammad, Jose M Alonso-Moral, Roberto Confalonieri, Riccardo Guidotti, Javier Del Ser, Natalia Díaz-Rodríguez, and Francisco Herrera. 2023. Explainable Artificial Intelligence (XAI): What we know and what is left to attain Trustworthy Artificial Intelligence. Information fusion 99 (2023), 101805. </p></li>
         <li id="ref-8"><p> [8] Alejandro Barredo Arrieta, Natalia Díaz-Rodríguez, Javier Del Ser, Adrien Bennetot, Siham Tabik, Alberto Barbado, Salvador García, Sergio Gil-López, Daniel Molina, Richard Benjamins, et al . 2020. Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI. Information fusion 58 (2020), 82–115.</p></li>
         <li id="ref-11"><p> [11] Claus Beisbart and Tim Räz. 2022. Philosophy of science at sea: Clarifying the interpretability of machine learning.Philosophy Compass 17, 6 (2022), e12830.</p></li>
@@ -399,7 +603,7 @@
         <li id="ref-16"><p>[16] Francesco Bodria, Fosca Giannotti, Riccardo Guidotti, Francesca Naretto, Dino Pedreschi, and Salvatore Rinzivillo. 2023. Benchmarking and survey of explanation methods for black box models. Data Mining and Knowledge Discovery 37, 5 (2023), 1719–1778.</p></li>
         <li id="ref-18"><p>[18] Nadia Burkart and Marco F Huber. 2021. A survey on the explainability of supervised machine learning. Journal of Artificial Intelligence Research 70 (2021), 245–317.</p></li>  
         <li id="ref-28"><p>[28] Nicholas Kluge Corrêa, Camila Galvão, James William Santos, Carolina Del Pino, Edson Pontes Pinto, Camila Barbosa, Diogo Massmann, Rodrigo Mambrini, Luiza Galvão, Edmund Terem, et al . 2023. Worldwide AI ethics: A review of 200 guidelines and recommendations for AI governance. Patterns 4, 10 (2023), 100857. </p></li>
-       <li id="ref-35"><p></p> [35] Weiping Ding, Mohamed Abdel-Basset, Hossam Hawash, and Ahmed M Ali. 2022. Explainability of artificial intelligence methods, applications and challenges: A comprehensive survey. Information Sciences 615 (2022), 238–292.</p></li> 
+       <li id="ref-35"><p> [35] Weiping Ding, Mohamed Abdel-Basset, Hossam Hawash, and Ahmed M Ali. 2022. Explainability of artificial intelligence methods, applications and challenges: A comprehensive survey. Information Sciences 615 (2022), 238–292.</p></li> 
         <li id="ref-39"><p> [39] Filip Karlo Došilović, Mario Brčić, and Nikica, Explainable-Artificial-Intelligence-A-Survey, International Convention on Information and Communication Technology, Electronics and Microelectronics (MIPRO). IEEE, Opatija, Croatia, 0210–0215. https://doi.org/10.23919/MIPRO.2018.8350040. </p></li>.
         <li id="ref-43"><p> [43] Kraig Finstad. 2010. The usability metric for user experience. Interacting with computers 22, 5 (2010), 323–327.</p></li>
         <li id="ref-44"><p>[44] Valentina Franzoni. 2023. From black box to glass box: advancing transparency in artificial intelligence systems for ethical and trustworthy AI. In International Conference on Computational Science and Its Applications. Springer, Athens, Greece, 118–130. </p></li>
@@ -440,7 +644,8 @@
     <div class="row">
         <div class="col-xl-8 col-lg-7 col-md-12">
             <div class="d-inline-block w-100">
-                <svg id="radialTree" width="1400" height="1100" class="w-100" style="height: auto; max-height: 900px;"></svg>
+                <svg id="radialTree" class="w-100" style="height: auto; max-height: 900px;"></svg>
+
             </div>
         </div>
         <div class="col-xl-4 col-lg-5 col-md-12">
@@ -538,6 +743,10 @@ document.getElementById('modalStart').addEventListener('shown.bs.modal', functio
 });
 
 const referenceUrls = {
+    'ref-1': 'https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L\_202401689', 
+    'ref-2': ' https://poloclub.github.io/cnn-explainer/', 
+    'ref-3': 'https://pair.withgoogle.com/explorables/fill-in-the-blank/',
+    'ref-1': 'https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L\_202401689', 
     'ref-5': 'https://doi.org/10.1016/j.inffus.2023.101805',
     'ref-8': 'https://www.sciencedirect.com/science/article/pii/S1566253519308103',
     'ref-11': 'https://doi.org/10.1111/phc3.12830',
@@ -706,8 +915,65 @@ function setupReferencePopovers() {
                     visible: true,
                     description: "Non-experts are users that either do not have  the technical knowledge on AI to understand its decisions and functioning, but are nonetheless experts in the domain of application where an AI system is used (domain-experts). The term non-experts also refers to laypeople, that is users that do not have any or very limited knowledge on AI and the field of application where it is used. The later user is sometimes only categorised under the term laypeople, where non-experts strictly refers to the former definition . We prefer to categorise both of them under the term Non-experts for simplification purposes and avoid confusion.",
                     angle: 0,
-                    r: 100,
+                    r: 90,
                     children: [
+{
+  name: "Compliance",
+  title: "Compliance",
+  color: "#ff0faa",
+  visible: false,
+  forceRight: true,
+  description: `XAI must align with regulations like the EU AI Act or GDPR. This includes ensuring transparency, accountability, and user rights (e.g., right to explanation). Practical steps include <span class="blue-text">documenting data sources</span>, <span class="blue-text">model decisions</span>, and providing <span class="blue-text">clear and accessible</span> explanations to users. See European AI Act <a href="#ref-1">[1]</a>.
+<br><br>
+<span class="blue-text"><strong>Checklist</strong></span><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="risk-classification">
+AI system is classified by risk level
+</label><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="transparent-explanations">
+High-risk systems provide transparent explanations
+</label><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="human-oversight">
+Human oversight is enabled
+</label><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="clear-explanations">
+Explanations are <span class="blue-text">clear</span> and <span class="blue-text">understandable</span> to non-experts?
+</label><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="clarification-process">
+Is there a process for users to request further clarification?
+</label><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="audit-logging">
+Are explanations logged for auditing purposes?
+</label><br>
+<br>
+<span class="blue-text"><strong>GDPR Compliance Checklist</strong></span><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="plain-language">
+Explanations are in plain language
+</label><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="contest-decisions">
+Users can contest automated decisions
+</label><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="documented-logic">
+Data and model logic are documented
+</label><br>
+<br>
+<span class="blue-text"><strong>Example Workflow</strong></span><br>
+<strong>Enable User Recourse</strong><br>
+Provide mechanisms for users to contest decisions.<br>
+<strong>Test for Compliance</strong><br>
+Conduct user studies to validate explanation clarity.`,
+  angle: 7.5 * Math.PI / 12,
+  r: 300,
+  children: []
+},
                         {
                             name: "User experience",
                             title: "User experience",
@@ -717,7 +983,7 @@ function setupReferencePopovers() {
                             textAlignRight: true,
                             description: "User experience is part of what’s referred to as Human-grounded explanations. They are evaluated using simplified tasks with human subjects, usually in a controlled environment. The focus is on whether or not the explanation is understandable and useful to humans. By integrating the UX principles with technical XAI approaches (e.g., SHAP, ExBert, BertViz), the aim is to create AI systems that are explainable, intuitive, actionable, and reliable for all users, including experts. To effectively explain AI systems, designers, researchers and  engineers should: <br> <span class=\"blue-text\">Align explanations with user goals</span> <br> Tailor explanations to what users are trying to achieve and their level of technical knowledge. <br> <span class=\"blue-text\">Test for usability</span> <br>Conduct regular usability tests with real users to ensure the explanations are easy to understand. <br> <span class=\"blue-text\">A/B test styles</span> <br>  Compare different explanation formats to see which ones are most effective at building user trust and engagement. <br> <span class=\"blue-text\">Measure trust and satisfaction</span> <br> Use metrics and feedback (like surveys and interviews) to gauge user confidence and satisfaction with the explanations. ",
                             angle: 3.5 * Math.PI / 12,
-                            r: 200,
+                            r: 300,
                             children: [
                                 {
                                     name: "System Usability Scale (SUS)",
@@ -726,7 +992,7 @@ function setupReferencePopovers() {
                                     visible: false,
                                     description: "Validated UX scales for assessing these metrics include: System Usability Scale (SUS). It is a Ten-item likert scale questionnaire for measuring the perceived usability of a system or product. The result is a score ranging from 0-100. A score of 70 or above is often considered a good indicator of good usability. <br> Specifically, it helps measure: <br>  <span class=\"blue-text\">Effectiveness</span> <br> In XAI: can users successfully achieve their explanation objectives <br> <span class=\"blue-text\">Efficiency</span> <br> In XAI: how much effort and resources are needed to understand an explanation by navigating through the XAI tool <br> <span class=\"blue-text\">Satisfaction</span> <br> In XAI: was the experience with the explanation/tool, satisfactory. <a href=\"#ref-43\">[43]</a>",
                                     angle: 4 * Math.PI / 12,
-                                    r: 350
+                                    r: 550
                                 },
                                 {
                                     name: "User Experience Questionnaire (UEQ)",
@@ -735,7 +1001,7 @@ function setupReferencePopovers() {
                                     visible: false,
                                     description: "It measures the User Experience of interactive products. Specifically, it assesses usability aspects (efficiency, perspicuity, dependability) and user experience aspects (attractiveness, originality, stimulation). <br> <span class=\"blue-text\">Attractiveness</span> <br> Overall impression of the product. Do users like or dislike it? <br> <span class=\"blue-text\">Perspicuity</span> <br> Is it easy to get familiar with the product and to learn how to use it? <br> <span class=\"blue-text\">Efficiency</span> <br> Can users solve their tasks without unnecessary effort? Does it react fast? <br> <span class=\"blue-text\">Dependability</span> <br> Does the user feel in control of the interaction? Is it secure and predictable? <br> <span class=\"blue-text\">Stimulation</span> <br> Is it exciting and motivating to use the product? Is it fun to use?  <br> <span class=\"blue-text\">Novelty</span> <br> Is the design of the product creative? Does it catch the interest of users? <a href=\"#ref-75\">[75]</a>",
                                     angle: 4.5 * Math.PI / 12,
-                                    r: 350
+                                    r: 550
                                 },
                                 {
                                     name: "System Causability Scale (SCS)",
@@ -744,7 +1010,7 @@ function setupReferencePopovers() {
                                     visible: false,
                                     description: " The SCS helps measure the quality of the explanation. The scale is based on the concept of causability, which is defined as the extent to which an explanation helps a user achieve a specified level of causal understanding with effectiveness, efficiency, and satisfaction within a given context. The SCS is modeled after the System Usability Scale (SUS) and uses a 10-item questionnaire where users rate their agreement with statements on a 5-point Likert scale. The result, for each factor, is a score ranging from 1-5 (<span class=\"blue-text\">Strongly Disagree</span> - <span class=\"blue-text\">Strongly Agree</span>) The factors measured are: <br> <span class=\"blue-text\">Factors in data</span> <br> User thinks data included all relevant known causal factors with sufficient precision. <br> <span class=\"blue-text\">Understandability</span> <br> User understands explanations within the context of its work. <br> <span class=\"blue-text\">Change detail level</span> <br> User can change the level of detail on demand. <br> <span class=\"blue-text\">Need teacher/support</span> <br> User does not need support to understand the explanations. <br> <span class=\"blue-text\">Understanding causality</span> <br> User finds the explanations helps him to understand causality. <br> <span class=\"blue-text\">Use with knowledge</span> <br>User is able to use the explanations with his knowledge base. <br> <span class=\"blue-text\">No inconsistencies</span> <br> User does not find inconsistencies between explanations. <br> <span class=\"blue-text\">Learn to understand</span> <br> User thinks that most people would learn to understand the explanations very quickly. <br> <span class=\"blue-text\">Needs references</span> <br> User does not need more references in the explanations (e.g. medical guidelines, regulations). <br> <span class=\"blue-text\">Efficiency</span> <br> User receives the explanations in a timely and efficient manner.  <a href=\"#ref-60\">[60]</a>",
                                     angle: 5 * Math.PI / 12,
-                                    r: 350
+                                    r: 550
                                 },
                             ]
                         },
@@ -756,7 +1022,7 @@ function setupReferencePopovers() {
                             forceRight: true,
                             description: "Ethical AI refers to individual and social values. An AI system that is deemed ethical is one that accounts for these following principles: transparency, fairness, robustness, and legal compliance.",
                             angle: 4.5 * Math.PI / 12,
-                            r: 200,
+                            r: 300,
                             children: [
                                 {
                                     name: "Practical Recommendations",
@@ -764,17 +1030,26 @@ function setupReferencePopovers() {
                                     color: "#ff0faa",
                                     visible: false,
                                     description: "While complex models often reduce the potential for explainability (see <i>Performance-explainability trade-off</i> <a href=\"#ref-8\">[8]</a>  <a href=\"#ref-39\">[39]</a>).  Achieving AI justice requires multifaceted solutions, including technical standards, public awareness, rigorous testing and monitoring, stronger legal rights, systemic governmental oversight with diverse teams, and better stakeholder inclusion.  To address this, researchers propose limiting model parameters while maintaining good predictions  <i>information bottleneck trade-off </i>  <a href=\"#ref-11\">[11]</a>; others <a href=\"#ref-12\">[12]</a> advocate for transparent processes via standardised datasheets for machine learning training datasets. These datasheets would provide crucial details about data origin and properties, processing methodology, and intention, enabling better-informed decisions. If models cannot be fully transparent due to this trade-off, the process should at least be made transparent.The following items outline topics to tackle these ethical challenges. <a href=\"#ref-55\">[55]</a>   <a href=\"#ref-64\">[64]</a>",
-                                    angle: 2.5 * Math.PI / 12,
-                                    r: 400
+                                    angle: 3.2 * Math.PI / 12,
+                                    r: 600
                                 },
+                                {
+                                    name: "Regulatory Compliance",
+                                    title: "Regulatory Compliance",
+                                    color: "#ff0faa",
+                                    visible: false,
+                                    description: "XAI must align with regulations like the EU AI Act or GDPR. This includes ensuring transparency, accountability, and user rights (e.g., right to explanation). Practical steps include documenting data sources, model decisions, and providing clear, accessible explanations to users.",
+                                    angle: 8.8 * Math.PI / 12,
+                                    r: 600
+},
                                 {
                                     name: "Consent Mechanisms",
                                     title: "Consent Mechanisms",
                                     color: "#00AAFE",
                                     visible: false,
                                     description: "Creating mechanisms for managing user consent, ensuring users are fully informed about data use and can easily grant or withdraw consent. <a href=\"#ref-101\">[101]</a>",
-                                    angle: 3 * Math.PI / 12,
-                                    r: 400
+                                    angle: 3.5 * Math.PI / 12,
+                                    r: 600
                                 },
                                 {
                                     name: "Trust Metrics",
@@ -782,8 +1057,8 @@ function setupReferencePopovers() {
                                     color: "#00AAFE",
                                     visible: false,
                                     description: "With the advent of XAI, trust scales have been revised and investigated further to be adapted to technological trust. With suggestions from <a href=\"#ref-100\">[100]</a> to adapt some items to make its psychometry fully reliable, the TXAI trust scale appears to be the most reliable metric for Trust assessments in XAI. <a href=\"#ref-58\">[58]</a>",
-                                    angle: 3.5 * Math.PI / 12,
-                                    r: 400
+                                    angle: 4 * Math.PI / 12,
+                                    r: 600
                                 },
                                 {
                                     name: "Transparency",
@@ -791,8 +1066,8 @@ function setupReferencePopovers() {
                                     color: "#00AAFE",
                                     visible: false,
                                     description: "means users can understand how a system works - its rules, processes, logic <a href=\"#ref-43\">[43]</a>. True transparency, especially with complex AI <i>black boxes</i>, is hard to achieve because their inner workings are so intricate. Ultimately, the more complex a model, the less transparent it tends to be. Any explainability method that helps understanding how a system works is therefore, as things stand, considered as transparent. <a href=\"#ref-35\">[35]</a> <a href=\"#ref-56\">[56]</a> <a href=\"#ref-69\">[69]</a>",
-                                    angle: 4 * Math.PI / 12,
-                                    r: 400
+                                    angle: 4.5 * Math.PI / 12,
+                                    r: 600
                                 },
                                 {
                                     name: "Fairness",
@@ -800,8 +1075,8 @@ function setupReferencePopovers() {
                                     color: "#00AAFE",
                                     visible: false,
                                     description: "A system is considered fair if it does not create or amplify existing bias  or if it does not create or amplify existing discrimination based on any metric such as age, language, race, or gender. <a href=\"#ref-13\">[13]</a>",
-                                    angle: 4.5 * Math.PI / 12,
-                                    r: 400
+                                    angle: 5 * Math.PI / 12,
+                                    r: 600
                                 },
                                 {
                                     name: "Labels",
@@ -809,8 +1084,8 @@ function setupReferencePopovers() {
                                     color: "#00AAFE",
                                     visible: false,
                                     description: "  Giving clear and standardised labels on whether AI products respect, and to what extent, multiple AI ethics characteristics (Fairness, Accountability, Privacy, and so on). That way users get a better understanding of the ethical implications of using specific AI systems. <a href=\"#ref-101\">[101]</a>",
-                                    angle: 5 * Math.PI / 12,
-                                    r: 400
+                                    angle: 5.5 * Math.PI / 12,
+                                    r: 600
                                 },
                                 {
                                     name: "Ethical Councils",
@@ -818,8 +1093,8 @@ function setupReferencePopovers() {
                                     color: "#00AAFE",
                                     visible: false,
                                     description: "  Establishing ethical councils to oversee AI systems to ensure ethical standards are respected and provide technical advice for complex ethical challenges or sandbox testing when needed. This is done in other high-risk fields such as medicine or aviation. <a href=\"#ref-101\">[101]</a>",
-                                    angle: 5.5 * Math.PI / 12,
-                                    r: 400
+                                    angle: 6 * Math.PI / 12,
+                                    r: 600
                                 },
                                 {
                                     name: "Consent Mechanisms",
@@ -827,8 +1102,8 @@ function setupReferencePopovers() {
                                     color: "#00AAFE",
                                     visible: false,
                                     description: "Creating mechanisms for managing user consent, ensuring users are fully informed about data use and can easily grant or withdraw consent. <a href=\"#ref-101\">[101]</a>",
-                                    angle: 6 * Math.PI / 12,
-                                    r: 400
+                                    angle: 6.5 * Math.PI / 12,
+                                    r: 600
                                 },
                                 {
                                     name: "Ecological & Labour impact",
@@ -836,8 +1111,8 @@ function setupReferencePopovers() {
                                     color: "#00AAFE",
                                     visible: false,
                                     description: "  Transparency regarding AI’s environmental footprint and labour conditions is crucial (energy consumption, data centre emissions, hidden social costs such as data labelling and clickworking under exploitative conditions and reliance non precarious labour). Operating massive AI models comes at a high planetary cost, both regarding mining core materials on which our highly computerised society depend on, as well as training and using AI-systems that rely on massive electricity and cooling systems, contributing to global warming. <a href=\"#ref-12\">[12]</a> <a href=\"#ref-28\">[28]</a> <a href=\"#ref-102\">[102]</a>",
-                                    angle: 6.5 * Math.PI / 12,
-                                    r: 400
+                                    angle: 7 * Math.PI / 12,
+                                    r: 600
                                 },
                                 {
                                     name: "Ethics & Fair Washing",
@@ -845,8 +1120,8 @@ function setupReferencePopovers() {
                                     color: "#00AAFE",
                                     visible: false,
                                     description: " The divergence in how AI ethical principles are interpreted and implemented is due to the varying priorities and perspectives of different stakeholders, such as private companies, governments, and academic institutions, who have issued these guidelines. Some of them prioritise profit-making over genuine commitment to serving human interests. <a href=\"#ref-64\">[64]</a> ",
-                                    angle: 7 * Math.PI / 12,
-                                    r: 400
+                                    angle: 7.5 * Math.PI / 12,
+                                    r: 600
                                 },
                                 {
                                     name: "Authorship",
@@ -854,8 +1129,8 @@ function setupReferencePopovers() {
                                     color: "#00AAFE",
                                     visible: false,
                                     description: "Concerns include using copyrighted data—especially artistic content—without consent in generative AI, urging greater transparency in design to help affected artists assess data use. <a href=\"#ref-44\">[44]</a>",
-                                    angle: 7.5 * Math.PI / 12,
-                                    r: 400
+                                    angle: 8 * Math.PI / 12,
+                                    r: 600
                                 },
                                 {
                                     name: "Representativeness",
@@ -863,8 +1138,8 @@ function setupReferencePopovers() {
                                     color: "#00AAFE",
                                     visible: false,
                                     description: "Most guidelines originate from developed countries, leaving regions like Africa and South America underrepresented, raising concerns about inclusivity. <a href=\"#ref-28\">[28]</a> <a href=\"#ref-64\">[64]</a>  ",
-                                    angle: 8 * Math.PI / 12,
-                                    r: 400
+                                    angle: 8.5 * Math.PI / 12,
+                                    r: 600
                                 }
                             ]
                         },
@@ -876,7 +1151,7 @@ function setupReferencePopovers() {
                             forceRight: true,
                             description: "Cognitive biases in explanations have been investigated. XAI relationship to cognitive biases is twofold: biases can distort the design and interpretation of XAI methods during user studies, but XAI methods can help in leveraging or amplifying some cognitive biases in interpretation and reasoning. A core ethical dilemma emerges: should XAI systems exploit or safeguard users from cognitive biases? Research reveals the double-edged nature of behavioural science in AI, where psychological insights can either encourage better decision-making or manipulate and undermine autonomy, especially given the scanning of online behaviour and personal data stored and used for opinion manipulation or power and wealth accumulation. For ethical XAI development, it's crucial to differentiate between acceptable and problematic biases. This needs further empirical research into the risks and benefits of incorporating them. <a href=\"#ref-13\">[13]</a>  <a href=\"#ref-74\">[74]</a>   <a href=\"#ref-132\">[132]</a>",
                             angle: 5.5 * Math.PI / 12,
-                            r: 200,
+                            r: 300,
                             children: [
                                         {
                                             name: "Underreliance",
@@ -885,8 +1160,8 @@ function setupReferencePopovers() {
                                             visible: false,
                                             forceRight: true,
                                             description: "Underreliance, which occurs when users fail to fully trust or make use of the information provided by AI systems. This happens when AI explanations interfere with users personal objectives; when the explanation, from their perspective, complicates the task (resistance to change) or when low-fidelity explanations are presented to the user. <a href=\"#ref-91\">[91]</a>",
-                                            angle: 4.5 * Math.PI / 12,
-                                            r: 375,
+                                            angle: 4 * Math.PI / 12,
+                                            r: 575,
                                             children: [
                                                 {
                                                     name: "Underreliance Mitigation",
@@ -894,8 +1169,8 @@ function setupReferencePopovers() {
                                                     color: "#00AAFE",
                                                     visible: false,
                                                     description: "To mitigate underreliance, research propose managing the types of predictions presented to users during their initial interactions with the system. For instance, highlighting the system's weaknesses or displaying negative outcomes early on, such as a malignant diagnosis, can significantly impact trust. Enabling to actively explore the data, or using gamification and personalisation can help. Finally, users should keep track of what has already been explained and Control the predictions users observe in the training phase. <a href=\"#ref-13\">[13]</a>  <a href=\"#ref-103\">[103]</a>",
-                                                    angle: 4.3 * Math.PI / 12,
-                                                    r: 500,
+                                                    angle: 4.2 * Math.PI / 12,
+                                                    r: 600,
                                                 }]
                                         },
                                         {
@@ -905,8 +1180,8 @@ function setupReferencePopovers() {
                                             visible: false,
                                             forceRight: true,
                                             description: "Overreliance exacerbates confirmation bias and leads to over-trust in the model. This occurs when users concentrate solely on information that aligns with their initial beliefs; when they encounter aesthetically pleasing platforms or interaction processes ; when presented with longer explanations; or even when explanations are provided regardless of their accuracy or faithfulness - so-called <i>placebic explanations</i>. As a result, the simple fact of having an explanation is enough for increasing trust. However, a one-line explanation is not sufficient for understanding a model, nor does a detailed but simplified or false explanation that does not correlate to model performance. Also, people think they know how complex concepts work in much more depth than they actually do —so-called <i>Illusion of Explanatory Depth</i>. <a href=\"#ref-46\">[46]</a>",
-                                            angle: 5 * Math.PI / 12,
-                                            r: 375,
+                                            angle: 4.5 * Math.PI / 12,
+                                            r: 575,
                                             children: [
                                                 {
                                                     name: "Overreliance Mitigation",
@@ -914,8 +1189,8 @@ function setupReferencePopovers() {
                                                     color: "#00AAFE",
                                                     visible: false,
                                                     description: "Allowing users to explore and interact with data can help reduce overreliance on their own judgment, engage them in the process, resulting in increased satisfaction, understanding and trust. A caveat is that it could lead to underreliance of the XAI recommendations since they have to look for the information on their own. Findings indicate that even data scientists tend to over-rely on and misuse interpretability tools, with many participants struggling to accurately interpret the resulting visualisations. They too can be impacted, specifically by 'causal bias'. Experts can attribute causal relationships to saliency maps or attribute false narratives to SHAP explanations. Therefore, psychology is also important for expert users as experiments serve to understand expert users' use of interpretability tools. To address concerns about overreliance, the display of AI predictions and/or explanations could be delayed. This also helps minimising the negativity bias. It occurs when the drawbacks or limitations of a system are presented early on. If users are exposed to negative information too soon, they may form an unfavourable view of the system. Guiding these early interactions can help build trust in AI. Current prevalent techniques such as SHAP can therefore only provide limited interpretability. Moreover, the interpretability provided by SHAP is one that requires some sort of prior explanation on how such tools work and how to read and interpret their results, which does not make them suitable for non-expert users. Excessive dependence over some XAI methods and tools is therefore a concerning issue. <a href=\"#ref-13\">[13]</a>  <a href=\"#ref-46\">[46]</a>  <a href=\"#ref-68\">[68]</a> <a href=\"#ref-92\">[92]</a>",
-                                                    angle: 4.8 * Math.PI / 12,
-                                                    r: 500,
+                                                    angle: 4.7 * Math.PI / 12,
+                                                    r: 600,
                                                 }]
                                         },
                                         {
@@ -925,8 +1200,8 @@ function setupReferencePopovers() {
                                             visible: false,
                                             forceRight: true,
                                             description: "Misapplying the explanation, which can lead to information overload or incomprehension, when referring to complex concepts (counterfactual methods, logical operators, confidence scores, metrics, statistics). It can also be salient with expert users when there is ambiguity in what exactly are those metrics referring to. <a href=\"#ref-13\">[13]</a>  <a href=\"#ref-86\">[86]</a>",
-                                            angle: 5.5 * Math.PI / 12,
-                                            r: 375,
+                                            angle: 5 * Math.PI / 12,
+                                            r: 575,
                                             children: [
                                                 {
                                                     name: "Misapplying Mitigation",
@@ -935,7 +1210,7 @@ function setupReferencePopovers() {
                                                     visible: false,
                                                     description: "Develop Customised Explanations: Develop XAI methods that adapt explanations to user's objectives, knowledge level, and individual requirements. This strategy effectively addresses users' cognitive biases, ensuring the explanation remain pertinent and easy to understand. <a href=\"#ref-14\">[14]</a> <a href=\"#ref-86\">[86]</a>",
                                                     angle: 5.2 * Math.PI / 12,
-                                                    r: 500,
+                                                    r: 600,
                                                 }]
                                         },
                                         {
@@ -945,8 +1220,8 @@ function setupReferencePopovers() {
                                             visible: false,
                                             forceRight: true,
                                             description: "The mere presence of an explanation, regardless of its quality or relevance, can significantly increase user trust. Businesses can exploit this bias through practices like <span class=\"blue-text\">ethics washing</span> (See item on ethics), where explanations are provided primarily to boost emotional trust and drive product acceptance, often lacking transparency about the model’s actual behaviour. Persuasive systems and transparent systems are not the same thing. Addressing these deceptive practices is critical. <a href=\"#ref-13\">[13]</a> <a href=\"#ref-55\">[55]</a>",
-                                            angle: 6 * Math.PI / 12,
-                                            r: 375,
+                                            angle: 5.5 * Math.PI / 12,
+                                            r: 575,
                                             children: [
                                                 {
                                                     name: "Mere Exposure Bias Mitigation",
@@ -954,8 +1229,8 @@ function setupReferencePopovers() {
                                                     color: "#00AAFE",
                                                     visible: false,
                                                     description: "This can also lead to Overreliance. To counterbalance Mere Exposure biases,  Delay showing the AI’s prediction and/or explanations; Give arguments for non-predicted outcomes and Use cognitive forcing functions and friction. Use cognitive forcing functions and friction. The combination of cognitive forcing functions and friction-based strategies  address users' lack of curiosity. Cognitive forcing functions, such as making users wait for or actively request explanations, and friction-based methods, like requiring a user to confirm they don't want an explanation, both successfully reduced unjustified trust in the system. However, they also had the side effect of decreasing user satisfaction. <a href=\"#ref-13\">[13]</a>",
-                                                    angle: 5.8 * Math.PI / 12,
-                                                    r: 500,
+                                                    angle: 5.7 * Math.PI / 12,
+                                                    r: 600,
                                                 }]
                                         },
                                         {
@@ -965,8 +1240,8 @@ function setupReferencePopovers() {
                                             visible: false,
                                             forceRight: true,
                                             description: "Misattributed trust or tendency to believe persuasive claims unsupported by evidence are  of high interest to our research as they appear to be most salient in natural language explanations. Emotional response to AI, which seems to be a growing subject of interest, posits that 'user trust in AI positively correlates with their perceived understanding of the algorithm (also leading to Overreliance).  There is a distinction between perceived trust and actual trust. This distinction between <span class=\"blue-text\">cognitive</span>  and <span class=\"blue-text\">emotional trust</span> in AI is fundamental. <br><span class=\"blue-text\">Cognitive trust</span>  refers to users' rational acceptance, perception of value, and willingness to use AI (i.e. the forms of trust described so far). <br><span class=\"blue-text\">Emotional trust</span> stems from users' feelings about an AI's behaviour or appearance, influencing their views on its reliability, likeability, and overall trustworthiness. Anthropomorphic traits or interactive AI actions can evoke strong emotional responses, from excitement to fear, directly impacting trust levels. The AI's representation (e.g., robot, virtual agent) also plays a crucial role, with negative emotional reactions potentially leading to distrust or abandonment. <a href=\"#ref-46\">[46]</a>",
-                                            angle: 6.5 * Math.PI / 12,
-                                            r: 375,
+                                            angle: 6 * Math.PI / 12,
+                                            r: 575,
                                             children: [
                                                 {
                                                     name: "Misattributed Trust Mitigation",
@@ -975,7 +1250,7 @@ function setupReferencePopovers() {
                                                     visible: false,
                                                     description: "To overcome misattributed trust or tendency to believe claims unsupported evidence, arguments should be given for non-predicted outcomes. Including uncertainty estimates is also a key feature to enhance trust. However, a less probable but more persuasive explanation might be favoured to encourage positive action, potentially prioritising building emotional trust over purely cognitive comprehension. This is closely linked to what leads to ethics washing, where the emotion is used as an lever to not actually explain or investigate the ethical dilemmas of the model. As stated in the introduction of the Cognitive Science item, this discipline poses a core ethical dilemma: should XAI systems exploit or safeguard users from cognitive biases? When used to foster a better understanding and acceptance of AI products, emotional trust can be beneficial. However, it also presents risks, particularly when these products do not serve the greater good. The provided human-centred metrics can be used to further assess and mitigate these risks. <a href=\"#ref-13\">[13]</a>",
                                                     angle: 6.3 * Math.PI / 12,
-                                                    r: 500,
+                                                    r: 600,
                                                     children: []
                                                 }
                                             ]
@@ -990,7 +1265,7 @@ function setupReferencePopovers() {
                             forceRight: true,
                             description: "Social explanations are a human-centered approach to Explainable AI (XAI) that moves beyond simply showing the inner workings of a model. a good explanation is not just a report of causes but is a social and conversational process. <a href=\"#ref-86\">[86]</a>",
                             angle: 6.5 * Math.PI / 12,
-                            r: 200,
+                            r: 300,
                             children: [
                                 {
                                     name: "Explanations are naturally contrastive",
@@ -999,7 +1274,7 @@ function setupReferencePopovers() {
                                     visible: false,
                                     description: "People want to know why one event happened instead of another. XAI systems should highlight the differences between actual outcome and possible alternatives. Human explanations are not provided per se but rather in comparison to other events that did not happen. For example, when classifying images, a user will not ask why this image has been classified as a dog, but rather why this image has been classified as a dog instead of a cat. It follows that people frequently expect AI systems to explain decisions in a manner similar to how humans justify their actions It is recommended to explain why a specific output was generated <b>in response to</b> other possible outputs that could have been generated. <a href=\"#ref-86\">[86]</a>",
                                     angle: 5.5 * Math.PI / 12,
-                                    r: 360
+                                    r: 600
                                 },
                                 {
                                     name: "User seek simpler explanations",
@@ -1008,7 +1283,7 @@ function setupReferencePopovers() {
                                     visible: false,
                                     description: "When people explain events, they tend to select few causes from a wide range of possibilities, often influenced by cognitive biases. XAI systems need to recognise that users may not seek a full causal explanation but rather a simplified one that matches their expectations or biases. <a href=\"#ref-86\">[86]</a>",
                                     angle: 6 * Math.PI / 12,
-                                    r: 360
+                                    r: 600
                                 },
                                 {
                                     name: "Causal reasoning over statistics",
@@ -1017,7 +1292,7 @@ function setupReferencePopovers() {
                                     visible: false,
                                     description: "People generally favour causal reasoning explanations and causal connections over probabilistic or statistical ones. XAI systems should prioritise emphasising causes over probabilities.As a phrasing example, do not say The model’s output was X because given its input data and its internal structure and reasoning there is a 90 percent chance that X comes out. Instead, prefer the following assertion: The model’s output was X because it has such and such characteristics, which is a defining characteristic of X in our dataset. Y and Z have similar characteristics but slightly differ with X which is why the model did not predict them as accurately. <a href=\"#ref-86\">[86]</a>",
                                     angle: 6.5 * Math.PI / 12,
-                                    r: 360
+                                    r: 600
                                 },
                                 {
                                     name: "Explanations are social",
@@ -1026,7 +1301,7 @@ function setupReferencePopovers() {
                                     visible: false,
                                     description: "Explanations are part of social interactions, shaped by the explainer’s understanding of the explainee’s knowledge and beliefs, as well as the context in which the explanation occurs. XAI systems should facilitate a dialogue, engaging users into explanations tailored to their level of understanding and context. Provide follow-up questions or include more interactivity in the design of the explanation. This context is determined by the current stage of the conversation in relation to the goal or sub-goal hierarchy; the specific focus of the explanation, such as which parts of a device are being discussed; and beliefs about the user’s level of understanding. <a href=\"#ref-86\">[86]</a>  <a href=\"#ref-117\">[117]</a>",
                                     angle: 7 * Math.PI / 12,
-                                    r: 360
+                                    r: 600
                                 },
                             ]
                         }
@@ -1039,34 +1314,162 @@ function setupReferencePopovers() {
                     visible: true,
                     description: "Experts users have a specialised grasp of Artificial Intelligence and its conceptual and technical groundings, including ability to develop and implement AI solutions. These could for example include: algorithmic engineering, or domain-experts like a medical doctors using AI to assist his decisions.  They usually rely on and develop Functionally Grounded Explanations or Application-Grounded Explanations. They can also refer to Human-Grounded explanations to test their solutions with User Experience characteristics or adapt them to non-experts. Functionally-grounded explanations are evaluated using formal properties or metrics that do not require human involvement. They rely on mathematical or algorithmic criteria to assess the quality of explanations. Application-Grounded Explanations are evaluated in the context of a specific real-world application, with domain experts assessing the utility of the explanations for actual decision-making tasks, focusing on whether they improve target application outcomes. This approach considers the end-to-end impact of explanations in the application environment. However, it's rarely used in NLP interpretability, particularly with LLMs. Researchers often prefer general methods (functionally-grounded or human-grounded) because language is seen as general knowledge, making domain experts seem unnecessary and saving time. Despite this, application-grounded evaluation could be highly valuable for specialised texts like legal corpora. The term Domain-experts also exists. It refers to users that do not have the technical knowledge on AI to understand its decisions and functioning, but are nonetheless experts in the domain of application where an AI system is used, such as a medical doctor using AI to assist his decisions.",
                     angle: Math.PI,
-                    r: 100,
+                    r: 150,
                     children: [
+                        {
+                        name: "Why-Explanations",
+                        title: "Why-Explanations",
+                        color: "#7C09B3",
+                        visible: false,
+                        forceRight: true,
+                        description: "These are explanations that simply ask and answer why the model behaved as it did. <br> Techniques include: <br> <span class=\"purple-text\">Feature Attribution Techniques</span> <br>  SHAP [81], LIME [116], QUINT [1], DOC-TORXAI [85], PROTOTEX [26] <br> <span class=\"purple-text\">Attribution-Based</span> <br> Integrated Gradients [102] <br> <span class=\"purple-text\">Saliency Maps</span> <br> CAPTUM (73] <br> <span class=\"purple-text\">Attention Mechanisms</span> <br> AllenNLP [34), OpenNMT (58], ATTENTION-MATRIX",
+                        angle: 11 * Math.PI / 12,
+                        r: 300,
+                        children: []
+                    },
+                    {
+                        name: "How-Explanations",
+                        title: "How-Explanations",
+                        color: "#7C09B3",
+                        visible: false,
+                        forceRight: true,
+                        description: "These are explanations that ask how a model behaved the way it did. It asks the model to point out the specific points or aspects of the data it looked at, and highlight regions that the model focuses on. <br> Techniques include: <br> <span class=\"purple-text\">Attention Heatmaps</span> <br>  BERTViz [110], ATTENTIONMATRIX [109], LIT [106], LASTS [41], CAT [201, QUINT [1], DOCTORXAI [85], PROTOTEX [26]",
+                        angle: 10.5 * Math.PI / 12,
+                        r: 300,
+                        children: []
+                    },
+                    {
+                        name: "Why-Not-Explanations",
+                        title: "Why-Not-Explanations",
+                        color: "#7C09B3",
+                        visible: false,
+                        forceRight: true,
+                        description: "These are the so-called <span class=\"purple-text\">Contrastive</span> explanations (see non-experts' Social Explanations node). They ask and answer why the model behaved like (a) instead of another possible outcome (b). This approach is intuitive for humans and reduces the complexity of explaining a complete reasoning process by focusing only on the differentiating factors. Instead of explaining the fact itself, it explains the difference between the fact (a) and (b) by highlighting the specific input features or aspects that are relevant to one outcome and not the other.  Techniques include: <br> Alibi Explain [57], LIME [116], SHAP [81], POLYJUICE [113].",
+                        angle: 10 * Math.PI / 12,
+                        r: 300,
+                        children: []
+                    },
+                     {
+                        name: "What-If-Explanations",
+                        title: "What-If-Explanations",
+                        color: "#7C09B3",
+                        visible: false,
+                        forceRight: true,
+                        description: "These are explanations that require some interaction. They ask what if I changed this input or tweak this parameter, what would have been the output. It is closely linked with the <span class=\"purple-text\">Consistency</span> metric. <br> Techniques include: LIT [106], GYC [67], or the <i> AI Explorables </i> from Google  (for textual data) <a href=\"#ref-3\">[3]</a> as well as the CNN Explainer visualisation tool (for image data) <a href=\"#ref-2\">[2]</a>",
+                        angle: 9.5 * Math.PI / 12,
+                        r: 300,
+                        children: []
+                    },
+                    {
+                        name: "How-To-Explanations",
+                        title: "How-To-Explanations",
+                        color: "#7C09B3",
+                        visible: false,
+                        forceRight: true,
+                        description: "These are the so-Called <span class=\"purple-text\">Counterfactual</span> explanations. They describe the smallest change to the feature values that changes the prediction to a predefined output. In short, What would need to change to alter the prediction. <br> Techniques include: POLYJUICE (113], XSPELLS [63], SEDC [69], LASTS [41], CAT [20], GYC [67], CAGE [13], CRIAGE  <br> <span class=\"purple-text\">Adversarial Attacks</span> <br>  HotFlip [32] <br> <span class=\"purple-text\">Data Augmentation</span> <br>TAILOR [90]",
+                        angle: 9 * Math.PI / 12,
+                        r: 300,
+                        children: []
+                    },
+                    {
+                        name: "What-Else-Explanations",
+                        title: "What-Else-Explanations",
+                        color: "#7C09B3",
+                        visible: false,
+                        forceRight: true,
+                        description: "They ask what other possible outcomes the model considered, given the input. This could be along the lines of <i> The model considered  B and C with respectively 30% probability  20% probability, but chose A with 50% probability. </i> <br> Techniques include: <br> <span class=\"purple-text\">Example-Based Techniques</span> <br> ExBert [48] <br> <span class=\"purple-text\">Sentence Highlighting</span> <br> ExBert [48], ANCHOR (89], DEEPLIFT [95], INTGRAD [100], L2X [2i], LIONETS [79] <br> <span class=\"purple-text\">Masking Techniques</span> <br> LRP [59]",
+                        angle: 8.5 * Math.PI / 12,
+                        r: 300,
+                        children: []
+                    },
+                       {
+  name: "Compliance",
+  title: "Compliance",
+  color: "#ff0faa",
+  visible: false,
+  forceRight: true,
+  description: `XAI must align with regulations like the EU AI Act or GDPR. This includes ensuring transparency, accountability, and user rights (e.g., right to explanation). Practical steps include <span class="purple-text">documenting data sources</span>, <span class="purple-text">model decisions</span>, and providing <span class="purple-text">clear and accessible</span> explanations to users. See European AI Act <a href="#ref-1">[1]</a>.
+<br><br>
+<span class="purple-text"><strong>Checklist</strong></span><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="risk-classification">
+AI system is classified by risk level
+</label><br> 
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="transparent-explanations">
+High-risk systems provide transparent explanations
+</label><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="human-oversight">
+Human oversight is enabled
+</label><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="clear-explanations">
+Are explanations <span class="purple-text"><strong>clear</strong></span> and <span class="purple-text"><strong>understandable</strong></span> to non-experts?
+</label><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="clarification-process">
+Is there a process for users to request further clarification?
+</label><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="audit-logging">
+Are explanations logged for auditing purposes?
+</label><br>
+<br>
+<span class="purple-text"><strong>GDPR Compliance Checklist</strong></span><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="plain-language">
+Explanations are in plain language
+</label><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="contest-decisions">
+Users can contest automated decisions
+</label><br>
+<label class="checklist-item">
+<input type="checkbox" class="compliance-checkbox" data-item="documented-logic">
+Data and model logic are documented
+</label><br>
+<br>
+<span class="purple-text"><strong>Example Workflow</strong></span><br>
+1. <strong>Classify Your AI System</strong> Determine if it falls under GDPR or EU AI Act requirements.<br>
+2. <strong>Choose Explainability Tools</strong><br>
+Use SHAP/LIME for post-hoc explanations or decision trees for inherent interpretability.<br>
+3. <strong>Document Data and Processes</strong><br>
+Create model cards and maintain audit logs.<br>
+4. <strong>Enable User Recourse</strong><br>
+Provide mechanisms for users to contest decisions.<br>
+5. <strong>Test for Compliance</strong><br>
+Conduct user studies to validate explanation clarity.`,
+  angle: 7.5 * Math.PI / 12,
+  r: 300,
+  children: []
+},
                         {
                             name: "Practical Recommendations",
                             title: "Practical Recommendations",
                             color: "#ff0faa",
                             visible: false,
                             description: "It is crucial to incorporate functionally-grounded metrics to validate the explanation process, ensuring faithfulness and completeness while maintaining sparsity. This is especially important in NLP, where the possible outputs of a model, such as in text generation tasks, can be extensive. When using specific explanation methods such as example-based approaches, selecting the appropriate metrics is essential to effectively evaluate the explanations produced. Attribution-based and example-based methods, for instance, complement each other effectively and can be used together to highlight the reasons behind different outputs. In specialised fields such as legal, medical, or financial domains, application-grounded evaluations are particularly valuable, especially in high-risk scenarios. Involving domain experts in these cases ensures that explanations are aligned with real-world needs and can improve decision-making. Combining functionally-grounded, human-grounded, and application-grounded evaluations is strongly recommended to provide a well-rounded and reliable validation of the explanation process.",
-                            angle: -1 * Math.PI / 12,
-                            r: 200,
+                            angle: -1.5 * Math.PI / 12,
+                            r: 300,
                         },
                          {
                             name: "Attribution-based Methods",
                             title: "Attribution-based Methods",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Attribution-based XAI methods clarify a model’s decision by identifying which input features had the greatest influence on the prediction. These methods assign an \"importance score\" to each feature: the higher the score, the more the feature contributed to the outcome, while a low or zero score means it had little to no effect. This approach highlights what the model focused on to reach its conclusion.",
-                            angle: -1.5 * Math.PI / 12,
-                            r: 200,
+                            description: "Attribution-based XAI methods clarify a model’s decision by identifying which input features had the greatest influence on the prediction. These methods assign an \"importance score\" to each feature: the higher the score, the more the feature contributed to the outcome, while a low or zero score means it had little to no effect. This approach highlights what the model focused on to reach its conclusion. For further details on specific models implementing Attribution-based methods, hover over the <span class=\"purple-text\">Why-Explanation</span> node. ",
+                            angle: -2 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Example-based Methods",
                             title: "Example-based Methods",
                             color: "#7C09B3",
                             visible: false,
-                            description: "Example-based Explainable AI (XAI) methods clarify a model’s predictions by presenting relevant data examples, rather than dissecting the model’s internal mechanics. These techniques highlight specific instances—either similar to the input or illustrative of the model’s learned patterns—making the model’s behavior more transparent and easier for humans to grasp, since humans tend to naturally understand concepts through concrete examples. Counterfactual Explanations are a type of Example-Based Method.",
-                            angle: -2 * Math.PI / 12,
-                            r: 200,
+                            description: "Example-based Explainable AI (XAI) methods clarify a model’s predictions by presenting relevant data examples, rather than dissecting the model’s internal mechanics. These techniques highlight specific instances—either similar to the input or illustrative of the model’s learned patterns—making the model’s behavior more transparent and easier for humans to grasp, since humans tend to naturally understand concepts through concrete examples. Counterfactual Explanations are a type of Example-Based Method  For further details on specific models implementing Example-based methods, hover over the <span class=\"purple-text\">Wat-Else-Explanation</span> node.",
+                            angle: -2.5 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Actionability",
@@ -1074,8 +1477,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Assess whether the changes made to features during the explanation process are feasible and the extent to which their new values are possible. It is particularly useful in a counterfactual explanation. <a href=\"#ref-123\">[123]</a>  <a href=\"#ref-16\">[16]</a>",
-                            angle: -2.5 * Math.PI / 12,
-                            r: 200,
+                            angle: -3 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Causality",
@@ -1083,8 +1486,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: " Causality is closely related to Deletion, Insertion and Monotonicity features described by Bodria et al. <a href=\"#ref-16\">[16]</a>. They assess how deletions, insertions and successive insertion (monotonicity) affect the performance of the model. In other words, causality controls the causal effect from features to prediction. <a href=\"#ref-16\">[16]</a>  <a href=\"#ref-48\">[48]</a>",
-                            angle: -3 * Math.PI / 12,
-                            r: 200,
+                            angle: -3.5 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Consistency",
@@ -1092,8 +1495,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Consistency has multiple definitions in XAI context. Lundberg and Lee <a href=\"#ref-81\">[81]</a>  describe it as a property that states that if the attribution contribution of a feature regarding other features increases or stays the same, its attribution contribution should not decrease. This definition is specific to XAI methods that compute attribution for features and ensembles of features. Consistency can also be described in a more general way, as how two explanation methods produce similar attribution contributions for the same data. <a href=\"#ref-62\">[62]</a> <a href=\"#ref-81\">[81]</a>",
-                            angle: -3.5 * Math.PI / 12,
-                            r: 200,
+                            angle: -4 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Completeness",
@@ -1101,8 +1504,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Completeness, in a general context, can be seen as how the different components of an explanation are sufficient to explain the model’s prediction. It can also be seen, in some contexts, as how the sum of the attributions given to the different components of an explanation is equal to the overall attribution to a prediction. Finally, it can also be seen concerning the training data as how the dataset captures all the information that would have been captured if all the data available had been gathered. <a href=\"#ref-18\">[18]</a>  <a href=\"#ref-83\">[83]</a> <a href=\"#ref-92\">[92]</a>",
-                            angle: -4 * Math.PI / 12,
-                            r: 200,
+                            angle: -4.5 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Diversity",
@@ -1110,8 +1513,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Diversity is a property of a set of explanations to ensure that the explanations cover many different cases to explain the functioning of the model in a wide variety of cases. <a href=\"#ref-16\">[16]</a> <a href=\"#ref-66\">[66]</a>  <a href=\"#ref-94\">[94]</a>",
-                            angle: -4.5 * Math.PI / 12,
-                            r: 200,
+                            angle: -5 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Fidelity/Faithfulness",
@@ -1119,8 +1522,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Fidelity (or Faithfulness)  is a metric of how well a surrogate model 𝑓 replicates the behaviour of a model 𝑏. The implementation of fidelity varies based on the type of explanation being analysed  but this measure is specific to methods that produce a surrogate model to explain the functioning of a model. <a href=\"#ref-5\">[5]</a> <a href=\"#ref-65\">[65]</a>",
-                            angle: -5 * Math.PI / 12,
-                            r: 200,
+                            angle: -5.5 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Feasibility",
@@ -1128,8 +1531,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Feasibility is really related to the actionability property  and is a property about describing if the features chosen in an explanation process would have been feasible in the natural world. <a href=\"#ref-94\">[94]</a>  <a href=\"#ref-123\">[123]</a>",
-                            angle: -5.5 * Math.PI / 12,
-                            r: 200,
+                            angle: -6 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Generality",
@@ -1137,8 +1540,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Generality relates to the versatility and applicability of explanation methods across different datasets. A generalisable XAI method can be applied to a wide range of datasets of similar nature and still produce meaningful explanations. High generality ensures that the XAI method is not limited to specific contexts, making it broadly useful in various applications. <a href=\"#ref-5\">[5]</a>",
-                            angle: -6 * Math.PI / 12,
-                            r: 200,
+                            angle: -6.5 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Minimality",
@@ -1146,8 +1549,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Minimality  evaluates whether the modification in features is minimal to alter a model's predictions. This is applied in the context of counterfactual explanations.",
-                            angle: -6.5 * Math.PI / 12,
-                            r: 200,
+                            angle: -7 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Monotonicity",
@@ -1155,8 +1558,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Monotonicity evaluates, by progressively adding each attribute in order of increasing importance, the model’s performance. Performance should increase monotonically as features are added. The features should be interpretable and allow users to understand what is important for the prediction. <a href=\"#ref-65\">[65]</a>  <a href=\"#ref-82\">[82]</a>",
-                            angle: -7 * Math.PI / 12,
-                            r: 200,
+                            angle: -7.5 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Plausibility",
@@ -1164,8 +1567,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Plausibility measures whether the changes made to features during the explanation process are within the range of the training data and actionable. This is particularly useful for counterfactual explanations. <a href=\"#ref-66\">[66]</a>",
-                            angle: -7.5 * Math.PI / 12,
-                            r: 200,
+                            angle: -8 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Robustness",
@@ -1173,8 +1576,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Robustness in XAI, similar to robustness for a model, ensures that explanations remain consistent and reliable, even with slight changes in input data or model conditions. It guarantees stable and meaningful resilient interpretability. <a href=\"#ref-16\">[16]</a>",
-                            angle: -8 * Math.PI / 12,
-                            r: 200,
+                            angle: -8.5 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Selectivity",
@@ -1182,8 +1585,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Selectivity metric assesses the stability of the model’s predictions by removing features identified as most important. <a href=\"#ref-65\">[65]</a>",
-                            angle: -8.5 * Math.PI / 12,
-                            r: 200,
+                            angle: -9 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Sensitivity",
@@ -1191,8 +1594,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Sensitivity has multiple definitions. Sundararajan et al. <a href=\"#ref-119\">[119]</a> Describe it as a property indicating that an attribute must have a non-zero attribution if removing it from an input produces changes in the prediction. More generally, a sensitivity in XAI, would measure the importance of features by comparing how much they influence a model's prediction. Sensitivity is therefore linked to robustness of a model.",
-                            angle: -9 * Math.PI / 12,
-                            r: 200,
+                            angle: -9.5 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Sparsity",
@@ -1200,8 +1603,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Sparsity refers to the number of features used to explain a model prediction. In XAI, it is used as a metric for interpretability. Sparse explanations are easy to understand but overly sparse explanations may oversimplify complex functioning (see Simpler explanation item in the Social Explanations group from Human-Centred Explanations).",
-                            angle: -9.5 * Math.PI / 12,
-                            r: 200,
+                            angle: -10 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Stability",
@@ -1209,8 +1612,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Stability aims to measure if similar instances obtain similar explanations from the explanation method. <a href=\"#ref-16\">[16]</a>",
-                            angle: -10 * Math.PI / 12,
-                            r: 200,
+                            angle: -10.5 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Truthfulness",
@@ -1218,8 +1621,8 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Truthfulness refers to how accurately an explanation reflects the true internal reasoning process of an AI model. A trade-off is often to be found between sparsity and truthfulness.",
-                            angle: -10.5 * Math.PI / 12,
-                            r: 200,
+                            angle: -11 * Math.PI / 12,
+                            r: 300,
                         },
                         {
                             name: "Scalability",
@@ -1227,31 +1630,37 @@ function setupReferencePopovers() {
                             color: "#7C09B3",
                             visible: false,
                             description: "Scalability refers to the ability of the explanation methods to handle large-scale data and complex models efficiently. It is also related to the time needed by the XAI method to produce the explanation.",
-                            angle: -11 * Math.PI / 12,
-                            r: 200,
+                            angle: -11.5 * Math.PI / 12,
+                            r: 300,
                         },
                     ]
                 }
-            ],
+                ]
+                }
         }
-    }
-
+    
     let data = setData()
 
-    const width = 1050, height = 900;
-    const radius = width / 2;
+   const width = 1400, height = 1200;  // Changed from 1050, 900
+const radius = width / 2.1;  // Changed from width / 2.2 to width / 2.1
     const leftPadding = 250;
     const heightReduction = 200;
     const topPadding = 100;
 
 const svg = d3.select("svg")
+    .attr("preserveAspectRatio", "xMidYMid meet") // Ensures the SVG scales proportionally
     .attr("viewBox", [-radius+leftPadding-400, -radius+topPadding-150, width+300, height+topPadding+200])
-    .attr("preserveAspectRatio", "xMidYMid meet");
+    .style("width", "100%") // Make SVG fill its container
+    .style("height", "auto"); // Let height adjust proportionally
 
-    const tree = d3.cluster()
-        .size([2 * Math.PI, radius - 100]);
 
-    const root = tree(d3.hierarchy(data));
+const tree = d3.cluster()
+    .size([2 * Math.PI, radius - 100]);  // Changed from radius - 150 to radius - 100
+
+ const root = tree(d3.hierarchy(data)
+    .sort((a, b) => a.data.angle - b.data.angle)
+);
+
 
     function isVisibleLink(d){
         if(d.source.data.visible && d.target.data.visible){
@@ -1285,34 +1694,35 @@ const svg = d3.select("svg")
 
 function createGraph(){
 const svg = d3.select("svg")
-    .attr("width", "1400")
-    .attr("height", "1100")
-    .attr("viewBox", [-radius+leftPadding-200, -radius+topPadding-70, width+300, height+200]);
+    .attr("width", "1600")  // Changed from "1400"
+    .attr("height", "1300")  // Changed from "1100"
+    .attr("viewBox", [-radius+leftPadding-250, -radius+topPadding-100, width+400, height+300]);
+    // Adjusted padding and dimensions
 
     if (svg.select(".static-elements").empty()) {
         const staticGroup = svg.append("g").attr("class", "static-elements");
         
         staticGroup.append("text")
-            .attr("x", "0")
-            .attr("y", "20")
+            .attr("x", "-30")
+            .attr("y", "40")
             .attr("text-anchor", "middle")
             .attr("transform", "rotate(270)")
             .text("XAI TARGET");
 
-        staticGroup.append("text")
-            .attr("x", "0")
-            .attr("y", "-215")
-            .attr("text-anchor", "middle")
-            .text("XAI GOALS");
+  staticGroup.append("text")
+    .attr("x", "0")
+    .attr("y", "-320")  // Changed from "-215" to move it above the larger circle
+    .attr("text-anchor", "middle")
+    .text("XAI GOALS");
 
-        staticGroup.append("circle")
-            .attr("x", "0")
-            .attr("y", "-215")
-            .attr("r", 200)
-            .attr("fill", "none")
-            .attr('stroke', "black")
-            .attr('stroke-width', "1");
-    }
+staticGroup.append("circle")
+    .attr("x", "0")
+    .attr("y", "-215")
+    .attr("r", 300)  // Changed from 250 to 300
+    .attr("fill", "none")
+    .attr('stroke', "black")
+    .attr('stroke-width', "1");
+  } 
 
     // Create links group if it doesn't exist
     if (svg.select(".links").empty()) {
@@ -1344,6 +1754,13 @@ const svg = d3.select("svg")
 
     linkSelection.exit().remove();
 
+// Prevent zoom on double tap for iOS
+document.addEventListener('touchend', function(event) {
+    if (event.target.closest('.node')) {
+        event.preventDefault();
+    }
+}, { passive: false });
+
     // Create nodes group if it doesn't exist
     if (svg.select(".nodes").empty()) {
         svg.append("g").attr("class", "nodes");
@@ -1374,14 +1791,16 @@ nodeEnter.append("circle")
     .attr("stroke", d => d.data.color)
     .attr("stroke-width", 2);
 
-    nodeEnter.append("text")
-        .attr("dy", "0.31em")
-        .attr("x", d => d.data.forceRight ? 16 : (d.data.angle < Math.PI && d.data.angle > 0) === !d.children ? 16 : -16)
-        .attr("text-anchor", d => d.data.forceRight ? "start" : (d.data.angle < Math.PI && d.data.angle > 0) === !d.children ? "start" : "end")
-        .attr("transform", d => d.data.angle < 0 ? "rotate(180)" : null)
-        .attr("fill", d => (d.data.children && d.data.children.map((c)=>c.visible).includes(true))? d.data.color: (d.data.title === "Practical Recommendations"? "#ff0faa" : "black"))
-        .attr("font-weight", d => d.data.title === "Practical Recommendations" ? "700": "400")
-        .text(d => d.data.name);
+nodeEnter.append("text")
+    .attr("dy", "0.31em")
+    .attr("x", d => d.data.forceRight ? 16 : (d.data.angle < Math.PI && d.data.angle > 0) === !d.children ? 16 : -16)
+    .attr("text-anchor", d => d.data.forceRight ? "start" : (d.data.angle < Math.PI && d.data.angle > 0) === !d.children ? "start" : "end")
+    .attr("transform", d => d.data.angle < 0 ? "rotate(180)" : null)
+    .attr("fill", d => d.data.name === "Regulatory Compliance" ? "#ff0faa" : (d.data.children && d.data.children.map(c => c.visible).includes(true) ? d.data.color : (d.data.title === "Practical Recommendations" ? "#ff0faa" : "black")))
+    .attr("font-weight", d => d.data.title === "Practical Recommendations" ? "700" : "400")
+    .attr("font-size", "24px")
+    .text(d => d.data.name);
+
 
     nodeEnter
         .transition()
@@ -1509,22 +1928,33 @@ function isAncestorOrDescendant(node, target) {
 }
     createGraph()
 
-    function handleResize() {
-    const container = document.querySelector('.col-xl-8');
+   function handleResize() {
     const svg = document.querySelector('#radialTree');
-    
-    if (container && svg) {
-        const containerWidth = container.getBoundingClientRect().width;
-        const aspectRatio = 1400 / 1100;
-        const newHeight = Math.min(900, containerWidth / aspectRatio);
-        
-        svg.style.height = newHeight + 'px';
+    const card = document.querySelector('.custom-card');
+    const windowWidth = window.innerWidth;
+
+    // Adjust SVG viewBox or dimensions if needed
+    if (windowWidth <= 768) {
+        svg.style.height = '80vh';
+        if (card) card.style.maxWidth = '95vw';
+    } else if (windowWidth <= 1024) {
+        svg.style.height = '90vh';
+        if (card) card.style.maxWidth = '90vw';
+    } else {
+        svg.style.height = '90vh';
+        if (card) card.style.maxWidth = '800px';
     }
 }
 
-// Call on load and resize
-window.addEventListener('load', handleResize);
+// Call handleResize on load and resize
 window.addEventListener('resize', handleResize);
+window.addEventListener('load', handleResize);
+
+
+
+        const newHeight = Math.min(maxHeight, containerWidth / aspectRatio);
+        svg.style.height = newHeight + 'px';
+    
 </script>
 </body>
 </html>
