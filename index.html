@@ -1796,7 +1796,7 @@ nodeEnter.append("text")
     .attr("x", d => d.data.forceRight ? 16 : (d.data.angle < Math.PI && d.data.angle > 0) === !d.children ? 16 : -16)
     .attr("text-anchor", d => d.data.forceRight ? "start" : (d.data.angle < Math.PI && d.data.angle > 0) === !d.children ? "start" : "end")
     .attr("transform", d => d.data.angle < 0 ? "rotate(180)" : null)
-    .attr("fill", d => d.data.name === "Regulatory Compliance" ? "#ff0faa" : (d.data.children && d.data.children.map(c => c.visible).includes(true) ? d.data.color : (d.data.title === "Practical Recommendations" ? "#ff0faa" : "black")))
+    .attr("fill", d => d.data.name === "Regulatory Compliance" ? "#000000" : (d.data.children && d.data.children.map(c => c.visible).includes(true) ? d.data.color : (d.data.title === "Practical Recommendations" ? "#ff0faa" : "black")))
     .attr("font-weight", d => d.data.title === "Practical Recommendations" ? "700" : "400")
     .attr("font-size", "24px")
     .text(d => d.data.name);
